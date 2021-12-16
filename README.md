@@ -12,3 +12,8 @@
 - 😄 Pronouns: He/Him
 
 - ⚡ Fun fact: I'm 15 y/o
+
+### <a href="">My YouTube</a> (And Recent Videos)
+
+
+#### Nothing Here, Yet :(
