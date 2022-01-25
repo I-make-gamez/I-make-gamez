@@ -13,7 +13,4 @@
 
 - ⚡ Fun fact: I'm 15 y/o
 
-### <a href="">My YouTube</a> (And Recent Videos)
-
-
-- Nothing Here, Yet :(
+<a href="https://github.com/I-make-gamez/Doge-Clicker"><img src=""></a>
