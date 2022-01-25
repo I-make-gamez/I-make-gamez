@@ -1,8 +1,9 @@
 ### Hi there 👋
 
 
-- 🔭 I’m currently working on <a href="https://www.I-make-gamez.github.io/Doge-Clicker/index.html">Doge Clicker</a>
- 
+- 🔭 I’m currently working on  
+ <a href="https://github.com/I-make-gamez/Doge-Clicker"><img src="https://gh-card.dev/repos/I-make-gamez/Doge-Clicker.svg"></a>
+
 - 🌱 I’m currently learning PHP, JavaScript(Specificly WebGL)
  
 - 💬 Ask me about New game features
@@ -13,4 +14,3 @@
 
 - ⚡ Fun fact: I'm 15 y/o
 
-<a href="https://github.com/I-make-gamez/Doge-Clicker"><img src=""></a>
