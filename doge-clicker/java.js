@@ -28,7 +28,7 @@ const obtwct = document.querySelector('.obtwct')
 //2) Price Stack other upgrades
 //3) Get Rid Of Reload On DF For cpsGo()
 
-var ver = '1.2';
+var ver = '1.3pre';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;

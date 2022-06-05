@@ -17,6 +17,8 @@ body{
 }
 
 .doge{
+    width: 18.301610541727673vw;
+    height: 38.52080123266564vh;
     position: fixed;
     left: 50%;
     top: 55%;
@@ -70,12 +72,14 @@ body{
     transform: translate(-50%, -15%);
 }
 
+
 .upgrades{
+    padding-left: 1.8vw;
     height: calc(103vh - 60px);
     width: 16.5vw;
     position: fixed;
-    left: 25px;
-    top: 37vh;
+    left: 0px;
+    top: 34.5vh;
     transform: translate(-25px, -40%);
     background: radial-gradient(#125f76 0%, #0c9cdf 100%);
     border-right: 10px solid #000;
@@ -406,13 +410,13 @@ body{
   }
 
   #delData{
-      font-size: 25px;
+      font-size: 1.8301610541727673vw;
       font-family: cursive;
       color: white;
       width: 17vw;
       padding: 25px;
       position: fixed;
-      bottom: 1%;
+      bottom: 4.5vh;
       left: 125px;
       transform: translate(-125px, 0%);
       border-top: 10px solid #000;
