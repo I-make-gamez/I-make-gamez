@@ -354,38 +354,6 @@ u2.addEventListener('click', function () {
     }
 });
 
-u3.addEventListener('click', function () {
-    if (doco >= 10000) {
-        doco -= 10000;
-        localStorage.setItem('totalDc', doco)
-        dc.innerHTML = `DogeCoin: ${doco}`;
-        clipo += Math.round(clipo / 100 * mul);
-        cpwr.innerHTML = `Clickpower: ${clipo}`;
-        localStorage.setItem('clickpower', clipo);
-    }
-})
-
-u4.addEventListener('click', function () {
-    if (doco >= 50000) {
-        doco -= 50000;
-        localStorage.setItem('totalDc', doco)
-        dc.innerHTML = `DogeCoin: ${doco}`;
-        localStorage.setItem('totalDc', doco)
-        mul = 20;
-    }
-});
-
-u5.addEventListener('click', function () {
-    if (doco >= 75000) {
-        doco -= 75000;
-        localStorage.setItem('totalDc', doco)
-        dc.innerHTML = `DogeCoin: ${doco}`;
-        clipes += Math.round(clipes / 100 * mul2);
-        cps.innerHTML = `Clicks Per Second: ${clipes}`;
-        localStorage.setItem('clipes', clipes);
-    }
-})
-
 
 let beta = 'off'
 document.onkeydown = function (e) {
