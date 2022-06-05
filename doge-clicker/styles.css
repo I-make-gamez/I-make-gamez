@@ -5,7 +5,7 @@ html{
 }
 
 body{
-    background: radial-gradient(#761212 0%, #ce0808 100%);
+    background: radial-gradient(#F74C4C 0%, #FF0000 100%);
     font-family: cursive;
     text-align: center;
 }
@@ -375,6 +375,7 @@ body{
   }
 
   .nav-bar a {
+    transition: background-color 0.35s, color 0.35s;
     float: left;
     display: block;
     color: #f2f2f2;
