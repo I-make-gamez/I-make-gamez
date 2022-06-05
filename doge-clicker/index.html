@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Doge Clicker</title>
+    <meta name="description" content="Play As Doge To Collect And Save There's Many Costumes To Choose From And There's Even A Subreddit">
+    <meta name="author" content="I-Make-Gamez">
+    <meta name="robots" content="index, follow">
+    <meta name="rating" content="general">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="cos.html">
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
+</head>
+
+<body onload="loadVersion(), loadData(), loadDogeCos();">
+    <img class="doge" width="250px" height="250px" src="Assets/DOGE.png">
+    <img class="doge2" width="350px" height="250px" src="Assets/DOGE2.png">
+    <h1 class="bark">Bark</h1>
+
+    <section class="changes">
+        <h1 class="log">Current:</h1>
+       
+    
+            <div class="wat">
+                <h2>Version: 1.2</h2>
+                1) Slight Revisions
+                <h2>Version: 1.1.0</h2>
+                1) Semi-Support for mobile
+                <h2>Version: 1.0.0</h2>
+                1) sizes for Power-Up fixed<br>
+                2) "pixel doge" + animnation added
+            </div>
+          
+            <button class="ne">Next</button>
+            <button class="ex">Close</button>
+
+    </section>
+
+    
+
+    <section class="pua">
+        <h1 class="puah1">Alert</h1>
+        <h3 class="wtpuss">
+            The (pu) Power-Up Makes Doge
+        </h3>
+        <h1>
+            <button class="puaex">Okay</button>
+        </h1>
+    </section>
+
+    <section class="puq">
+        <h1 class="puqh1">Question</h1>
+        <h3 class="wtpuqss">
+            Are You Sure You Want To Buy The<br>[] Upgrade For: [] DogeCoin?
+        </h3>
+        <h1>
+            <button class="puqyes">Yes</button><button class="puqno">No</button>
+        </h1>
+    </section>
+
+    <section class="upgrades">
+        <h1>Upgrades:</h1>
+        <div class="u1">
+            <h2>Doge Factory</h2>
+            <p>+1 DC per click</p>
+            <h3 class="dfp">Cost: 100 DC</h3>
+        </div>
+        <div class="u2">
+            <h2>Doge Party</h2>
+            <p>+1 DC per sec</p>
+            <h3 class="dpp">Cost: 2,000 DC</h3>
+        </div>
+        <div class="u3">
+            <h2>Doge Space Station</h2>
+            <p>Raises clickpower by<br>10% of clickpower</p>
+            <h3>Cost: 10,000 DC</h3>
+        </div>
+        <div class="u4">
+            <h2>Doge Moon Colony</h2>
+            <p>Instead of cpwr<br>gaining 10% of itself,<br>it gains 20%</p>
+            <h3>Cost: 50,000 DC</h3>
+        </div>
+        <div class="u5">
+            <h2>Doge Mars Colony</h2>
+            <p>Raises Clicks Per Second<br> by 10% of Itself.</p>
+            <h3>Cost: 75,000 DC</h3>
+        </div>
+        <div class="u6">
+            <h2>Mars Space Station</h2>
+            <p>Instead of cps<br>gaining 10% of itself,<br>it gains 20%</p>
+            <h3>Cost: 100,000</h3>
+        </div>
+    </section>
+
+    <section class="pu">
+        <div class="pudiv">
+            <h1>⠀Power-Ups:⠀</h1>
+        </div>
+        <img class="pw" style="float: left; border-right: 10px solid #000;" src="Assets/powa.png">
+    </section>
+
+    <section class="stats">
+        <h1>Stats:</h1>
+        <h2 id="cpwr">Clickpower: 1</h2><br><br>
+        <h2 id="cps">Clicks Per Second: 0</h2><br><br><br><br><br><br><br>
+        <button onclick="deleteData();" id="delData">Delete Data</button>
+    </section>
+
+    <h1 class="dc">DogeCoin: 0</h1>
+
+    <div class="nav-bar">
+        <a href="../">IMG Home</a>
+        <a href="cos.html">Costumes</a>
+        <a href="https://github.com/I-make-gamez">I-make-gamez</a>
+        <a href="https://reddit.com/r/dogeclicker">Subreddit</a>
+        <a class="vers" style="cursor:pointer;">
+            Version:
+        </a>
+        <a class="obtwct" href="https://docs.google.com/forms/d/1VptqxcLY-ItitkLdCL29KcLTemhCZYts202C85wD3SA/edit">
+            Suggest A Feature
+        </a>
+    </div>
+
+    <script type="text/javascript" src="java.js"></script>
+</body>
+
+</html>
