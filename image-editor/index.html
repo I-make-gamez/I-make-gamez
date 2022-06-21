@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+    <h1><label for="file" style="cursor: pointer;">Upload Image</label></h1>
+    <p><img id="output" width="300" /></p>
+    <h3>If you want to save the image,<br>as of right now you must screenshot.<br>Sorry for the inconvinice</h3>
+    <div class="disCon">
+        <label class="huel" for="range">Hue: 0</label><br>
+        <input type="range" class="hue" step="1" value="0" max="360" required><br><br>
+        <label class="grl" for="range">Greyscale: 0%</label><br>
+        <input type="range" class="grey" step="1" value="0" max="100" required><br><br>
+        <label class="invCon">
+            <input type="checkbox" class="inv">
+            Inverted?
+        </label>
+    </div>
+
+    <div class="nav-bar">
+        <a href="../">Home</a>
+        <a href="https://github.com/I-make-gamez">I-make-gamez</a>
+    </div>
+    <script src="core.js"></script>
+</body>
+
+</html>

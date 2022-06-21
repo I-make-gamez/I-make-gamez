@@ -1,0 +1,102 @@
+html {
+  height: 100%;
+}
+
+body {
+  user-select: none;
+  background: radial-gradient(#F74C4C 0%, #FF0000 100%);
+  font-family: cursive;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.nav-bar {
+  background: radial-gradient(#17ffff 0%, #071556 100%);
+  width: 200vw;
+  height: auto;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 0px solid #000;
+  border-left: 0px solid #000;
+  border-right: 0px solid #000;
+  border-top: 10px solid #000;
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  transform: translate(0%, 0);
+}
+
+.nav-bar a {
+  transition: background-color 0.35s, color 0.35s;
+
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 2.2vw;
+}
+
+.nav-bar h1 {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 2.2vw;
+}
+
+.nav-bar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.nav-bar a.active {
+  background-color: #d61212;
+  color: white;
+}
+
+.output {
+  color: red;
+}
+
+.hue {
+  position: fixed;
+  top: 35px;
+  left: 0px;
+  width: 240px;
+}
+
+.huel {
+  position: fixed;
+  top: 10px;
+  left: 100px;
+}
+
+.grey {
+  position: fixed;
+  top: 85px;
+  left: 75px;
+  width: 100px;
+}
+
+.grl {
+  position: fixed;
+  top: 60px;
+  left: 75px;
+}
+
+.invCon {
+  position: fixed;
+  top: 120px;
+  left: 70px;
+}
+
+.disCon {
+  display: none;
+  position: absolute;
+  top: 0vw;
+  left: 0vw;
+}
