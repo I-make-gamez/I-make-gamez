@@ -36,7 +36,7 @@ const abs = Math.abs;
 var selCos = '0'
 
 var wtuss = wat.innerHTML
-var wtass = '1) Working on animating some more costumes<br>2) Discord server, maybe?<br>3) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>4) TO ACCESS BETA TESTING:<br>type ctrl + alt + m<br>type beta<br>You will get an alert.'
+var wtass = '1) Working on animating some more costumes<br>2) Discord server, maybe?<br>3) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>4) For Beta Testing:<br>Crtl+Alt+B<br>Crtl+Alt+R To Return.'
 var wtpuss = 'Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again'
 
 var mul = 10
@@ -141,7 +141,7 @@ pw.addEventListener('click', function () {
             createQuestion('Would You Like To Buy The<br>PowerWash Powerup For: 100K DogeCoin?')
             if (qAns == 'yes') {
                 if (doco >= 100000) {
-                    doco-=100000
+                    doco -= 100000
                     dc.innerHTML = `DogeCoin: ${doco}`;
                     localStorage.setItem('totalDc', doco)
                     if (cbda === 0) {
@@ -285,7 +285,7 @@ function loadDogeCos() {
 };
 
 let codes = [
-    1807, 
+    1807,
     'beta'
 ];
 
@@ -323,10 +323,10 @@ u1.addEventListener('click', function () {
         dc.innerHTML = `DogeCoin: ${doco}`;
         localStorage.setItem('clickpower', clipo);
         cpwr.innerHTML = `Clickpower: ${clipo}`
-        switch(beta){
+        switch (beta) {
             case 'off': break;
-            case 'on': 
-                dfPrice = dfPrice + ((dfPrice/100)*10);
+            case 'on':
+                dfPrice = dfPrice + ((dfPrice / 100) * 10);
                 dfp.innerHTML = `Cost: ${dfPrice}DC`
         }
     }
@@ -341,10 +341,10 @@ u2.addEventListener('click', function () {
         localStorage.setItem('clipes', clipes)
         cps.innerHTML = `Clicks Per Second: ${clipes}`;
         cpsok = 1;
-        switch(beta){
+        switch (beta) {
             case 'off': break;
-            case 'on': 
-                dpPrice = dpPrice + ((dfPrice/100)*10);
+            case 'on':
+                dpPrice = dpPrice + ((dfPrice / 100) * 10);
                 dpp.innerHTML = `Cost: ${dpPrice}DC`
         }
         let a1 = 1;
@@ -356,7 +356,7 @@ u2.addEventListener('click', function () {
 
 
 let beta = 'off'
-document.onkeydown = function (e) {
+document.onkeyup = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
         var coAns = ask('Enter Admin Code\nThen Command ID\nThen Value(if any)')
@@ -389,19 +389,16 @@ document.onkeydown = function (e) {
                     localStorage.setItem('cbda', cbda)
                     break;
             }
-            //BETA TESTING 
-        }else if(coAns2[0] == codes[1]){
-            var ans2 = ask("Are you sure??? You're about to be sent to another Website.\n[Y|N]")
-            switch(ans2){
-                case 'Y':
-                    window.location.href = "https://i-make-gamez.github.io/Doge-Clicker-Remastered/"
-                    break;
-                case 'N':break;
-            }
-            
         }
     }
 };
+//BETA TESTING
+document.onkeydown = function(e){
+    var e = e || page.event;
+    if (e.ctrlKey && e.altKey && e.key === 'b'){
+        window.location.href = "./beta"
+    }
+}
 
 /*
 
