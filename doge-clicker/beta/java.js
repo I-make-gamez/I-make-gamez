@@ -1,3 +1,4 @@
+let popup = new Popup()
 //Player DOM
 const doge = document.querySelector('.doge')
 const doge2 = document.querySelector('.doge2')
@@ -9,10 +10,13 @@ const dfCost = document.querySelector('.dfCost')
 const clicpo = document.querySelector('.cpwr')
 //Powerup DOM
 const pu = document.querySelector('.powerups')
+const cd = document.querySelector('.cd')
 //Version DOM
 const ver = document.querySelector('.vers')
 const cl = document.querySelector('.changelog')
 const ex = document.querySelector('.ex')
+
+
 
 //MVVs
 var page = window
@@ -49,6 +53,10 @@ doge.addEventListener('click', function(){
     dc.innerHTML = `DogeCoin: ${doco}`
     anim()
 });
+
+cd.addEventListener('click', function(){
+    popup.create("msg", "Alert", "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+})
 
 let codes = [
     1807, 

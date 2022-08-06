@@ -138,6 +138,8 @@ body{
   width: 20vw;
   background: radial-gradient(#f700ff 0%, #9910bb 100%);
   padding: 0px;
+  margin-bottom: 0px;
+  padding: 0px;
 }
 .changelog h1{
   padding: 5px;
@@ -147,19 +149,22 @@ body{
   text-align: center;
 }
 .ex{
+  margin-bottom: 0px;
   position: fixed;
   bottom: 0px;
-  transform: translate(0%, -50%);
-  padding-top: 30px;
+  transform: translate(0%, 0%);
+  padding-top: 15px;
   border: 0px;
   border-top: 10px solid black;
   outline: none;
   font-family: cursive;
-  background: none;
+  padding-bottom: 15px;
+  background: white;
   text-align: center;
   width: 20vw;
   font-size: 1.50vw;
-  margin-bottom: 0px;
+  bottom: 0px;
+  right: 0px;
 }
 /*Stats*/
 .stats{
@@ -227,3 +232,32 @@ body{
     color: white;
   }
 
+.changelog h2{
+  font-size: 2vw;
+}
+.popup{
+  width: 500px;
+  height: 250px;
+  z-index: 5;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  background: radial-gradient(#0076ff 0%, #08fbff 100%);
+  display: none;
+  margin: 0px;
+  border: 10px solid #000;
+}
+
+.title{
+  text-align: center;
+  background: radial-gradient(#ff0000 0%, #bb1010 100%);
+  margin-top: 0px;
+  padding: 10px;
+  border-bottom: 10px solid #000;
+}
+.text{
+  margin-left: 5px;
+  width: auto;
+  filter:blur(25%)
+}
