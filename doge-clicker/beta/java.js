@@ -55,7 +55,7 @@ doge.addEventListener('click', function(){
 });
 
 cd.addEventListener('click', function(){
-    popup.create("msg", "Alert", "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
+    popup.create("msg", "Alert", "Gives you 25% of click power for 30 seconds.<br>Cooldown: 1 minute");
 })
 
 let codes = [

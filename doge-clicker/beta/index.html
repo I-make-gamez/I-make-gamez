@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,15 +8,27 @@
     <title>Doge Clicker: Remastered</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#draggable").draggable();
+        });
+    </script>
 </head>
+
 <body>
     <img class="doge" src="assets/DOGE.png">
     <img class="doge2" src="assets/DOGE2.png">
 
     <div class="bg"></div>
-    <section class="popup">
+    <section id="draggable" class="popup">
         <h1 class="title"></h1>
         <h3 class="text"></h3>
+        <button onlick="popup.close()" class="close">
+            <h3>Okay</h3>
+        </button>
     </section>
     <section class="upgrades">
         <h1>Upgrades</h1>
@@ -36,8 +49,9 @@
         font-size: 1.25vw; 
         padding-left: 5px;
         ">
-        1) Removed World.
-                
+            1) Added alert for powerups.<br>
+            2) Made said alert draggable(w.i.p)
+
         </p>
         <button class="ex">Close</button>
     </section>
@@ -59,7 +73,7 @@
 
     <h1 class="dc">DogeCoin: 0</h1>
 
-    <div class="nav-bar">        
+    <div class="nav-bar">
         <a href="../../">IMG Home</a>
         <a href="https://github.com/I-make-gamez/Doge-Clicker-RM">Source Code</a>
         <a href="https://github.com/I-make-gamez">I-make-gamez</a>
@@ -75,4 +89,5 @@
     <script src="popup.js"></script>
     <script src="java.js"></script>
 </body>
+
 </html>

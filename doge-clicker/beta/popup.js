@@ -12,3 +12,8 @@ function Popup() {
         }
     }
 }
+
+document.querySelector('.close').addEventListener('click', function(){
+    const pop = document.querySelector('.popup')
+    pop.style.display = 'none'
+})

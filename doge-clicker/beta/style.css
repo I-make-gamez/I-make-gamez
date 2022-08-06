@@ -1,26 +1,29 @@
-html{
-    width: 100vw;
-    height: 100vh;
+html {
+  width: 100vw;
+  height: 100vh;
 }
-body{
+
+body {
   font-family: cursive;
+  user-select: none;
 }
-.bg{
+
+.bg {
   background: radial-gradient(#0076ff 0%, #08fbff 100%);
   width: 60vw;
   height: 97.52512155591572vh;
-  position:  absolute;
+  position: absolute;
   right: 32vw;
   top: 48.762560778vh;
   transform: translate(20%, -50%);
   z-index: -10;
 }
 
-.wbg{
+.wbg {
   background: radial-gradient(#0076ff 0%, #08fbff 100%);
   width: 100vw;
   height: 97.52512155591572vh;
-  position:  absolute;
+  position: absolute;
   right: 0;
   top: 48.762560778vh;
   transform: translate(0%, -50%);
@@ -30,54 +33,57 @@ body{
 
 /*Player*/
 
-.doge{
-    width: 15vw;
-    position: absolute;
-    top: 49.5vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
-    
+.doge {
+  width: 15vw;
+  position: absolute;
+  top: 49.5vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+
 }
-.doge:active{
-    width: 16vw;
+
+.doge:active {
+  width: 16vw;
 }
-.doge2{
-    z-index: -1;
-    width: 25vw;
-    filter: blur(100px);
-    position: absolute;
-    top: 49.5vh;
-    left: 50vw;
-    transform: translate(-50%, -50%);
+
+.doge2 {
+  z-index: -1;
+  width: 25vw;
+  filter: blur(100px);
+  position: absolute;
+  top: 49.5vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
 }
 
 
 
 /*Dogecoin*/
 
-.dc{
-    position: absolute;
-    top: 20vh;
-    left: 50vw;
-    transform: translate(-50%, -20%);
-    font-size: 2.5vw;
+.dc {
+  position: absolute;
+  top: 20vh;
+  left: 50vw;
+  transform: translate(-50%, -20%);
+  font-size: 2.5vw;
 }
 
 /*Upgrades*/
-.upgrades{
+.upgrades {
   height: 97.52512155591572vh;
-  position:  absolute;
+  position: absolute;
   left: 0vw;
   top: 48.762560778vh;
   transform: translate(0%, -50%);
-  border-right: 10px solid black ;
+  border-right: 10px solid black;
   padding-top: 0px;
   width: 20vw;
   background: radial-gradient(#ff0000 0%, #bb1010 100%);
   margin: 0px;
   padding: 0px;
 }
-.upgrades h1{
+
+.upgrades h1 {
   padding-bottom: 5px;
   margin-bottom: 0px;
   margin-top: 0px;
@@ -86,7 +92,7 @@ body{
   text-align: center;
 }
 
-.u1{
+.u1 {
   margin-top: 0px;
   margin-bottom: 0px;
   text-align: center;
@@ -94,45 +100,51 @@ body{
   background: radial-gradient(#3cff00 0%, #10bb1e 100%);
   border-top: 10px solid;
 }
-.u1 h2{
+
+.u1 h2 {
   font-size: 1.95vw;
 }
-.u1 p{
+
+.u1 p {
   font-size: 1.25vw;
 }
-.u1 h3{
+
+.u1 h3 {
   font-size: 1.50vw;
 }
+
 /*powerups*/
-.powerups{
+.powerups {
   height: 57.52512155591572vh;
-  position:  absolute;
+  position: absolute;
   right: 0vw;
   top: 28.762560778vh;
   transform: translate(0%, -50%);
-  border-left: 10px solid black ;
-  border-bottom: 10px solid black ;
+  border-left: 10px solid black;
+  border-bottom: 10px solid black;
 
   padding-top: 0px;
   width: 20vw;
   background: radial-gradient(#f700ff 0%, #9910bb 100%);
 }
-.powerups h1{
+
+.powerups h1 {
   padding: 5px;
   margin-top: 0px;
   border-bottom: 10px solid black;
   font-size: 2.5vw;
   text-align: center;
 }
+
 /*Changelog*/
-.changelog{
+.changelog {
   height: 57.52512155591572vh;
-  position:  absolute;
+  position: absolute;
   right: 0vw;
   top: 28.762560778vh;
   transform: translate(0%, -50%);
-  border-left: 10px solid black ;
-  border-bottom: 10px solid black ;
+  border-left: 10px solid black;
+  border-bottom: 10px solid black;
   z-index: -1;
   padding-top: 0px;
   width: 20vw;
@@ -141,14 +153,16 @@ body{
   margin-bottom: 0px;
   padding: 0px;
 }
-.changelog h1{
+
+.changelog h1 {
   padding: 5px;
   margin-top: 0px;
   border-bottom: 10px solid black;
   font-size: 2.5vw;
   text-align: center;
 }
-.ex{
+
+.ex {
   margin-bottom: 0px;
   position: fixed;
   bottom: 0px;
@@ -166,21 +180,23 @@ body{
   bottom: 0px;
   right: 0px;
 }
+
 /*Stats*/
-.stats{
+.stats {
   height: 30vh;
-  position:  absolute;
+  position: absolute;
   right: 0vw;
   top: 73.762560778vh;
   transform: translate(0%, -50%);
-  border-left: 10px solid black ;
+  border-left: 10px solid black;
   z-index: -1;
   border-bottom: 10px solid black;
   padding-top: 0px;
   width: 20vw;
   background: radial-gradient(#ffae00 0%, #bb8510 100%);
 }
-.stats h1{
+
+.stats h1 {
   padding: 5px;
   padding-bottom: 0px;
 
@@ -188,76 +204,103 @@ body{
   font-size: 2.5vw;
   text-align: center;
 }
+
 /*Nav-Bar*/
 
 .nav-bar {
-    background: radial-gradient(#17ffff 0%, #071556 100%);
-    width: 250vw;
-    height: auto;
-    text-align: center;
-    overflow: hidden;
-    border-bottom: 0px solid #000;
-    border-left: 0px solid #000;
-    border-right: 0px solid #000;
-    border-top: 10px solid #000;
-    position: fixed;
-    bottom: 0;
-    left: 0%;
-    transform: translate(0%, 0);
-  }
-  .nav-bar a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 2.2vw;
-  }
-  .nav-bar h1{
-    float: right;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: var(--nav-height);
-  }
-  .nav-bar a:hover {
-    background: #f1f1f1;
-    color: black;
-  }
-  .nav-bar a.active {
-    background-color: #d61212;
-    color: white;
-  }
+  background: radial-gradient(#17ffff 0%, #071556 100%);
+  width: 250vw;
+  height: auto;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 0px solid #000;
+  border-left: 0px solid #000;
+  border-right: 0px solid #000;
+  border-top: 10px solid #000;
+  position: fixed;
+  bottom: 0;
+  left: 0%;
+  transform: translate(0%, 0);
+}
 
-.changelog h2{
+.nav-bar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 2.2vw;
+}
+
+.nav-bar h1 {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: var(--nav-height);
+}
+
+.nav-bar a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.nav-bar a.active {
+  background-color: #d61212;
+  color: white;
+}
+
+.changelog h2 {
   font-size: 2vw;
 }
-.popup{
+
+.popup {
   width: 500px;
   height: 250px;
   z-index: 5;
-  position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background: radial-gradient(#0076ff 0%, #08fbff 100%);
   display: none;
   margin: 0px;
   border: 10px solid #000;
 }
 
-.title{
+.title {
   text-align: center;
   background: radial-gradient(#ff0000 0%, #bb1010 100%);
   margin-top: 0px;
   padding: 10px;
   border-bottom: 10px solid #000;
 }
-.text{
+
+.text {
   margin-left: 5px;
   width: auto;
-  filter:blur(25%)
+  filter: blur(25%)
+}
+
+.close {
+  text-align: center;
+  background: white;
+  margin: 0px;
+  padding: 10px;
+  font-family: cursive;
+  border-top: 10px solid #000;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  outline: none;
+}
+
+h3{
+  padding: 0;
+  margin: 0;
 }
