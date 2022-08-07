@@ -5,6 +5,9 @@ const doge2 = document.querySelector('.doge2')
 const dc = document.querySelector('.dc')
 const wbg = document.querySelector('.wbg')
 //Upgrade DOM
+const ec = document.querySelector('.ec')
+const lvl = document.querySelector('.lvl')
+
 const u1 = document.querySelector('.u1')
 const dfCost = document.querySelector('.dfCost')
 const clicpo = document.querySelector('.cpwr')
@@ -24,9 +27,14 @@ var ask = page.prompt
 var doco = 0;
 var clipo = 1;
 var dfPrice = 100;
+var exp = 0;
+var expCap = 500;
+var doExpProgression = true;
+localStorage.setItem('dep', doExpProgression)
+
 
 //Version Start
-var version = 'vb0.55'
+var version = 'vb0.6'
 var page = window
 
 page.onload = function(){
@@ -48,14 +56,21 @@ ex.addEventListener('click', function(){
 //EL Start
 
 doge.addEventListener('click', function(){
+    doExpProgression = localStorage.getItem('dep')
     doco += clipo;
     localStorage.setItem('tdc', doco)
     dc.innerHTML = `DogeCoin: ${doco}`
     anim()
+    switch(doExpProgression){
+        case 'true':
+            expCalc();
+            break;
+        default:break;
+    }
 });
 
 cd.addEventListener('click', function(){
-    popup.create("msg", "Alert", "Gives you 25% of click power for 30 seconds.<br>Cooldown: 1 minute");
+    popup.create("msg", "Gives you 25% of click power for 30 seconds.<br>Cooldown: 1 minute", "Alert!");
 })
 
 let codes = [
@@ -67,7 +82,8 @@ u1.addEventListener('click', function(){
         clipo += 1;
         clicpo.innerHTML = `ClickPower: ${clipo}`
         doco -= dfPrice;
-        dfPrice *= 2
+        var tempval = Math.round(1.5 * dfPrice)
+        dfPrice += Math.trunc(tempval, 0)
         dfCost.innerHTML = `Cost: ${dfPrice}DC`;
         dc.innerHTML = `DogeCoin: ${doco}`
         
@@ -84,6 +100,21 @@ function anim(){
     setTimeout(function () {
         doge.style.content = "url(./assets/DOGE.png)"
     }, 200)
+}
+
+var plvl = 1;
+
+function expCalc(){
+    exp += 10*clipo+0;
+    ec.innerHTML = `Exp: ${exp} / ${expCap}`
+    if(exp >= expCap){
+        plvl += 1;
+        expCap += 250;
+        exp = 0;
+        ec.innerHTML = `Exp: ${exp} / ${expCap}`
+        lvl.innerHTML = `Level: ${plvl}`
+        popup.create('lu', `You Just Leveled Up To Level ${plvl}!`)
+    }
 }
 
 //Functions End
@@ -110,6 +141,19 @@ document.onkeyup = function (e) {
                     clicpo.innerHTML = `Clickpower: ${clipo}`
                     //localStorage.setItem('clickpower', clipo)
                     break;
+                case '3':
+                    switch(coAns2[2]){
+                        case 'true':
+                            var doExpProgression = true;
+                            localStorage.setItem('dep', doExpProgression)
+                            console.log('expProgression Enabled')
+                            break;
+                        case 'false':
+                            var doExpProgression = false;
+                            localStorage.setItem('dep', doExpProgression)
+                            console.log('expProgression Disabled')
+                            break;
+                    }
             }
         }
     }
