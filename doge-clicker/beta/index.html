@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doge Clicker: Remastered</title>
+    <title>Doge Clicker: Beta</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets/favicon-16x16.png">
 
     <link rel="stylesheet" href="style.css">
 
@@ -33,9 +35,16 @@
     <section class="upgrades">
         <h1>Upgrades</h1>
         <div class="u1">
+            <h2>Doge Friend</h2>
+            <p>Raises ClickPower By 1<br></p>
+            <h3 class="dfCost" style=
+            "margin-bottom: 15px;">Cost: 100DC</h3>
+        </div>
+        <div class="u2">
             <h2>Doge Factory</h2>
-            <p>Raises ClickPower By 1<br>+1 Factory in world</p>
-            <h3 class="dfCost">Cost: 100DC</h3>
+            <p>Raises ClicksPerSecond By 1<br></p>
+            <h3 class="dfCost" style=
+            "margin-bottom: 15px;">Cost: 1000DC</h3>
         </div>
     </section>
     <section class="powerups">
@@ -44,13 +53,14 @@
     </section>
     <section class="changelog">
         <h1>Changelog:</h1>
-        <h2>Version: vb0.6</h2>
+        <h2>Version: vb0.7</h2>
         <p style="
         font-size: 1.25vw; 
         padding-left: 5px;
         ">
-            1) Added Primative leveling system. Which can be disabled via admin commands.<br>
-            2) Fixed Doge Factory going to in-accessable prices.
+            1) Added avatar selection system. Avatars can be unlocked via leveling up.<br><br>
+            2) Added Doge Factory upgrade.<br><br>
+            3) Changed Doge Facotry (clickpower) name to doge friend
         </p>
         <button class="ex">Close</button>
     </section>
@@ -77,11 +87,25 @@
         ">Exp: 0 / 500</h3>
 
     </section>
+<section class="av">
+    <h1 class="cosTit">Doge (Equipped)</h1>
+    <img class="cos2" src="Assets/citizen_doge.png" alt="">
+    <img class="cos1" src="assets/DOGE.png" alt="">
+    
+    <div class="selArea">
+        <h1 class="left">←</h1>
+        <a class="select">Select</a>
+        <h1 class="right">→</h1>
+    </div>
 
+<a class="cl" style="  font-size: 2.2vw;
+cursor:pointer;">Exit</a>
+</section>    
     <h1 class="dc">DogeCoin: 0</h1>
 
     <div class="nav-bar">
         <a href="../../">IMG Home</a>
+        <a class="avs" style="cursor:pointer;">Avatar Selection</a>
         <a href="https://github.com/I-make-gamez/Doge-Clicker-RM">Source Code</a>
         <a href="https://github.com/I-make-gamez">I-make-gamez</a>
         <a href="https://reddit.com/r/dogeclicker">Subreddit</a>

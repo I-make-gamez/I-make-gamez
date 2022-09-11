@@ -113,6 +113,27 @@ body {
   font-size: 1.50vw;
 }
 
+.u2 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center;
+  border-bottom: 10px solid black;
+  background: radial-gradient(#0091ff 0%, #1077bb 100%);
+  border-top: 0.1px solid black;
+}
+
+.u2 h2 {
+  font-size: 1.95vw;
+}
+
+.u2 p {
+  font-size: 1.25vw;
+}
+
+.u2 h3 {
+  font-size: 1.50vw;
+}
+
 /*powerups*/
 .powerups {
   height: 57.52512155591572vh;
@@ -208,7 +229,7 @@ body {
 /*Nav-Bar*/
 
 .nav-bar {
-  background: radial-gradient(#17ffff 0%, #071556 100%);
+  background: linear-gradient(281deg, #7a417d 0%, #772dff 100%);
   width: 250vw;
   height: auto;
   text-align: center;
@@ -257,11 +278,22 @@ body {
   font-size: 2vw;
 }
 
+.av {
+  z-index: 6;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(#0076ff 0%, #08fbff 100%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .popup {
   width: 500px;
   height: 250px;
-  z-index: 5;
-  position: absolute;
+  z-index: 1000;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -286,10 +318,26 @@ body {
 }
 
 .close {
+  padding: 10px;
   text-align: center;
   background: white;
   margin: 0px;
-  padding: 10px;
+  font-family: cursive;
+  border-top: 10px solid #000;
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  outline: none;
+}
+
+.cl {
+  padding: 14.5px 16.5px;
+  text-align: center;
+  background: white;
+  margin: 0px;
+  font-size: 25px;
   font-family: cursive;
   border-top: 10px solid #000;
   position: fixed;
@@ -298,9 +346,77 @@ body {
   left: 50%;
   transform: translate(-50%, 0%);
   outline: none;
+  transition: background-color 0.35s, color 0.35s;
 }
 
-h3{
+.cl:hover {
+  background: #000000;
+  color: white;
+  border-top: 10px solid white
+}
+
+h3 {
   padding: 0;
   margin: 0;
+}
+
+.cos1{
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cos2{
+  filter: brightness(0%);  
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.left{
+  z-index: 5;
+  font-size: 100px;
+  position: fixed;
+  top: 55%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+
+.right{
+  font-size: 100px;
+  position: fixed;
+  top: 55%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+
+}
+
+.select{
+  text-align: center;
+  font-size: 25px;
+  background: linear-gradient(281deg, #7a417d 0%, #772dff 100%);
+  border: 10px solid #000;
+  position: fixed;
+  top: 71%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  width: 375px;
+}
+
+.cosTit{
+  font-size: 55px;
+  position: fixed;
+  top: 2.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
