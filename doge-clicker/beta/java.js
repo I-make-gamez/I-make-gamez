@@ -322,23 +322,33 @@ $(".select").click(function () {
     }
 })
 var dfacP = 1000
+var cps = 0
+runCps = false;
 
 $(".u2").click(function(){
     if(doco >= dfacP){
         doco-=dfacP;
-
+        dc.innerHTML = `DogeCoin: ${doco}`
+        runCps = true
+        localStorage.setItem("cps", JSON.stringify(runCps))
+        cps += 1
+        localStorage.setItem("clicksPs", cps)
+        $(".clps").text("ClicksPerSec: "+cps)
     }
 })
 
-var navigator_info = window.navigator;
-var screen_info = window.screen;
-var uid = navigator_info.mimeTypes.length;
-uid += navigator_info.userAgent.replace(/\D+/g, '');
-uid += navigator_info.plugins.length;
-uid += screen_info.height || '';
-uid += screen_info.width || '';
-uid += screen_info.pixelDepth || '';
-console.log(uid);
+setInterval(function(){
+    cps = Math.trunc(localStorage.getItem("clicksPs"))
+    $(".clps").text("ClicksPerSec: "+cps)
+    switch(localStorage.getItem("cps")){
+        case 'true':
+            doco += cps;
+            anim()
+            dc.innerHTML = `DogeCoin: ${doco}`
+            break;
+    }
+}, 1000)
+
 
 
 document.onkeydown = function (e) {
