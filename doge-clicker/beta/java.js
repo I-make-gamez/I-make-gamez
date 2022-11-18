@@ -39,7 +39,7 @@ var unlock2 = false;
 
 
 //Version Start
-var version = 'vb0.8'
+var version = 'vb0.8-hf1'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
@@ -53,7 +53,7 @@ page.onload = function () {
     dfPrice = Math.abs(localStorage.getItem('dfp'))
     if(clipo < 2 ){
         dfPrice = 100  
-        clicpo  = 1;
+        clipo = 1;
         clicpo.innerHTML = `ClickPower: ${clipo}`
         dfCost.innerHTML = `Cost: ${dfPrice}DC`;
 
@@ -61,6 +61,15 @@ page.onload = function () {
         dfCost.innerHTML = `Cost: ${dfPrice}DC`;
 
     }
+    $(".doge").attr({
+        "src": "assets/citizen_doge.png"
+    })
+    setTimeout(function(){
+        $(".doge").attr({
+            "src": "assets/DOGE.png"
+        })
+    },10)
+    
 }
 
 ver.addEventListener('click', function () {
