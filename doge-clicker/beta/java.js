@@ -44,15 +44,7 @@ vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
 
-function preloadImage(url)
-{
-    var img=new Image();
-    img.src=url;
-}
-
 page.onload = function () {
-    preloadImage('https://www.imakegamez.com/doge-clicker/beta/assets/citizen_doge.png')
-
     ver.innerHTML = `Version: ${version}`
     let doco = Math.abs(localStorage.getItem('tdc'))
     dc.innerHTML = `DogeCoin: ${doco}`
