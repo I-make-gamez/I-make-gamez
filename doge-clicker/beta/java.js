@@ -51,8 +51,10 @@ function preloadImage(url)
 }
 
 page.onload = function () {
+    preloadImage('./assets/citizen_doge.png')
+
     ver.innerHTML = `Version: ${version}`
-    let doco = Math.floor(localStorage.getItem('tdc'))
+    let doco = Math.abs(localStorage.getItem('tdc'))
     dc.innerHTML = `DogeCoin: ${doco}`
     clipo = Math.floor(localStorage.getItem('clickp'))
     clicpo.innerHTML = `ClickPower: ${clipo}`
@@ -65,7 +67,6 @@ page.onload = function () {
         dfCost.innerHTML = `Cost: ${dfPrice}DC`;
 
     }
-    preloadImage('./assets/citizen_doge.png')
 }
 
 ver.addEventListener('click', function () {
