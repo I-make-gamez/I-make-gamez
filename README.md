@@ -2,7 +2,7 @@
 
 
 - 🔭 I’m currently working on  
- <a href="https://github.com/I-make-gamez/Doge-Clicker"><img src="https://gh-card.dev/repos/I-make-gamez/Doge-Clicker.svg"></a>
+<a href="https://www.imakegamez.com"><img src="https://gh-card.dev/repos/i-make-gamez/i-make-gamez.svg"></a>
 
 - 🌱 I’m currently learning PHP, JavaScript(Specificly WebGL)
  
