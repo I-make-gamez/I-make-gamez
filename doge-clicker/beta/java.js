@@ -18,6 +18,8 @@ const cd = document.querySelector('.cd')
 const ver = document.querySelector('.vers')
 const cl = document.querySelector('.changelog')
 const ex = document.querySelector('.ex')
+const vers = document.querySelector('.ver')
+
 
 
 
@@ -37,14 +39,33 @@ var unlock2 = false;
 
 
 //Version Start
-var version = 'vb0.7'
+var version = 'vb0.8'
+vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
+
+function preloadImage(url)
+{
+    var img=new Image();
+    img.src=url;
+}
 
 page.onload = function () {
     ver.innerHTML = `Version: ${version}`
     let doco = Math.floor(localStorage.getItem('tdc'))
     dc.innerHTML = `DogeCoin: ${doco}`
+    clipo = Math.floor(localStorage.getItem('clickp'))
+    clicpo.innerHTML = `ClickPower: ${clipo}`
+    dfPrice = Math.abs(localStorage.getItem('dfp'))
+    if(clipo < 2 ){
+        dfPrice = 100    
+        dfCost.innerHTML = `Cost: ${dfPrice}DC`;
+
+    }else{
+        dfCost.innerHTML = `Cost: ${dfPrice}DC`;
+
+    }
+    preloadImage('./assets/citizen_doge.png')
 }
 
 ver.addEventListener('click', function () {
@@ -107,6 +128,8 @@ u1.addEventListener('click', function () {
         dfPrice += Math.trunc(tempval, 0)
         dfCost.innerHTML = `Cost: ${dfPrice}DC`;
         dc.innerHTML = `DogeCoin: ${doco}`
+        localStorage.setItem('clickp', clipo)
+        localStorage.setItem('dfp', dfPrice)
     }
 })
 

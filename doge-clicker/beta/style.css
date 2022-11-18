@@ -4,8 +4,13 @@ html {
 }
 
 body {
-  font-family: cursive;
+  font-family: 'Comic Sans MS';
   user-select: none;
+}
+
+@font-face {
+  font-family: 'Comic Sans MS';
+  src: url("comic-sans-ms/comici.ttf");
 }
 
 .bg {
@@ -159,6 +164,7 @@ body {
 
 /*Changelog*/
 .changelog {
+  overflow-y: hidden;
   height: 57.52512155591572vh;
   position: absolute;
   right: 0vw;
@@ -183,6 +189,14 @@ body {
   text-align: center;
 }
 
+.changelog p {
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+
+.changelog p::-webkit-scrollbar { 
+  display: none;  
+}
 .ex {
   margin-bottom: 0px;
   position: fixed;

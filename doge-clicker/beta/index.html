@@ -13,11 +13,6 @@
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#draggable").draggable();
-        });
-    </script>
 </head>
 
 <body>
@@ -25,7 +20,7 @@
     <img class="doge2" src="assets/DOGE2.png">
 
     <div class="bg"></div>
-    <section id="draggable" class="popup">
+    <section class="popup">
         <h1 class="title"></h1>
         <h3 class="text"></h3>
         <button onlick="popup.close()" class="close">
@@ -37,14 +32,12 @@
         <div class="u1">
             <h2>Doge Friend</h2>
             <p>Raises ClickPower By 1<br></p>
-            <h3 class="dfCost" style=
-            "margin-bottom: 15px;">Cost: 100DC</h3>
+            <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 100DC</h3>
         </div>
         <div class="u2">
             <h2>Doge Factory</h2>
             <p>Raises ClicksPerSecond By 1<br></p>
-            <h3 class="dfCost" style=
-            "margin-bottom: 15px;">Cost: 1000DC</h3>
+            <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 1000DC</h3>
         </div>
     </section>
     <section class="powerups">
@@ -53,14 +46,18 @@
     </section>
     <section class="changelog">
         <h1>Changelog:</h1>
-        <h2>Version: vb0.7</h2>
+        <h2 class="ver">Version: vb0.7</h2>
         <p style="
         font-size: 1.25vw; 
         padding-left: 5px;
+        height: 18.936731107205624vh;
+
         ">
-            1) Added avatar selection system. Avatars can be unlocked via leveling up.<br><br>
-            2) Added Doge Factory upgrade.<br><br>
-            3) Changed Doge Facotry (clickpower) name to doge friend
+            1) You can now scroll the chngelog w/o that pesky scrollbar ;)<br><br>
+            2) Clickpower now saves on exit.<br><br>
+            3) Removed ability to drag alerts.<br><br>
+            4) Fixed the issue where toony doge doesn't display on av selection screen.
+            
         </p>
         <button class="ex">Close</button>
     </section>
@@ -87,20 +84,20 @@
         ">Exp: 0 / 500</h3>
 
     </section>
-<section class="av">
-    <h1 class="cosTit">Doge (Equipped)</h1>
-    <img class="cos2" src="Assets/citizen_doge.png" alt="">
-    <img class="cos1" src="assets/DOGE.png" alt="">
-    
-    <div class="selArea">
-        <h1 class="left">←</h1>
-        <a class="select">Select</a>
-        <h1 class="right">→</h1>
-    </div>
+    <section class="av">
+        <h1 class="cosTit">Doge (Equipped)</h1>
+        <img class="cos2" src="Assets/citizen_doge.png" alt="">
+        <img class="cos1" src="assets/DOGE.png" alt="">
 
-<a class="cl" style="  font-size: 2.2vw;
+        <div class="selArea">
+            <h1 class="left">←</h1>
+            <a class="select">Select</a>
+            <h1 class="right">→</h1>
+        </div>
+
+        <a class="cl" style="  font-size: 2.2vw;
 cursor:pointer;">Exit</a>
-</section>    
+    </section>
     <h1 class="dc">DogeCoin: 0</h1>
 
     <div class="nav-bar">

@@ -246,6 +246,7 @@ function loadData() {
         cps.innerHTML = `Clicks Per Second: ${clipes}`;
         cpsGo();
     }
+    createAlert(`Doge Clicker will be moving to a cleaner version soon.<br><a href="./beta">Click Here To Play Beta</a>`)
 };
 
 function loadDogeCos() {

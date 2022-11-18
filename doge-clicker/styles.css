@@ -6,7 +6,7 @@ html{
 
 body{
     background: radial-gradient(#F74C4C 0%, #FF0000 100%);
-    font-family: cursive;
+    font-family: 'Comic Sans MS';
     text-align: center;
 }
 
@@ -695,3 +695,8 @@ body{
     padding-right: 10px;
     padding-bottom: 10px;
 }
+
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: url("comic-sans-ms/comici.ttf");
+  }
