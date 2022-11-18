@@ -52,7 +52,9 @@ page.onload = function () {
     clicpo.innerHTML = `ClickPower: ${clipo}`
     dfPrice = Math.abs(localStorage.getItem('dfp'))
     if(clipo < 2 ){
-        dfPrice = 100    
+        dfPrice = 100  
+        clicpo  = 1;
+        clicpo.innerHTML = `ClickPower: ${clipo}`
         dfCost.innerHTML = `Cost: ${dfPrice}DC`;
 
     }else{
