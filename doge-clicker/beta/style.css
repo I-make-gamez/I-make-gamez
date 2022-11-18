@@ -8,9 +8,12 @@ body {
   user-select: none;
 }
 
+@import url(//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS);
+
 @font-face {
-  font-family: 'Comic Sans MS';
-  src: url("comic-sans-ms/comici.ttf");
+  font-family: "Comic Sans MS";
+  src: url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.eot");
+  src: url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.woff") format("woff"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.svg#Comic Sans MS") format("svg");
 }
 
 .bg {
@@ -194,9 +197,10 @@ body {
   scrollbar-width: none;
 }
 
-.changelog p::-webkit-scrollbar { 
-  display: none;  
+.changelog p::-webkit-scrollbar {
+  display: none;
 }
+
 .ex {
   margin-bottom: 0px;
   position: fixed;
@@ -374,7 +378,7 @@ h3 {
   margin: 0;
 }
 
-.cos1{
+.cos1 {
   width: 200px;
   height: 200px;
   position: fixed;
@@ -383,8 +387,8 @@ h3 {
   transform: translate(-50%, -50%);
 }
 
-.cos2{
-  filter: brightness(0%);  
+.cos2 {
+  filter: brightness(0%);
   width: 200px;
   height: 200px;
   position: fixed;
@@ -394,7 +398,7 @@ h3 {
   opacity: 1;
 }
 
-.left{
+.left {
   z-index: 5;
   font-size: 100px;
   position: fixed;
@@ -404,7 +408,7 @@ h3 {
   padding: 20px;
 }
 
-.right{
+.right {
   font-size: 100px;
   position: fixed;
   top: 55%;
@@ -414,7 +418,7 @@ h3 {
 
 }
 
-.select{
+.select {
   text-align: center;
   font-size: 25px;
   background: linear-gradient(281deg, #7a417d 0%, #772dff 100%);
@@ -427,7 +431,7 @@ h3 {
   width: 375px;
 }
 
-.cosTit{
+.cosTit {
   font-size: 55px;
   position: fixed;
   top: 2.5%;

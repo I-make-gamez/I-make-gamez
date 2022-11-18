@@ -51,7 +51,7 @@ function preloadImage(url)
 }
 
 page.onload = function () {
-    preloadImage('./assets/citizen_doge.png')
+    preloadImage('https://www.imakegamez.com/doge-clicker/beta/assets/citizen_doge.png')
 
     ver.innerHTML = `Version: ${version}`
     let doco = Math.abs(localStorage.getItem('tdc'))
