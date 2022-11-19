@@ -47,7 +47,7 @@ var unlock2 = false;
 
 
 //Version Start
-var version = 'vb0.8.1'
+var version = 'vb0.8.1-hf2'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
