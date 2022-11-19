@@ -20,16 +20,24 @@ const cl = document.querySelector('.changelog')
 const ex = document.querySelector('.ex')
 const vers = document.querySelector('.ver')
 
-
+function initializeDoco(){
+    doco = Math.abs(localStorage.getItem('tdc'))
+    dc.innerHTML = `DogeCoin: ${doco}`
+    if(doco<1){
+        doco=0;
+    }else{
+        doco = Math.abs(localStorage.getItem('tdc'))
+    }
+}
 
 
 //MVVs
 var page = window
 var ask = page.prompt
-var doco = 0;
 var clipo = 1;
 var dfPrice = 100;
 var exp = 0;
+var doco =0;
 var expCap = 500;
 var doExpProgression = true;
 localStorage.setItem('dep', doExpProgression)
@@ -39,15 +47,13 @@ var unlock2 = false;
 
 
 //Version Start
-var version = 'vb0.8-hf1'
+var version = 'vb0.8.1'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
 
 page.onload = function () {
     ver.innerHTML = `Version: ${version}`
-    let doco = Math.abs(localStorage.getItem('tdc'))
-    dc.innerHTML = `DogeCoin: ${doco}`
     clipo = Math.floor(localStorage.getItem('clickp'))
     clicpo.innerHTML = `ClickPower: ${clipo}`
     dfPrice = Math.abs(localStorage.getItem('dfp'))
@@ -69,7 +75,7 @@ page.onload = function () {
             "src": "assets/DOGE.png"
         })
     },10)
-    
+    initializeDoco()
 }
 
 ver.addEventListener('click', function () {
@@ -180,7 +186,7 @@ function expCalc() {
 document.onkeyup = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
-        var coAns = ask('Enter Admin Code\nThen Command ID\nThen Value(if any)')
+        var coAns = ask('')
         var coAns2 = coAns.split(" ")
         if (coAns2[0] == codes[0]) {
             switch (coAns2[1]) {
@@ -201,7 +207,7 @@ document.onkeyup = function (e) {
                     var total = Math.floor(coAns2[2]);
                     plvl += total;
                     lvl.innerHTML = `Level: ${plvl}`
-                //localStorage.setItem('clickpower', clipo)
+                    break;
                 case 'exp':
                     switch (coAns2[2]) {
                         case 'true':
@@ -216,7 +222,16 @@ document.onkeyup = function (e) {
                             break;
                     }
             }
+        }else{
+            switch(coAns2[0]){
+                case 'del':
+                    localStorage.clear('all')
+                    location.reload();
+                    break;
+            }
         }
+    }else if(e.ctrlKey && e.altKey && e.key === 'i'){
+        popup.create("msg", `1) Type Ctrl + Alt + M<br>2) Type "del"<br>3) You're done!`, 'How to delete data:')
     }
 };
 
