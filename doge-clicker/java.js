@@ -1,406 +1,515 @@
-const doge = document.querySelector('.doge');
-const u1 = document.querySelector('.u1');
-const u2 = document.querySelector('.u2');
-const u3 = document.querySelector('.u3');
-const u4 = document.querySelector('.u4');
-const u5 = document.querySelector('.u5');
-const cpwr = document.querySelector('#cpwr');
-const cps = document.querySelector('#cps');
-const dc = document.querySelector('.dc');
-const version = document.querySelector('.vers');
-const change = document.querySelector('.changes');
-const ex = document.querySelector('.ex');
-const log = document.querySelector('.log');
-const ne = document.querySelector('.ne');
-const wat = document.querySelector('.wat');
-const puaex = document.querySelector('.puaex');
-const puqyes = document.querySelector('.puqyes');
-const puqno = document.querySelector('.puqno');
-const wtpss = document.querySelector('.wtpuss');
-const wtpuqss = document.querySelector('.wtpuqss');
-const pua = document.querySelector('.pua');
-const puq = document.querySelector('.puq');
-const pw = document.querySelector('.pw');
-const obtwct = document.querySelector('.obtwct')
+let popup = new Popup()
+//Player DOM
+const doge = document.querySelector('.doge')
+const doge2 = document.querySelector('.doge2')
+const dc = document.querySelector('.dc')
+const wbg = document.querySelector('.wbg')
+//Upgrade DOM
+const ec = document.querySelector('.ec')
+const lvl = document.querySelector('.lvl')
 
-//TO DO
-//1) MJ Doge (for hunter)
-//2) Price Stack other upgrades
-//3) Get Rid Of Reload On DF For cpsGo()
+const u1 = document.querySelector('.u1')
+const dfCost = document.querySelector('.dfCost')
+const clicpo = document.querySelector('.cpwr')
+//Powerup DOM
+const pu = document.querySelector('.powerups')
+const cd = document.querySelector('.cd')
+//Version DOM
+const ver = document.querySelector('.vers')
+const cl = document.querySelector('.changelog')
+const ex = document.querySelector('.ex')
+const vers = document.querySelector('.ver')
 
-var ver = '1.3pre';
-var page = window;
-const ask = page.prompt;
-const abs = Math.abs;
+function initializeDoco() {
+    doco = Math.abs(localStorage.getItem('tdc'))
+    dc.innerHTML = `DogeCoin: ${doco}`
+    if (doco < 1) {
+        doco = 0;
+    } else {
+        doco = Math.abs(localStorage.getItem('tdc'))
+    }
+}
 
-var selCos = '0'
 
-var wtuss = wat.innerHTML
-var wtass = '1) Working on animating some more costumes<br>2) Discord server, maybe?<br>3) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>4) For Beta Testing:<br>Crtl+Alt+B<br>Crtl+Alt+R To Return.'
-var wtpuss = 'Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again'
-
-var mul = 10
-var mul2 = 10;
-var nxt = 0;
-var cbda = 0;
-var doco = 0;
-var doco1 = 0;
+//MVVs
+var page = window
+var ask = page.prompt
 var clipo = 1;
-var clipes = 0;
-var cpsok = 0;
-let a1 = 0;
-let pwBought = '0';
-let qAns = '-1';
+var dfPrice = 100;
+var exp = 0;
+var doco = 0;
+var expCap = 500;
+var doExpProgression = true;
+localStorage.setItem('dep', doExpProgression)
+var vw = page.innerWidth
+var vh = page.innerHeight
+var powerupEnable = true;
+var unlock2 = false;
+var unlock3 = false;
+var unlock4 = false;
+var unlock5 = false;
+var coin = "Doge"
+
+var plvl = "Locked";
+var cos = 1;
+
+
+
+//Version Start
+var version = 'vb0.9'
+vers.innerHTML = `Version: ${version}`
+var page = window
+$(".av").hide()
+
+page.onload = function () {
+    ver.innerHTML = `Version: ${version}`
+    clipo = Math.floor(localStorage.getItem('clickp'))
+    clicpo.innerHTML = `ClickPower: ${clipo}`
+    dfPrice = Math.abs(localStorage.getItem('dfp'))
+    if (clipo < 2) {
+        dfPrice = 100
+        clipo = 1;
+        clicpo.innerHTML = `ClickPower: ${clipo}`
+        dfCost.innerHTML = `Cost: ${dfPrice}$`;
+
+    } else {
+        dfCost.innerHTML = `Cost: ${dfPrice}$`;
+
+    }
+    $(".doge").attr({
+        "src": "assets/citizen_doge.png"
+    })
+    setTimeout(function () {
+        $(".doge").attr({
+            "src": "assets/DOGE.png"
+        })
+    }, 10)
+    initializeDoco()
+    if (plvl != "Locked") {
+        plvl = Math.floor(localStorage.getItem('plvl'))
+        exp = Math.floor(localStorage.getItem('exp'))
+        expCap = Math.floor(localStorage.getItem('expCap'))
+        lvl.innerHTML = `Level: ${plvl}`
+        ec.innerHTML = `Exp: ${exp} / ${expCap}`
+        expCalc()
+    }
+    popup.create('msg', 'Ctrl + Alt + A<br>To bind a key instead of clicking', 'Alert')
+}
+
+
+
+ver.addEventListener('click', function () {
+    cl.style.zIndex = 1
+    pu.style.opacity = 1;
+})
+ex.addEventListener('click', function () {
+    cl.style.zIndex = -2
+    pu.style.opacity = 1;
+})
+//Version End
+
+//EL Start
 
 doge.addEventListener('click', function () {
-    doco += clipo;
-    dc.innerHTML = `DogeCoin: ${doco}`;
-    localStorage.setItem('totalDc', doco)
-    anim();
+    if (key === undefined) {
+        doExpProgression = localStorage.getItem('dep')
+        doco += clipo;
+        localStorage.setItem('tdc', doco)
+        dc.innerHTML = `${coin}Coin: ${doco}`
+
+        switch (doExpProgression) {
+            case 'true':
+                if (plvl != "Locked") {
+                    expCalc();
+                }
+                break;
+            default: break;
+        }
+        anim()
+    } else { return }
 });
 
-function createAlert(wts) {
-    wtpss.innerHTML = wts;
-    pua.style.opacity = 1;
-    pua.style.zIndex = 2;
-}
-
-function createQuestion(q) {
-    wtpuqss.innerHTML = q;
-    puq.style.opacity = 1;
-    puq.style.zIndex = 2;
-}
-
-var cbd = undefined;
-
-function wait(time) {
-    setTimeout(function () {
-        return;
-    }, time)
-}
-
-version.addEventListener('click', function () {
-    change.style.opacity = 1;
-    change.style.zIndex = 2;
+$(".avs").on('click', function () {
+    $(".doge").fadeOut("slow")
+    $(".av").fadeIn("slow")
+})
+$(".cl").click(function () {
+    $(".av").fadeOut("slow")
+    $(".doge").fadeIn("slow")
 })
 
-function yes() {
-    localStorage.setItem('qAns', 'yes')
-    qAns = localStorage.getItem('qAns')
-}
-
-function no() {
-    localStorage.setItem('qAns', 'no')
-    qAns = localStorage.getItem('qAns')
-}
-
-ex.addEventListener('click', function () {
-    change.style.opacity = 0;
-    change.style.zIndex = 0;
-})
-
-puaex.addEventListener('click', function () {
-    pua.style.opacity = 0;
-    pua.style.zIndex = 0;
-})
-
-puqyes.addEventListener('click', function () {
-    puq.style.opacity = 0;
-    puq.style.zIndex = 0;
-    yes();
-})
-
-puqno.addEventListener('click', function () {
-    puq.style.opacity = 0;
-    puq.style.zIndex = 0;
-    no();
-})
-
-
-
-pw.addEventListener('click', function () {
-    pwBought = localStorage.getItem('pw')
-    switch (pwBought) {
-        default: break;
-        case '1':
-            pw.style.opacity = 0;
-            cbd = 0
-            pwBought = true;
-            clipo *= 2;
-            cpwr.innerHTML = `Clickpower: ${clipo}`
+cd.addEventListener('click', function () {
+    if (plvl >= 5) {
+        if (powerupEnable === true) {
+            clipo += clipo / 2;
+            clicpo.innerHTML = `ClickPower: ${clipo}`
+            powerupEnable = false
             setTimeout(function () {
-                clipo /= 2;
-                cpwr.innerHTML = `Clickpower: ${clipo}`
-                setTimeout(function () {
-                    cbd = 1;
-                    pw.style.opacity = 1;
-                }, 60000)
-            }, 30000)
-            break;
-        case '0':
-            createQuestion('Would You Like To Buy The<br>PowerWash Powerup For: 100K DogeCoin?')
-            if (qAns == 'yes') {
-                if (doco >= 100000) {
-                    doco -= 100000
-                    dc.innerHTML = `DogeCoin: ${doco}`;
-                    localStorage.setItem('totalDc', doco)
-                    if (cbda === 0) {
-                        cbda = 1;
-                        localStorage.setItem('cbda', cbda)
-                        createAlert(wtpuss);
-                        return;
-                    }
-                    localStorage.setItem('pw', '1')
-                } else {
-                    createAlert('You Need More DogeCoin.')
-                }
-            } else if (qAns === 'no') {
-                return;
-            }
-            break;
-    }
-})
-
-ne.addEventListener('click', function () {
-    if (nxt === 0) {
-        nxt = 1
-        ne.innerHTML = 'Back'
-        wat.innerHTML = null;
-        wat.innerHTML = wtass;
-        log.innerHTML = `Alerts for ${ver}`
-    } else if (nxt === 1) {
-        nxt = 0
-        ne.innerHTML = 'Next'
-        wat.innerHTML = null;
-        wat.innerHTML = wtuss;
-        log.innerHTML = `Current Version: ${ver}`
-    }
-})
-
-function rnd(min, max) {
-    return Math.random() * (max - min) + min;
-}
-
-function anim() {
-    selCos = localStorage.getItem('cos')
-    switch (selCos) {
-        case '0':
-            doge.style.content = "url(./Assets/DOGE2.png)"
-            setTimeout(function () {
-                doge.style.content = "url(./Assets/DOGE.png)"
-            }, 200)
-            break;
-        case '5':
-            doge.style.content = "url(./Assets/pxDoge2.png)"
-            setTimeout(function () {
-                doge.style.content = "url(./Assets/pxDoge.png)"
-            }, 200)
-            break;
-        default:
-            break;
-    }
-}
-
-function loadVersion() {
-    version.innerHTML = `Version: ${ver}`
-    log.innerHTML = `Current Version: ${ver}`
-    cbda = localStorage.getItem('cbda')
-};
-
-var vh = document.innerHeight
-var vw = document.innerWidth
-
-function cpsGo() {
-    setInterval(function () {
-        if (a1 === 1) {
-            doco += clipes;
-            dc.innerHTML = `DogeCoin: ${doco}`;
-            anim();
-        } else {
-            a1 = 0;
-            localStorage.setItem('a1', a1)
+                powerupEnable = true
+                clipo = ogClipo
+            }, 60000)
+        } else if (powerupEnable === false) {
+            popup.create('msg', 'You need to wait until the cooldown expires!', 'Wait!')
         }
-    }, 1000)
-};
-
-function reload() {
-    window.location.href = window.location.href
-}
-
-function loadData() {
-    doco = abs(localStorage.getItem('totalDc'));
-    dc.innerHTML = `DogeCoin: ${doco}`;
-    clipo = abs(localStorage.getItem('clickpower'));
-    if (clipo == 0) {
-        clipo = 1;
-        cpwr.innerHTML = `Clickpower: ${clipo}`;
     } else {
-        cpwr.innerHTML = `Clickpower: ${clipo}`;
+        popup.create('msg', '<strong style="text-align: center;">Unlocks @ Lvl 5</strong>', 'Insufficient Level!')
     }
-    a1 = abs(localStorage.getItem('a1'));
-    if (a1 === 0) {
-        clipes = 0;
-        cps.innerHTML = `Clicks Per Second: ${clipes}`;
-    } else {
-        clipes = abs(localStorage.getItem('clipes'))
-        cps.innerHTML = `Clicks Per Second: ${clipes}`;
-        cpsGo();
-    }
-    createAlert(`Doge Clicker will be moving to a cleaner version soon.<br><a href="./beta">Click Here To Play Beta</a>`)
-};
-
-function loadDogeCos() {
-    selCos = localStorage.getItem('cos')
-    switch (selCos) {
-        case '0':
-            doge.style.content = 'url(./Assets/DOGE.png)'
-            doge.style.width = 'auto'
-            doge.style.border = '0px solid #000'
-            break;
-        case '1':
-            doge.style.content = 'url(./Assets/hevanly-doge.png)'
-            doge.style.width = 'auto'
-            doge.style.border = '5px solid #000'
-            break;
-        case '2':
-            doge.style.content = 'url(./Assets/fancy-doge.png)'
-            doge.style.width = 'auto'
-            doge.style.border = '5px solid #000'
-            break;
-        case '3':
-            doge.style.content = 'url(./Assets/doges-cousin.png)'
-            doge.style.width = 'auto'
-            doge.style.border = '5px solid #000'
-            break;
-        case '4':
-            doge.style.content = 'url(./Assets/cheems.png)'
-            doge.style.width = 'auto'
-            doge.style.border = '0px solid #000'
-        case '5':
-            doge.style.content = 'url(./Assets/pxDoge.png)'
-            doge.style.width = 'auto'
-            doge.style.border = '0px solid #000'
-    }
-    doco1 = Math.abs(localStorage.getItem('totalDc'));
-    dcCos.innerHTML = `DogeCoin: ${doco1}`;
-};
+})
 
 let codes = [
     1807,
-    'beta'
+    0906,
 ];
 
-function deleteData() {
-    let ans = ask("Are you sure?\n[Y|N]")
-    switch (ans) {
-        case 'y' || 'Y':
-            doco = 0;
-            dc.innerHTML = `DogeCoin: ${doco}`;
-            localStorage.removeItem('totalDc');
-            clipo = 1;
-            cpwr.innerHTML = `Clickpower: ${clipo}`
-            localStorage.removeItem('clickpower');
-            localStorage.removeItem('cos')
-            selCos = '0'
-            doge.style.content = 'url(./Assets/DOGE.png)'
-            doge.style.width = 'auto'
-            doge.style.border = '0px solid #000'
-            localStorage.removeItem('clipes')
-            clipes = 0;
-            a1 = 0;
-            cps.innerHTML = `Clicks Per Second: ${clipes}`;
-            break;
-        case 'n' || 'N':
-            doco = doco
-            clipo = clipo
-    };
-};
+var ogClipo = 1
 
 u1.addEventListener('click', function () {
-    if (doco >= 100) {
+    if (doco >= dfPrice) {
         clipo += 1;
-        doco -= 100
-        localStorage.setItem('totalDc', doco)
-        dc.innerHTML = `DogeCoin: ${doco}`;
-        localStorage.setItem('clickpower', clipo);
-        cpwr.innerHTML = `Clickpower: ${clipo}`
-        switch (beta) {
-            case 'off': break;
-            case 'on':
-                dfPrice = dfPrice + ((dfPrice / 100) * 10);
-                dfp.innerHTML = `Cost: ${dfPrice}DC`
+        clicpo.innerHTML = `ClickPower: ${clipo}`
+        doco -= dfPrice;
+        var tempval = Math.round(0.1 * dfPrice)
+        dfPrice += Math.trunc(tempval, 0)
+        dfCost.innerHTML = `Cost: ${dfPrice}$`;
+        dc.innerHTML = `${coin}Coin: ${doco}`
+        localStorage.setItem('clickp', clipo)
+        localStorage.setItem('dfp', dfPrice)
+        ogClipo = clipo
+    }
+})
+
+//EL End
+
+//Functtions Start
+
+function anim() {
+    switch (cos) {
+        case 1:
+            $(".doge").attr({
+                "src": "assets/DOGE2.png"
+            })
+            setTimeout(function () {
+                $(".doge").attr({
+                    "src": "assets/DOGE.png"
+                })
+            }, 200)
+            break;
+        default: break;
+    }
+
+}
+
+function expCalc() {
+    exp += clipo
+    ec.innerHTML = `Exp: ${exp} / ${expCap}`
+    if (exp >= expCap) {
+        plvl += 1;
+        expCap += 250;
+        exp = 0;
+        ec.innerHTML = `Exp: ${exp} / ${expCap}`
+        lvl.innerHTML = `Level: ${plvl}`
+        if (plvl != 1) {
+            popup.create('lu', `You Just Leveled Up To Level ${plvl}!`)
+        }
+        localStorage.setItem('plvl', plvl)
+        localStorage.setItem('expCap', expCap)
+    }
+    if (plvl >= 5) {
+        if (unlock2 === false) {
+            $(".c1tit").text("Click to equip");
+            popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
+            unlock2 = true
         }
     }
-});
-
-u2.addEventListener('click', function () {
-    if (doco >= 2000) {
-        doco -= 2000;
-        localStorage.setItem('totalDc', doco)
-        dc.innerHTML = `DogeCoin: ${doco}`;
-        clipes += 1;
-        localStorage.setItem('clipes', clipes)
-        cps.innerHTML = `Clicks Per Second: ${clipes}`;
-        cpsok = 1;
-        switch (beta) {
-            case 'off': break;
-            case 'on':
-                dpPrice = dpPrice + ((dfPrice / 100) * 10);
-                dpp.innerHTML = `Cost: ${dpPrice}DC`
+    if (plvl >= 10) {
+        if (unlock3 === false) {
+            $(".c2tit").text("Click to equip")
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock3 = true
         }
-        let a1 = 1;
-        localStorage.setItem('a1', a1)
-        reload();
-        cpsGo();
     }
-});
+    if (plvl >= 15) {
+        if (unlock4 === false) {
+            $(".c3tit").text("Click to equip")
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock4 = true
+        }
+    }
+    if (plvl >= 20) {
+        if (unlock5 === false) {
+            $(".c4tit").text("Click to equip")
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock5 = true
+        }
+    }
+    localStorage.setItem('exp', exp)
+}
 
 
-let beta = 'off'
+//Functions End
+
+//Snipets
+
 document.onkeyup = function (e) {
     var e = e || page.event;
     if (e.ctrlKey && e.altKey && e.key === 'm') {
-        var coAns = ask('Enter Admin Code\nThen Command ID\nThen Value(if any)')
+        var coAns = ask('')
         var coAns2 = coAns.split(" ")
-        if (coAns2[0] == codes[0]) {
+        if (coAns2[0] == codes[0] || coAns2[0] == codes[1]) {
             switch (coAns2[1]) {
                 default: break;
                 case '1':
                     var total = Math.floor(coAns2[2]);
                     doco += total;
-                    dc.innerHTML = `DogeCoin: ${doco}`;
-                    localStorage.setItem('totalDc', doco)
+                    dc.innerHTML = `${coin}Coin: ${doco}`
+                    //localStorage.setItem('totalDc', doco)
                     break;
                 case '2':
                     var total = Math.floor(coAns2[2]);
                     clipo += total;
-                    cpwr.innerHTML = `Clickpower: ${clipo}`
-                    localStorage.setItem('clickpower', clipo)
+                    clicpo.innerHTML = `Clickpower: ${clipo}`
+                    //localStorage.setItem('clickpower', clipo)
                     break;
                 case '3':
                     var total = Math.floor(coAns2[2]);
-                    clipes += total;
-                    localStorage.setItem('clipes', clipes)
-                    cps.innerHTML = `Clicks Per Second: ${clipes}`
-                    reload();
+                    plvl += total;
+                    lvl.innerHTML = `Level: ${plvl}`
+                    if (plvl != "Locked") {
+                        expCalc()
+                    }
                     break;
-                case '4':
-                    localStorage.setItem('pw', '0')
-                    cbda = 0;
-                    localStorage.setItem('cbda', cbda)
+                case 'exp':
+                    switch (coAns2[2]) {
+                        case 'true':
+                            var doExpProgression = true;
+                            localStorage.setItem('dep', doExpProgression)
+                            console.log('expProgression Enabled')
+                            break;
+                        case 'false':
+                            var doExpProgression = false;
+                            localStorage.setItem('dep', doExpProgression)
+                            console.log('expProgression Disabled')
+                            break;
+                    }
+            }
+        } else {
+            switch (coAns2[0]) {
+                case 'del':
+                    localStorage.clear('all')
+                    location.reload();
                     break;
             }
         }
+    } else if (e.ctrlKey && e.altKey && e.key === 'i') {
+        popup.create("msg", `1) Type Ctrl + Alt + M<br>2) Type "del"<br>3) You're done!`, 'How to delete data:')
+    } else if (e.ctrlKey && e.altKey && e.key === 'a') {
+        key = ask("Enter any key")
+    } else if (e.key === key) {
+        test()
     }
 };
-//BETA TESTING
-document.onkeydown = function(e){
-    var e = e || page.event;
-    if (e.ctrlKey && e.altKey && e.key === 'b'){
-        window.location.href = "./beta"
+
+/*document.onkeyup = function (e) {
+    var e = e || page.event
+    if (e.key === key) {
+          test()
     }
+};*/
+
+function test() {
+    doExpProgression = localStorage.getItem('dep')
+    doco += clipo;
+    localStorage.setItem('tdc', doco)
+    dc.innerHTML = `${coin}Coin: ${doco}`
+
+    switch (doExpProgression) {
+        case 'true':
+            if (plvl != "Locked") {
+                expCalc();
+            }
+            break;
+        default: break;
+    }
+    anim()
 }
 
-/*
+var key;
 
-*/
+if (plvl === "Locked") {
+    $(".c1tit").text("Click to equip")
+    $(".c2tit").text("Click to equip")
+    $(".c3tit").text("Click to equip")
+    $(".c4tit").text("Click to equip")
+    popup.create('msg', "All avatars are unlocked for a limited time :)", "Event - Free Avatars")
+}
+
+$(".c1").click(function () {
+    if (plvl >= 5 || plvl == "Locked") {
+        if (cos != 2) {
+            if (plvl >= 10 || plvl === "Locked") {
+                $(".c2tit").text("Click to equip")
+                if (plvl >= 15 || plvl === "Locked") {
+                    $(".c3tit").text("Click to equip")
+                    if (plvl >= 20 || plvl === "Locked") {
+                        $(".c4tit").text("Click to equip")
+                    }
+                }
+            }
+            $(".c1tit").text("Equipped")
+            $(".doge").attr({
+                "src": "assets/COS3.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/COS3.png"
+            })
+            cos = 2
+            coin = "Buff"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        } else if (cos = 2) {
+            $(".c1tit").text("Click to equip")
+            $(".doge").attr({
+                "src": "assets/DOGE.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/DOGE.png"
+            })
+            cos = 1
+            coin = "Doge"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        }
+    } else {
+        popup.create('msg', 'You need to be level 5 to use this avatar!', 'Insufficient Level')
+    }
+})
+$(".c2").click(function () {
+    if (plvl >= 10 || plvl == "Locked") {
+        if (cos != 3) {
+            if (plvl >= 15 || plvl === "Locked") {
+                $(".c3tit").text("Click to equip")
+                if (plvl >= 20 || plvl === "Locked") {
+                    $(".c4tit").text("Click to equip")
+                }
+            }
+            $(".c1tit").text("Click to equip")
+            $(".c2tit").text("Equipped")
+            $(".doge").attr({
+                "src": "assets/COS2.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/COS2.png"
+            })
+            cos = 3
+            coin = "Rich"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+
+        } else if (cos = 3) {
+            $(".c2tit").text("Click to equip")
+            $(".doge").attr({
+                "src": "assets/DOGE.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/DOGE.png"
+            })
+            cos = 1
+            coin = "Doge"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        }
+    } else {
+        popup.create('msg', 'You need to be level 10 to use this avatar!', 'Insufficient Level')
+    }
+})
+
+$(".c3").click(function () {
+    if (plvl >= 15 || plvl == "Locked") {
+        if (cos != 4) {
+            $(".c1tit").text("Click to equip")
+            $(".c2tit").text("Click to equip")
+            if (plvl >= 20 || plvl === "Locked") {
+                $(".c4tit").text("Click to equip")
+            } $(".c3tit").text("Equipped")
+            $(".doge").attr({
+                "src": "assets/COS4.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/COS4.png"
+            })
+            cos = 4
+            coin = "Cheem"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        } else if (cos = 4) {
+            $(".c3tit").text("Click to equip")
+            $(".doge").attr({
+                "src": "assets/DOGE.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/DOGE.png"
+            })
+            cos = 1
+            coin = "Doge"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        }
+    } else {
+        popup.create('msg', 'You need to be level 15 to use this avatar!', 'Insufficient Level')
+    }
+})
+
+$(".c4").click(function () {
+    if (plvl >= 20 || plvl == "Locked") {
+        if (cos != 5) {
+            $(".c1tit").text("Click to equip")
+            $(".c2tit").text("Click to equip")
+            $(".c3tit").text("Click to equip")
+            $(".c4tit").text("Equipped")
+            $(".doge").attr({
+                "src": "assets/COS5.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/COS5.png"
+            })
+            cos = 5
+            coin = "Cat"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        } else if (cos = 5) {
+            $(".c4tit").text("Click to equip")
+            $(".doge").attr({
+                "src": "assets/DOGE.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/DOGE.png"
+            })
+            cos = 1
+            coin = "Doge"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        }
+    } else {
+        popup.create('msg', 'You need to be level 20 to use this avatar!', 'Insufficient Level')
+    }
+})
+
+var dfacP = 1000
+var cps = 0
+runCps = false;
+
+$(".u2").click(function () {
+    if (doco >= dfacP) {
+        doco -= dfacP;
+        dc.innerHTML = `${coin}Coin: ${doco}`
+        runCps = true
+        localStorage.setItem("cps", JSON.stringify(runCps))
+        cps += 1
+        localStorage.setItem("clicksPs", cps)
+        $(".clps").text("ClicksPerSec: " + cps)
+    }
+})
+
+setInterval(function () {
+    cps = Math.trunc(localStorage.getItem("clicksPs"))
+    $(".clps").text("ClicksPerSec: " + cps)
+    switch (localStorage.getItem("cps")) {
+        case 'true':
+            doco += cps;
+            anim()
+            dc.innerHTML = `${coin}Coin: ${doco}`
+            break;
+    }
+}, 1000)

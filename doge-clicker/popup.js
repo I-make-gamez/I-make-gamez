@@ -1,10 +1,10 @@
 const popupTitle = document.querySelector('.title')
-                const popupText = document.querySelector('.text')
-                const pop = document.querySelector('.popup')
+const popupText = document.querySelector('.text')
+const pop = document.querySelector('.popup')
 
 function Popup() {
-    this.create = function(type, message, title ){
-        switch(type){
+    this.create = function (type, message, title) {
+        switch (type) {
             case "msg":
                 popupTitle.innerHTML = title;
                 popupText.innerHTML = message
@@ -18,13 +18,13 @@ function Popup() {
                 popupText.style.fontSize = "2vw"
                 pop.style.display = 'inline'
                 pop.style.height = '200px'
-
-            default:break;
+                break;
+            default: break;
         }
     }
 }
 
-document.querySelector('.close').addEventListener('click', function(){
+document.querySelector('.close').addEventListener('click', function () {
     const pop = document.querySelector('.popup')
     pop.style.display = 'none'
 })
