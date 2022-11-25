@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doge Clicker: Beta</title>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet"
+        type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <img class="doge" src="assets/DOGE.png">
+    <img class="doge2" src="assets/DOGE2.png">
+
+    <div class="bg"></div>
+    <section class="popup">
+        <h1 class="title"></h1>
+        <h3 class="text"></h3>
+        <button onlick="popup.close()" class="close">
+            <h3>Okay</h3>
+        </button>
+    </section>
+    <section class="upgrades">
+        <h1>Upgrades</h1>
+        <div class="u1">
+            <h2>Doge Friend</h2>
+            <p>Raises ClickPower By 1<br></p>
+            <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 100$</h3>
+        </div>
+        <div class="u2">
+            <h2>Doge Factory</h2>
+            <p>Raises ClicksPerSecond By 1<br></p>
+            <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 1000$</h3>
+        </div>
+    </section>
+    <section class="powerups">
+        <h1>PowerUps</h1>
+        <img class="cd" src="assets/citizen_doge.png" width="100px">
+    </section>
+    <section class="changelog">
+        <h1>Changelog:</h1>
+        <h2 class="ver">*Version*</h2>
+        <p style="
+        font-size: 1.25vw; 
+        padding-left: 5px;
+        height: 18.936731107205624vh;
+
+        ">  
+            1) Implemented "Factory Worker" powerup!<br><br>
+            2) Level Progress now saves!<br><br>
+            3) Fun coin names with costumes<br><br>
+            4) You can now set a keybind instead of clicking (will not save on reload)<br><br>
+            5) Moved the game to "/doge-clicker"<br><br>
+            <strong class="fakeh">vb0.8.2</strong><br><br>
+            1) All avatars unlocked until monday Nov. 28th<br><br>
+            2) Recoded the entire avatar selection system<br><br>
+            <strong class="fakeh">vb0.8.1 Hotfix-2</strong><br><br>
+            1) Fixed toony doge error<br><br>
+            <strong class="fakeh">vb0.8.1</strong><br><br>
+            1) Added data deletion ability. Type ctrl + alt + i for more info<br><br>
+            2) DogeCoin no longer resets on reload<br><br>
+            <strong class="fakeh">vb0.8 Hotfix-1</strong><br><br>
+            1) Issues with clickpower being 0 should be fixed<br><br>
+            2) Added version history to changelog<br><br>
+            <strong class="fakeh">vb0.8:</strong><br><br>
+            1) You can now scroll the changelog w/o that pesky scrollbar ;)<br><br>
+            2) Clickpower now saves on exit.<br><br>
+            3) Removed ability to drag alerts.<br><br>
+            4) Fixed the issue where toony doge doesn't display on av selection screen.
+
+        </p>
+        <button class="ex">Close</button>
+    </section>
+    <section class="stats">
+        <h1>Stats</h1>
+        <h3 style="  
+        border-top: 10px solid black;
+        padding-top: 15px;
+        margin-top: 0px;
+        font-size: 1.25vw; 
+        padding-left: 5px;
+        " class="cpwr">ClickPower: 1</h3>
+        <h3 style="
+        font-size: 1.25vw; 
+        padding-left: 5px;
+        " class="clps">ClicksPerSec: 0</h3>
+        <h3 class="lvl" style="
+        font-size: 1.25vw; 
+        padding-left: 5px;
+        ">Level: 1</h3>
+        <h3 class="ec" style="
+        font-size: 1.25vw; 
+        padding-left: 5px;
+        ">Exp: 0 / 500</h3>
+
+    </section>
+
+    <section class="av">
+
+       <section class="costumes">
+        <div class="c1">
+            <h2>Swole Doge</h2>
+            <p><em>"I lift 460"</em><br></p>
+            <h3 class="c1tit">Unlocks @ Lvl 5</h3>
+        </div>
+        <div class="c2">
+            <h2>Dapper Doge</h2>
+            <p><em>"Filthy Peasant"</em></p>
+            <h3 class="c2tit">Unlocks @ Lvl 10</h3>
+        </div>
+        <div class="c3">
+            <h2>Cheems</h2>
+            <p><em>"My papa once told me that swole doge does steroids"</em></p>
+            <h3 class="c3tit">Unlocks @ Lvl 15</h3>
+        </div>
+        <div class="c4">
+            <h2>Big Flopa</h2>
+            <p><em>"Dapper Doge bullied me in high school :("</em></p>
+            <h3 class="c4tit">Unlocks @ Lvl 20</h3>
+        </div>
+    </section>
+    <img class="dummyDoge" src="assets/DOGE.png">
+    <img class="doge2" src="assets/DOGE2.png">
+
+
+
+        <a class="cl" style="  font-size: 2.2vw; cursor:pointer;">
+            Exit
+        </a>
+    </section>
+
+    <h1 class="dc">DogeCoin: 0</h1>
+
+    <div class="nav-bar">
+        <a href="../">IMG Home</a>
+        <a class="avs" style="cursor:pointer;">Avatar Selection</a>
+        <a href="https://github.com/I-make-gamez/I-make-gamez">Source Code</a>
+        <a href="https://github.com/I-make-gamez">I-make-gamez</a>
+        <a href="https://discord.gg/sP8ABpnsms">Discord</a>
+        <a class="vers" style="cursor:pointer;">
+            Version:
+        </a>
+        <!--<a class="obtwct" href="https://docs.google.com/forms/d/1VptqxcLY-ItitkLdCL29KcLTemhCZYts202C85wD3SA/edit">
+            Suggest A Feature
+        </a>-->
+    </div>
+
+    <audio src="assets/Space Doggo 10 Hours (64 kbps).mp3" autoplay loop>Not Supported</audio>
+
+    <script src="popup.js"></script>
+    <script src="java.js"></script>
+</body>
+
+</html>
