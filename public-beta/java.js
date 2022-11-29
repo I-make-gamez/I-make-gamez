@@ -50,7 +50,7 @@ var unlock4 = false;
 var unlock5 = false;
 var coin = "Doge"
 
-var plvl = "Locked";
+var plvl = 1//"Locked";
 var cos = 1;
 
 
