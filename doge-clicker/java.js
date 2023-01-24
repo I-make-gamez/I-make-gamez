@@ -50,13 +50,13 @@ var unlock4 = false;
 var unlock5 = false;
 var coin = "Doge"
 
-var plvl = "Locked";
+var plvl = 1//"Locked";
 var cos = 1;
 
 
 
 //Version Start
-var version = 'vb0.9'
+var version = 'vb0.9.1'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
