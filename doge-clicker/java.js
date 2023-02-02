@@ -1,4 +1,4 @@
-let popup = new Popup()
+const popup = new Popup()
 //Player DOM
 const doge = document.querySelector('.doge')
 const doge2 = document.querySelector('.doge2')
@@ -30,6 +30,9 @@ function initializeDoco() {
     }
 }
 
+doge.ondragstart = () => {
+    return false;
+}
 
 //MVVs
 var page = window
@@ -56,12 +59,16 @@ var cos = 1;
 
 
 //Version Start
-var version = 'vb0.9.1'
+var version = 'vb0.9.2'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
 
 page.onload = function () {
+
+    
+    
+
     ver.innerHTML = `Version: ${version}`
     clipo = Math.floor(localStorage.getItem('clickp'))
     clicpo.innerHTML = `ClickPower: ${clipo}`
@@ -94,6 +101,10 @@ page.onload = function () {
         expCalc()
     }
     popup.create('msg', 'Ctrl + Alt + A<br>To bind a key instead of clicking', 'Alert')
+    setTimeout(function(){
+        popup.create('msg', 'First 50 people to join the discord get a role :)', 'Alert')
+
+    }, 5000)
 }
 
 
