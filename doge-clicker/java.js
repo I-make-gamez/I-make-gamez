@@ -59,7 +59,7 @@ var cos = 1;
 
 
 //Version Start
-var version = 'vb0.9.2'
+var version = 'vb0.9.3'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
@@ -152,12 +152,13 @@ $(".cl").click(function () {
 cd.addEventListener('click', function () {
     if (plvl >= 5) {
         if (powerupEnable === true) {
-            clipo += clipo / 2;
+            clipo *= 2;
             clicpo.innerHTML = `ClickPower: ${clipo}`
             powerupEnable = false
             setTimeout(function () {
                 powerupEnable = true
                 clipo = ogClipo
+                clicpo.innerHTML = `ClickPower: ${clipo}`
             }, 60000)
         } else if (powerupEnable === false) {
             popup.create('msg', 'You need to wait until the cooldown expires!', 'Wait!')
@@ -229,6 +230,9 @@ function expCalc() {
         if (unlock2 === false) {
             $(".c1tit").text("Click to equip");
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
+            setTimeout(function(){
+                popup.create('msg', 'Toony Doge:<br><br>Clickpower doubled for one minute')
+            }, 5000)
             unlock2 = true
         }
     }
