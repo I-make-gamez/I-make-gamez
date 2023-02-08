@@ -1,0 +1,676 @@
+html{
+    height: 100%;
+    width: 100%;
+    user-select: none;
+}
+
+body{
+    background: radial-gradient(#761212 0%, #ce0808 100%);
+    font-family: cursive;
+    text-align: center;
+}
+
+.pw{
+    z-index: 1;
+    width: 100px;
+    height: inherit;
+}
+
+.doge{
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
+.doge2{
+    filter: blur(50px);
+    position: fixed;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.doge:active{
+    width: 260px;
+    height: 260px;
+}
+
+.dc{
+    font-size: 40px;
+    position: fixed;
+    top: 21%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+}
+
+.dcLvl{
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    -ms-progress-appearance: bar;
+}
+
+.dcLvlh3{
+    position: fixed;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+}
+
+.dcCos{
+    font-size: 40px;
+    position: fixed;
+    top: 15%;
+    left: 50vw;
+    transform: translate(-50%, -15%);
+}
+
+.upgrades{
+    height: calc(103vh - 60px);
+    width: 16.5vw;
+    position: fixed;
+    left: 25px;
+    top: 37vh;
+    transform: translate(-25px, -40%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-right: 10px solid #000;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.pu{
+    z-index: -1;
+    height: 10vh;
+    width: 67vw;
+    position: fixed;
+    left: 17%;
+    top: 0px;
+    transform: translate(-25px, -50);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-bottom: 10px solid #000;
+    overflow-y: hidden;
+}
+
+.pudiv{
+    float: left;
+    background: radial-gradient(#5f1276 0%, #bc0cdf 100%);
+    top: 50%;
+    padding-bottom: 25px;
+    border-right: 10px solid #000;
+}
+
+
+.cos{
+    height: calc(103vh - 60px);
+    width: 16.5vw;
+    position: fixed;
+    left: 25px;
+    top: 37vh;
+    transform: translate(-25px, -40%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-right: 10px solid #000;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.sc{
+    height: calc(103vh - 60px);
+    width: 16.5vw;
+    position: fixed;
+    right: 0px;
+    top: 37vh;
+    transform: translate(0px, -40%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-left: 10px solid #000;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+
+.dogeCos{
+    position: fixed;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+}
+
+.cos h1{
+    font-size: 30px;
+}
+
+.sc h1{
+    font-size: 30px;
+}
+
+.changes{
+    height: 250px;
+    opacity: 0;
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border: 10px solid #000;
+    overflow-y: scroll;
+}
+
+.pua{
+    height: 250px;
+    width: 500px;
+    opacity: 0;
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border: 10px solid #000;
+    overflow-y: hidden;
+}
+
+.puq{
+    height: 250px;
+    width: 500px;
+    opacity: 0;
+    z-index: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 15px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 0px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border: 10px solid #000;    
+    overflow-y: hidden;
+}
+
+.puah1{
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 10px solid #000;
+}
+
+.puqh1{
+    padding-top: 5px;
+    padding-bottom: 15px;
+    border-bottom: 10px solid #000;
+}
+
+.log{
+    padding-bottom: 15px;
+    border-bottom: 10px solid #000;
+}
+
+.ex{
+    width:auto;
+    width: 100%;
+    height: 50px;
+    border-top: 10px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+}
+
+.ne{
+    width:auto;
+    width: 100%;
+    height: 50px;
+    border-top: 10px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+}
+
+.puaex{
+    width:auto;
+    width: 100%;
+    height: 50px;
+    border-top: 10px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    transform: translate(-50, 0);
+
+}
+
+.puqyes{
+    width: 50%;
+    height: 50px;
+    border-top: 11px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    transform: translate(-50, 0);
+    border-right: 5px solid;
+}
+
+.puqno{
+    width: 50%;
+    height: 50px;
+    border-top: 11px solid;
+    background: radial-gradient(#b11313 0%, #df0c0c 100%);
+    font-family: cursive;
+    outline: none;
+    position: fixed;
+    bottom:0;
+    right: 0;
+    transform: translate(-50, 0);
+    border-left: 5px solid;
+
+}
+
+.stats{
+    height: calc(103vh - 60px);
+    width: 16.5vw;
+    position: fixed;
+    right: 0px;
+    top: 37vh;
+    transform: translate(-0px, -40%);
+    background: radial-gradient(#125f76 0%, #0c9cdf 100%);
+    border-left: 10px solid #000;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.stats h1{
+    font-size: 36px;
+    padding-bottom: 25px;
+    border-bottom: 10px solid #000;
+}
+
+.upgrades h1{
+    font-size: 34.5px;
+}
+
+.u1{
+    width: 16.5vw;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#127647 0%, #08ce6b 100%);
+
+}
+
+.u2{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#761271 0%, #c708ce 100%);
+
+}
+
+.u3{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#767412 0%, #cecb08 100%);
+
+}
+
+.u4{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#127376 0%, #08ceb4 100%);
+
+}
+
+.u5{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#764712 0%, #ce9908 100%);
+
+}
+
+.u6{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#561276 0%, #086ece 100%);
+
+}
+
+.nav-bar {
+    background: radial-gradient(#17ffff 0%, #071556 100%);
+    width: 200vw;
+    height: auto;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 0px solid #000;
+    border-left: 0px solid #000;
+    border-right: 0px solid #000;
+    border-top: 10px solid #000;
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+    transform: translate(0%, 0);
+  }
+
+  .nav-bar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .nav-bar h1{
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .nav-bar a:hover {
+    background: #f1f1f1;
+    color: black;
+  }
+
+  .nav-bar a.active {
+    background-color: #d61212;
+    color: white;
+  }
+
+  #delData{
+      font-size: 25px;
+      font-family: cursive;
+      color: white;
+      width: 17vw;
+      padding: 25px;
+      position: fixed;
+      bottom: 1%;
+      left: 125px;
+      transform: translate(-125px, 0%);
+      border-top: 10px solid #000;
+      border-left: 1px solid #000;
+      background: radial-gradient(#761212 0%, #ce0808 100%);
+  }
+
+  #delData:hover{
+    background: radial-gradient(#621276 0%, #ce0cdf 100%);
+  }
+
+  .c1{
+    width: 16.5vw;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#761271 0%, #c708ce 100%);
+}
+
+.c2{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#122176 0%, #0b08ce 100%);
+}
+
+.c3{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#761241 0%, #ce0875 100%);
+}
+
+.c4{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#381276 0%, #7508ce 100%);
+}
+
+.c3 h1{
+    font-size: 25px;
+}
+
+.c3 img{
+    border: 5px solid #000;
+}
+
+.c2 h1{
+    font-size: 25px;
+}
+
+.c1 h1{
+    font-size: 25px;
+}
+
+.c2 img{
+    border: 5px solid #000;
+}
+
+.c1 img{
+    border: 5px solid #000;
+}
+
+.c5 h1{
+    font-size: 25px;
+}
+.c5{
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#12763f 0%, #08ce72 100%);
+}
+
+.HD{
+    opacity: 0;
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#5f1276 0%, #a008ce 100%);
+}
+
+.CH{
+    opacity: 0;
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#507612 0%, #93ce08 100%);
+}
+
+.DoC{
+    opacity: 0;
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#761251 0%, #ce089d 100%);
+}
+
+.FD{
+    opacity: 0;
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#1e7612 0%, #08ce08 100%);
+}
+
+.FD h2{
+    margin-bottom: 2px;
+}
+
+.CH h2{
+    margin-bottom: 2px;
+}
+
+.DoC h2{
+    margin-bottom: 2px;
+}
+.DoC img{
+    border: 5px solid #000;
+}
+
+.DoC h1{
+    font-size: 25px;
+}
+
+.FD img{
+    border: 5px solid #000;
+}
+
+.FD h1{
+    font-size: 25px;
+}
+
+
+.HD h2{
+    margin-bottom: 2px;
+}
+
+.CH h2{
+    margin-bottom: 2px;
+}
+
+.HD img{
+    border: 5px solid #000;
+}
+
+.HD h1{
+    font-size: 25px;
+}
+
+.D{
+    opacity: 1;
+    width: 16.5vw;
+    border-top: 10px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#6f7612 0%, #ceaa08 100%);
+}
+.D h1{
+    font-size: 25px;
+}
+
+.PXD{
+    opacity: 0;
+    width: 16.5vw;
+    border-top: 1px solid #000;
+    border-bottom: 10px solid #000;
+    background: radial-gradient(#507612 0%, #93ce08 100%);
+}
+
+.PXD h1{
+    font-size: 25px;
+}
+
+.PXD h1{
+    font-size: 25px;
+}
+
+.PXD h2{
+    margin-bottom: 2px;
+}
+
+
+.HDh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.FDh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.DoCh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.PXDh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.CHh6{
+    opacity:0;
+    margin: 3px;
+    color: white;
+}
+
+.Dh6{
+    opacity:1;
+    margin: 3px;
+    color: white;
+}
+
+.D h2{
+    margin-bottom: 2px;
+}
+
+.delCosData{
+    font-size: 25px;
+    font-family: cursive;
+    color: white;
+    width: 250px;
+    padding: 25px;
+    position: fixed;
+    bottom: 3%;
+    left: 125px;
+    transform: translate(-125px, 3%);
+    border-top: 10px solid #000;
+    border-left: 1px solid #000;
+    background: radial-gradient(#761212 0%, #ce0808 100%);
+}
+
+.bark{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wat{
+    overflow-y: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.wat h1{
+    padding: 0;
+}
+
+.wtpuss{
+    font-size: auto;
+    overflow-y: hidden;
+    height: inherit;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
