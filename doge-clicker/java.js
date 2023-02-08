@@ -231,7 +231,7 @@ function expCalc() {
             $(".c1tit").text("Click to equip");
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
             setTimeout(function(){
-                popup.create('msg', 'Toony Doge:<br><br>Clickpower doubled for one minute')
+                popup.create('msg', 'Clickpower doubled for one minute', 'Toony Doge:')
             }, 5000)
             unlock2 = true
         }

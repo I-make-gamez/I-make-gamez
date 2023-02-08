@@ -1,0 +1,36 @@
+.tdoge span.info1{
+    visibility: hidden;
+        position: absolute;
+        right: 0;
+        top: 0;
+        filter: alpha(opacity=50);
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        opacity: 0.6;
+
+}.tdoge{
+    visibility: hidden;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.6;
+
+}
+.info1{
+    width:20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cd{
+    visibility: visible;
+    width: 500px;
+    height: 500px;
+}
+
+a.tdoge:hover span.info1 {
+    visibility: visible;
+  }
