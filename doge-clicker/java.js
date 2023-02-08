@@ -59,7 +59,7 @@ var cos = 1;
 
 
 //Version Start
-var version = 'vb0.9.3'
+var version = 'vb0.9.4'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
@@ -163,8 +163,6 @@ cd.addEventListener('click', function () {
         } else if (powerupEnable === false) {
             popup.create('msg', 'You need to wait until the cooldown expires!', 'Wait!')
         }
-    } else {
-        popup.create('msg', '<strong style="text-align: center;">Unlocks @ Lvl 5</strong>', 'Insufficient Level!')
     }
 })
 
@@ -230,9 +228,7 @@ function expCalc() {
         if (unlock2 === false) {
             $(".c1tit").text("Click to equip");
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
-            setTimeout(function(){
-                popup.create('msg', 'Clickpower doubled for one minute', 'Toony Doge:')
-            }, 5000)
+            cd.style.filter='brightness(100%)'
             unlock2 = true
         }
     }
@@ -514,6 +510,15 @@ $(".u2").click(function () {
         cps += 1
         localStorage.setItem("clicksPs", cps)
         $(".clps").text("ClicksPerSec: " + cps)
+    }
+})
+
+$(".info1").click(function () {
+    if(plvl <5){
+        popup.create('msg', 'Unlocks @ lvl 5!', '???')
+    }else if(plvl >=5){
+        popup.create('msg', 'Clickpower doubled for one minute', 'Toony Doge:')
+
     }
 })
 
