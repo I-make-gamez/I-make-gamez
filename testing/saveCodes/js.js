@@ -24,22 +24,20 @@ function assembleCode(dogecoin, clickpower, clickspersec, lvl, xp) {
     let levl = genCode(lvl)
     let exp = genCode(xp)
     code += dc;
-    code += "rz";
+    code += "RZ";
     code += cp;
-    code += "rz";
+    code += "RZ";
     code += cps;
-    code += "rz";
+    code += "RZ";
     code += levl;
-    code += "rz";
+    code += "RZ";
     code += exp;
-    //return code.split('rz')
-    code = code.split('rz').toString()
+    return code
 }
-
 function unscrambleCode() {
     //const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     unscrambledCode = ['','','','','']
-    let o = code.split(',')
+    let o = code.split('RZ')
     for (i = 0; i < 5; i++) {
         var k = o[i].split('')
         for (j = 0; j < o.length; j++) {
