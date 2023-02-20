@@ -14,6 +14,7 @@ const clicpo = document.querySelector('.cpwr')
 //Powerup DOM
 const pu = document.querySelector('.powerups')
 const cd = document.querySelector('.cd')
+const bb = document.querySelector('.bb')
 //Version DOM
 const ver = document.querySelector('.vers')
 const cl = document.querySelector('.changelog')
@@ -51,6 +52,7 @@ var unlock2 = false;
 var unlock3 = false;
 var unlock4 = false;
 var unlock5 = false;
+var unlock6 = false;
 var coin = "Doge"
 
 var plvl = 1//"Locked";
@@ -59,15 +61,16 @@ var cos = 1;
 
 
 //Version Start
-var version = 'vb0.9.4'
+var version = 'v1.0.0'
 vers.innerHTML = `Version: ${version}`
 var page = window
 $(".av").hide()
+$(".sett").hide()
 
 page.onload = function () {
 
-    
-    
+
+
 
     ver.innerHTML = `Version: ${version}`
     clipo = Math.floor(localStorage.getItem('clickp'))
@@ -101,7 +104,7 @@ page.onload = function () {
         expCalc()
     }
     popup.create('msg', 'Ctrl + Alt + A<br>To bind a key instead of clicking', 'Alert')
-    setTimeout(function(){
+    setTimeout(function () {
         popup.create('msg', 'First 50 people to join the discord get a role :)', 'Alert')
 
     }, 5000)
@@ -146,7 +149,13 @@ $(".avs").on('click', function () {
 })
 $(".cl").click(function () {
     $(".av").fadeOut("slow")
+    $(".sett").fadeOut("slow")
     $(".doge").fadeIn("slow")
+})
+
+$(".set").on('click', function () {
+    $(".doge").fadeOut("slow")
+    $(".sett").fadeIn("slow")
 })
 
 cd.addEventListener('click', function () {
@@ -161,7 +170,26 @@ cd.addEventListener('click', function () {
                 clicpo.innerHTML = `ClickPower: ${clipo}`
             }, 60000)
         } else if (powerupEnable === false) {
-            popup.create('msg', 'You need to wait until the cooldown expires!', 'Wait!')
+            popup.create('msg', 'You need to wait until any active powerup cooldown runs out!', 'Wait!')
+        }
+    }
+})
+
+bb.addEventListener('click', function () {
+    if (plvl >= 20) {
+        if (powerupEnable === true) {
+            cps *= 2;
+            localStorage.setItem("clicksPs", cps)
+            $(".clps").text(`ClicksPerSec: ${cps}`)
+            powerupEnable = false
+            setTimeout(function () {
+                powerupEnable = true
+                cps = ogCps
+                localStorage.getItem("clicksPs", ogCps)
+                $(".clps").text(`ClicksPerSec: ${cps}`)
+            }, 60000)
+        } else if (powerupEnable === false) {
+            popup.create('msg', 'You need to wait until any active powerup cooldown runs out!', 'Wait!')
         }
     }
 })
@@ -172,7 +200,7 @@ let codes = [
 ];
 
 var ogClipo = 1
-
+var ogCps = 0
 u1.addEventListener('click', function () {
     if (doco >= dfPrice) {
         clipo += 1;
@@ -228,7 +256,7 @@ function expCalc() {
         if (unlock2 === false) {
             $(".c1tit").text("Click to equip");
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
-            cd.style.filter='brightness(100%)'
+            cd.style.filter = 'brightness(100%)'
             unlock2 = true
         }
     }
@@ -249,8 +277,16 @@ function expCalc() {
     if (plvl >= 20) {
         if (unlock5 === false) {
             $(".c4tit").text("Click to equip")
-            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
+            bb.style.filter = 'brightness(100%)'
             unlock5 = true
+        }
+    }
+    if (plvl >= 30) {
+        if (unlock6 === false) {
+            $(".c5tit").text("Click to equip")
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock6 = true
         }
     }
     localStorage.setItem('exp', exp)
@@ -351,6 +387,7 @@ if (plvl === "Locked") {
     $(".c2tit").text("Click to equip")
     $(".c3tit").text("Click to equip")
     $(".c4tit").text("Click to equip")
+    $(".c5tit").text("Click to equip")
     popup.create('msg', "All avatars are unlocked for a limited time :)", "Event - Free Avatars")
 }
 
@@ -363,6 +400,9 @@ $(".c1").click(function () {
                     $(".c3tit").text("Click to equip")
                     if (plvl >= 20 || plvl === "Locked") {
                         $(".c4tit").text("Click to equip")
+                        if(plvl >=30 || plvl === "Locked"){
+                            $(".c5tit").text("Click to equip")
+                        }
                     }
                 }
             }
@@ -399,6 +439,9 @@ $(".c2").click(function () {
                 $(".c3tit").text("Click to equip")
                 if (plvl >= 20 || plvl === "Locked") {
                     $(".c4tit").text("Click to equip")
+                    if(plvl >= 30 || plvl === "Locked") {
+                        $(".c5tit").text("Click to equip")
+                    }
                 }
             }
             $(".c1tit").text("Click to equip")
@@ -437,6 +480,9 @@ $(".c3").click(function () {
             $(".c2tit").text("Click to equip")
             if (plvl >= 20 || plvl === "Locked") {
                 $(".c4tit").text("Click to equip")
+                if(plvl >= 30 || plvl === "Locked") {
+                    $(".c5tit").text("Click to equip")
+                }
             } $(".c3tit").text("Equipped")
             $(".doge").attr({
                 "src": "assets/COS4.png"
@@ -497,6 +543,40 @@ $(".c4").click(function () {
     }
 })
 
+$(".c5").click(function () {
+    if (plvl >= 30 || plvl == "Locked") {
+        if (cos != 6) {
+            $(".c1tit").text("Click to equip")
+            $(".c2tit").text("Click to equip")
+            $(".c3tit").text("Click to equip")
+            $(".c4tit").text("Click to equip")
+            $(".c5tit").text("Equipped")
+            $(".doge").attr({
+                "src": "assets/COS6.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/COS6.png"
+            })
+            cos = 6
+            coin = "Doge"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        } else if (cos = 6) {
+            $(".c5tit").text("Click to equip")
+            $(".doge").attr({
+                "src": "assets/DOGE.png"
+            })
+            $(".dummyDoge").attr({
+                "src": "assets/DOGE.png"
+            })
+            cos = 1
+            coin = "Doge"
+            dc.innerHTML = `${coin}Coin: ${doco}`
+        }
+    } else {
+        popup.create('msg', 'You need to be level 30 to use this avatar!', 'Insufficient Level')
+    }
+})
+
 var dfacP = 1000
 var cps = 0
 runCps = false;
@@ -510,14 +590,24 @@ $(".u2").click(function () {
         cps += 1
         localStorage.setItem("clicksPs", cps)
         $(".clps").text("ClicksPerSec: " + cps)
+        ogCps = cps
     }
 })
 
 $(".info1").click(function () {
-    if(plvl <5){
+    if (plvl < 5) {
         popup.create('msg', 'Unlocks @ lvl 5!', '???')
-    }else if(plvl >=5){
+    } else if (plvl >= 5) {
         popup.create('msg', 'Clickpower doubled for one minute', 'Toony Doge:')
+
+    }
+})
+
+$(".info2").click(function () {
+    if (plvl < 20) {
+        popup.create('msg', 'Unlocks @ lvl 20!', '???')
+    } else if (plvl >= 20) {
+        popup.create('msg', 'Clicks per sec doubled for one minute', 'Breaking Bread:')
 
     }
 })
@@ -527,9 +617,147 @@ setInterval(function () {
     $(".clps").text("ClicksPerSec: " + cps)
     switch (localStorage.getItem("cps")) {
         case 'true':
-            doco += cps;
-            anim()
-            dc.innerHTML = `${coin}Coin: ${doco}`
+            switch(powerupEnable){
+                case true:
+                    doco += cps;
+                    anim()
+                    dc.innerHTML = `${coin}Coin: ${doco}`
+                    break;
+                case false:
+                    doco += cps;
+                    anim()
+                    dc.innerHTML = `${coin}Coin: ${doco}`
+                    break;
+            }
             break;
     }
 }, 1000)
+
+//SAVE CODES
+
+function genCode(num) {
+    let result = '';
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let numlen = num.toString().length;
+    for (i = 0; i < numlen; i++) {
+        var textnum = num.toString().split("")
+        if (textnum[i] === '0') {
+            result += "K"
+        } else {
+            result += characters.charAt(textnum[i] - 1);
+        }
+    }
+    return result
+}
+
+var code = ''
+var unscrambledCode = ''
+
+function assembleCode(dogecoin, clickpower, clickspersec, lvl, xp, df) {
+    code = ''
+    let dc = genCode(dogecoin);
+    let cp = genCode(clickpower)
+    let cps = genCode(clickspersec)
+    let levl = genCode(lvl)
+    let exp = genCode(xp)
+    let dfp = genCode(df)
+    code += dc;
+    code += "RZ";
+    code += cp;
+    code += "RZ";
+    code += cps;
+    code += "RZ";
+    code += levl;
+    code += "RZ";
+    code += exp;
+    code += "RZ";
+    code += dfp;
+    return code
+}
+function unscrambleCode() {
+    unscrambledCode = ['', '', '', '', '', '']
+    let o = code.split('RZ')
+    if(o.length < 5){
+        popup.create('msg', 'Please input a valid code and try again!', 'Invalid code!')
+        return;
+    }else{
+        for (i = 0; i < 6; i++) {
+            var k = o[i].split('')
+            for (j = 0; j < o.length; j++) {
+                if (k[j] === 'A') {
+                    unscrambledCode[i] += '1';
+                } else if (k[j] === 'B') {
+                    unscrambledCode[i] += '2';
+                } else if (k[j] === 'C') {
+                    unscrambledCode[i] += '3';
+                } else if (k[j] === 'D') {
+                    unscrambledCode[i] += '4';
+                } else if (k[j] === 'E') {
+                    unscrambledCode[i] += '5';
+                } else if (k[j] === 'F') {
+                    unscrambledCode[i] += '6';
+                } else if (k[j] === 'G') {
+                    unscrambledCode[i] += '7';
+                } else if (k[j] === 'H') {
+                    unscrambledCode[i] += '8';
+                } else if (k[j] === 'I') {
+                    unscrambledCode[i] += '9';
+                } else if (k[j] === 'K') {
+                    unscrambledCode[i] += '0';
+                }
+            }
+        }
+        convertCode()
+        return unscrambledCode
+    }
+    
+}
+
+function convertCode() {
+    doco = Number(unscrambledCode[0])
+    dc.innerHTML = `DogeCoin: ${doco}`
+    localStorage.setItem('tdc', doco)
+    clipo = Number(unscrambledCode[1])
+    clicpo.innerHTML = `ClickPower: ${clipo}`
+    localStorage.setItem('clickp', clipo)
+    cps = Number(unscrambledCode[2])
+    if(cps >= 1){
+        runCps = true
+    }else{
+        runCps = false
+    }
+    localStorage.setItem("cps", JSON.stringify(runCps))
+    localStorage.setItem("clicksPs", cps)
+    $(".clps").text("ClicksPerSec: " + cps)
+    plvl = Number(unscrambledCode[3])
+    localStorage.setItem('plvl', plvl)
+    exp = Number(unscrambledCode[4])
+    localStorage.setItem('exp', exp)
+    expCalc()
+    dfPrice =  Number(unscrambledCode[5])
+    localStorage.setItem('dfp', dfPrice)
+    dfCost.innerHTML = `Cost: ${dfPrice}$`;
+}
+
+$(".ddata").click(function () {
+    let ans = ask("are you sure?\n[Y/N]")
+    switch (ans) {
+        case 'Y' || 'y':
+            localStorage.clear('all')
+            location.reload();
+            break;
+        case 'N' || 'n':
+            break;
+    }
+})
+
+
+
+$(".expo").click(function () {
+    assembleCode(doco, clipo, cps, plvl, exp, dfPrice);
+    popup.create('save', code)
+})
+
+$(".impo").click(function () {
+    popup.create('importSave')
+})

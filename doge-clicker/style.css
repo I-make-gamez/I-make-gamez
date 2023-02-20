@@ -396,6 +396,12 @@ h3 {
   margin: 0px;
   padding: 0px;
   z-index: 100;
+  overflow-x: scroll;
+  scrollbar-width: none;
+}
+
+.costumes::-webkit-scrollbar{
+  display: none;
 }
 
 .c1 {
@@ -521,6 +527,37 @@ h3 {
   font-size: 1.50vw;
 }
 
+.c5 {
+  height: 27.25124792013311vh;
+  top: 0;
+  left: 83.125vw;
+  position: absolute;
+  margin: 0px;
+  text-align: center;
+  background: radial-gradient(#ff0000 0%, #bb1010 100%);
+  width: 20vw;
+  border-right: 0px solid #000;
+  transition: background-gradient 0.5s;
+
+}
+
+.c5:hover {
+  background: radial-gradient(#d30202 0%, #940d0d 100%);
+
+}
+
+.c5 h2 {
+  font-size: 1.95vw;
+}
+
+.c5 p {
+  font-size: 1.25vw;
+}
+
+.c5 h3 {
+  font-size: 1.50vw;
+}
+
 
 .dummyDoge {
   width: 15vw;
@@ -569,6 +606,225 @@ a.tdoge:hover span.info1 {
 }
 
 .cd {
+  visibility: visible;
+  width: 100px;
+  height: 100px;
+  filter: brightness(0%);
+}
+
+.sett {
+  z-index: 6;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(#0076ff 0%, #08fbff 100%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0px;
+}
+
+.st {
+  top: 0%;
+  left: 100%;
+  text-align: center;
+  transform: translate(0%, 0%);
+  margin: 0;
+  padding: 15px;
+  border-bottom: 10px solid #000;
+  font-size: 30px;
+  background: white;
+
+}
+
+.ddata {
+  border: 5px solid #000;
+  background-color: white;
+  padding: 25px;
+  top: 35%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 120px;
+  font-size: 20px;
+}
+
+.ddata:hover {
+  border: 5px solid #FFF;
+  background-color: black;
+  color: white;
+}
+
+.expo {
+  border: 5px solid #000;
+  background-color: white;
+  padding: 25px;
+  top: 35%;
+  right: 40%;
+  transform: translate(50%, -50%);
+  position: absolute;
+  width: 120px;
+  font-size: 20px;
+}
+
+.expo:hover {
+  border: 5px solid #FFF;
+  background-color: black;
+  color: white;
+}
+
+.impo {
+  border: 5px solid #000;
+  background-color: white;
+  padding: 25px;
+  bottom: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  width: 120px;
+  font-size: 20px;
+}
+
+.impo:hover {
+  border: 5px solid #FFF;
+  background-color: black;
+  color: white;
+}
+
+.spopup {
+  width: 500px;
+  height: 250px;
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(#0076ff 0%, #08fbff 100%);
+  display: none;
+  margin: 0px;
+  border: 10px solid #000;
+}
+
+.stitle {
+  text-align: center;
+  background: radial-gradient(#ff0000 0%, #bb1010 100%);
+  margin-top: 0px;
+  padding: 10px;
+  border-bottom: 10px solid #000;
+}
+
+.stext {
+  user-select: all;
+  text-align: center;
+  width: auto;
+  filter: blur(25%)
+}
+
+.stext::selection{
+  background-color: white;
+}
+
+.sclose {
+  padding: 10px;
+  text-align: center;
+  background: white;
+  margin: 0px;
+  font-family: cursive;
+  border-top: 10px solid #000;
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  outline: none;
+}
+
+.ispopup {
+  width: 500px;
+  height: 250px;
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(#0076ff 0%, #08fbff 100%);
+  display: none;
+  margin: 0px;
+  border: 10px solid #000;
+}
+
+.istitle {
+  text-align: center;
+  background: radial-gradient(#ff0000 0%, #bb1010 100%);
+  margin: 0px;
+  padding: 10px;
+  border-bottom: 10px solid #000;
+}
+
+.istext {
+  user-select: all;
+  text-align: center;
+  width: 98.5%;
+  height: 40%;
+  filter: blur(25%)
+}
+
+.istext:focus {
+  outline: none;
+}
+
+.isclose {
+  padding: 10px;
+  text-align: center;
+  background: white;
+  margin: 0px;
+  font-family: cursive;
+  border-top: 10px solid #000;
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  outline: none;
+}
+
+a.bbread:hover span.info2 {
+  visibility: visible;
+}
+
+.bbread span.info2 {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+
+}
+
+.bbread {
+  width: 120px;
+  height: 120px;
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  filter: alpha(opacity=100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+
+}
+
+.info2 {
+  width: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.bb {
   visibility: visible;
   width: 100px;
   height: 100px;
