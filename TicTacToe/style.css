@@ -54,7 +54,7 @@ h3 {
 
 .block:hover {
   cursor: pointer;
-  background: #00ffb3;
+  background: rgba(0, 0, 0, 0.269);
 }
 
 #block_0,
