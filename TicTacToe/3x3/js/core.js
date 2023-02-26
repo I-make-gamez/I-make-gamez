@@ -7,7 +7,7 @@ const player2 = "O";
 
 let turn = 1
 let board_full = false;
-let play_board = ["", "", "", "", "", "", "", "", ""];
+let play_board = ["", "", "","", "", "", "", "", "",];
 
 const board_container = document.querySelector(".play-area");
 const winner_statement = document.getElementById("winner");
@@ -54,10 +54,10 @@ const check_match = () => {
 const check_for_winner = () => {
   let res = check_match()
   if (res == player) {
-    winner.innerText = "Winner is Player!!";
+    winner.innerText = "Player 1 wins!!";
     board_full = true
   } else if (res == player2) {
-    winner.innerText = "Winner is Player 2!!";
+    winner.innerText = "Player 2 wins!!";
     board_full = true
   } else if (board_full) {
     winner.innerText = "Tie!";
