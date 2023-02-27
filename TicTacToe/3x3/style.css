@@ -11,7 +11,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #eee;
+  background: #000000;
+  color: #fff;
 }
 
 h1 {
@@ -34,9 +35,9 @@ h3 {
 
 .play-area {
   display: grid;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
   grid-template-columns: auto auto auto;
-  background-color: #fff;
+  background-color: #000000;
   padding: 20px;
 }
 
@@ -48,7 +49,7 @@ h3 {
   justify-content: center;
   font-size: 3rem;
   font-weight: bold;
-  border: 3px solid black;
+  border: 3px solid rgb(255, 255, 255);
   transition: background 0.2s ease-in-out;
 }
 
