@@ -3,7 +3,7 @@ const player2 = "O";
 
 let turn = 1
 let board_full = false;
-let play_board = ["", "", "","", "", "", "", "", "", "","", "", "", "", "", ""];
+let play_board = ["", "", "","", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ,"", "", "", "", "", "", "", "", ""];
 
 const board_container = document.querySelector(".play-area");
 const winner_statement = document.getElementById("winner");
@@ -19,31 +19,30 @@ check_board_complete = () => {
 };
 
 
-const check_line = (a, b, c, d) => {
+const check_line = (a, b, c) => {
   return (
     play_board[a] == play_board[b] &&
     play_board[b] == play_board[c] &&
-    play_board[c] == play_board[d] &&
     (play_board[a] == player || play_board[a] == player2)
   );
 };
 
 const check_match = () => {
-  for (i = 0; i < 16; i += 4) {
-    if (check_line(i, i + 1, i + 2, i + 3)) {
+  for (i = 0; i < 9; i += 3) {
+    if (check_line(i, i + 1, i + 2)) {
       return play_board[i];
     }
   }
   for (i = 0; i < 3; i++) {
-    if (check_line(i, i + 4, i + 8, i + 12)) {
+    if (check_line(i, i + 3, i + 6)) {
       return play_board[i];
     }
   }
-  if (check_line(0, 5, 10, 15)) {
+  if (check_line(0, 4, 8)) {
     return play_board[0];
   }
-  if (check_line(3, 6, 9, 12)) {
-    return play_board[3];
+  if (check_line(2, 4, 6)) {
+    return play_board[2];
   }
   return "";
 };
@@ -67,7 +66,7 @@ const render_board = () => {
   play_board.forEach((e, i) => {
     board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`
     if (e == player || e == player2) {
-      document.querySelector(`#block_${i}`).classList.add("occupied");
+      document.querySelector(`#sblock_${i}`).classList.add("occupied");
     }
   });
 };
@@ -96,8 +95,8 @@ const addPlayerMove = e => {
   }
 };
 
-const reset_board = () => {
-  play_board = ["", "", "","", "", "", "", "", "", "","", "", "", "", "", ""];
+/*const reset_board = () => {
+  play_board = ["", "", "","", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ,"", "", "", "", "", "", "", "", ""];
   board_full = false;
   turn = 1;
   winner.classList.remove("playerWin");
@@ -105,7 +104,7 @@ const reset_board = () => {
   winner.classList.remove("draw");
   winner.innerText = "";
   render_board();
-};
+};*/
 
 //initial render
-render_board();
+//render_board();
