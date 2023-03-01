@@ -1,0 +1,12 @@
+.game{
+    border: 3px solid #ffffff;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body{
+    background-color: black;
+}
