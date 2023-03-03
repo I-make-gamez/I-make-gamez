@@ -114,7 +114,7 @@ function loop() {
         break;
 
     }
-  }, getRandomInt(2500, 7500))
+  }, getRandomInt(5000, 15000))
 
   if (snake.cells.length > snake.maxCells) {
     snake.cells.pop();
@@ -157,6 +157,14 @@ function loop() {
   context.fillStyle = 'red';
   enemy.cells.forEach(function (cell, index) {
     context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
+    snake.cells.forEach(function(ecell, eindex){
+      for (var i = eindex + 1; i < snake.cells.length; i++) {
+        if (snake.cells[i].x === cell.x && snake.cells[i].y === cell.y) {
+          snake.cells = []
+          snake.maxCells--
+        }
+      }
+    })
   });
 }
 
