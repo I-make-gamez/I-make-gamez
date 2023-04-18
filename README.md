@@ -12,5 +12,5 @@
  
 - 😄 Pronouns: He/Him
 
-- ⚡ Fun fact: I'm 15 y/o
+- ⚡ Fun fact: I'm 16 y/o
 
