@@ -8,6 +8,25 @@ body {
   text-align: center;
 }
 
+body {
+	background: linear-gradient(-45deg, #ff0000, #e73c7e, #23a6d5, #2923d5);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	/* height: 100vh; */
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 @import url(//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS);
 
 @font-face {
@@ -16,202 +35,132 @@ body {
   src: url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.woff") format("woff"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/7cc6719bd5f0310be3150ba33418e72e.svg#Comic Sans MS") format("svg");
 }
 
-#cssmenu
-{
-position: absolute;
-    top:0;
-    left:0;
-    width:100vw;
-    display:block;
-    text-align:center;
-    font-family:cursive;
-    line-height:1.2;
+* {
     margin: 0;
-    border-bottom: 10px solid #000;
-}
-#cssmenu ul
-{
-    width:auto;
-    display:block;
-    font-size:0;
-    text-align:center;
-    color:#000000;
-    background: #046bd2;
-    border: transparent;
-    margin:0; 
-    padding:0;
-    list-style:none;
-    position:relative;
-    z-index:999999990;
-    border-radius: 0px;
-} 
-
-#cssmenu li
-{
-    display:inline-block;
-    position:relative;    
-    font-size:0; 
-    margin:0;
-    padding:0;
+    padding: 0;
 }
 
-/*Top level items
----------------------------------------*/
-
-#cssmenu >ul>li>span, #cssmenu >ul>li>a 
-{   
-    font-size:22px;
-    color:inherit;
-    text-decoration:none;
-    padding:20px 20px; 
-    font-weight:400;
-    text-transform:uppercase;
-    letter-spacing:2px;   
-    display:block;   
-    position:relative;
-    transition:all 0.3s;
-}
-#cssmenu li:hover > span, #cssmenu li:hover > a
-{  
-    color:#FFFFFF;
-    background-color:#000000;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-behavior: smooth;
 }
 
-/*Sub level items
----------------------------------------*/
-#cssmenu .dropdown
-{
-    text-align:left;
-    left:0;
-    font-family:inherit;
-    color: #222222;
-    background-color:#FFFFFF;
-    border:none;
-    position:absolute;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    display:none;
-    opacity:0;
-    cursor:default;
+h1 a {
+  color: #000000;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-#cssmenu .dropdown li {
-    display: block;  
+.popover {
+   display: none;
+   box-shadow: 0px 6px 8px rgba(19, 19, 19, .7);
 }
 
-#cssmenu .dropdown li > span, #cssmenu .dropdown li > a, #cssmenu .clm a, #cssmenu .clm h3 
-{
-    font-size:16px;
-    font-weight:400;
-    font-family:inherit;
-    margin:0;
-    padding:8px 20px; 
-    display:block;
-    color:inherit;
-    text-decoration:none;
-}
-#cssmenu .clm h3 {
-    font-size:20px;
-    font-weight:700;
-}
-#cssmenu .sub-item {
-    background-color:#FFFFFF;
-    position:relative;       
-    transition:all 0.3s;
+.popover:target {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#cssmenu .dropdown li:hover > span, #cssmenu .dropdown li:hover > a
-{
-
-    color:#000000;
-    background-color:#EEEEEE;
+.popover .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 0;
+  height: 0;
+  color: #fff;
+  background-color: #191919;
+  animation: 1s grow ease forwards;
+  text-align: center;
 }
 
-#cssmenu .clm a:hover
-{
-    color:#000000;
-    transition:color 0.2s;
+.nav_list  {
+  list-style-type: none;
 }
 
-#cssmenu .dropdown.right0 {left:auto;right:0;} 
-#cssmenu .dropdown li > .dropdown.right0 {left:auto;right:100%;} 
-       
-#cssmenu li.full-width{
-    position:static;
-}
-#cssmenu li.full-width .dropdown{
-    width:100%;
-    left:0;
-    box-sizing:border-box;
-}  
-
-#cssmenu li:hover > .dropdown
-{
-    display:block;
-    opacity:1;
-    z-index:1;
+.nav_list a {
+  text-decoration: none;
+  color: #fff;
 }
 
-#cssmenu .dropdown li > .dropdown
-{
-    left:100%; right:auto;
-    top:0;
+.nav_list_item {
+  height: 100%;
+  overflow: hidden;
 }
 
-#cssmenu ul.dropdown
-{
-    min-width:240px; /* Sub level menu min width */
+.nav_list li {
+  padding: 15px 0;
+  text-transform: uppercase;
+  transform: translateY(200px);
+  opacity: 0;
+  animation: 2s slideUp ease forwards .5s;
+  position: relative;
 }
 
-#cssmenu div.dropdown  {
-    text-align:center;
+.nav_list li::before {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0px;
+  left: 0;
+  bottom: 10px;
+  background: #ffffff; 
+  transition: all .5s ease;
 }
 
-/* each column */
-#cssmenu .clm
-{
-    text-align:left;
-    margin:20px;
-    vertical-align:top;/*or middle*/
-    width:auto;
-    min-width:240px;
-    display:inline-block;
-    *display:inline;*zoom:1;
+.nav_list li:hover:before {
+      width: 100%;
 }
 
-#cssmenu .clm a:hover
-{
-    color:#000000;
-    text-decoration:underline;
+.popover p {
+  padding: 50px;
+  opacity: 0;
+  animation: 1s fadeIn ease forwards 1s;
 }
 
-/*-----------Arrows----------------*/
-#cssmenu .arrow {
-    color:inherit;
-    border-style:solid; border-width:2px 2px 0 0; padding:5px; transform:rotate(135deg);margin-top:-10px;margin-left:5px;
-    position:relative;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    vertical-align:middle;
-    overflow:hidden;/*for IE6*/
+.popover .close::after {
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  background-color: #e94141;
+  color: #fff;
+  content: "×";
+  cursor: pointer;
+  opacity: 0; 
+  animation: 1s fadeIn ease forwards .5s;
 }
-        
-#cssmenu .dropdown .arrow {
-    transform:rotate(45deg);
-    top:50%;margin-top:-7px;
-    position:absolute;left:auto;right:20px;
-} 
 
-
-
-@keyframes topItemAnimation{
-  from {opacity: 0;  transform:translate3d(-16%, 0, 0);}
-  to {opacity: 1; transform:translate3d(0, 0, 0);}
+@keyframes grow {
+  100% {
+    height: 90%;
+    width: 90%;
+ }
 }
-#cssmenu li a {animation:none;}
-#cssmenu.active li a { animation: topItemAnimation 0.5s ease 0.5s backwards;}
-#cssmenu.active li:nth-of-type(1) a { animation: topItemAnimation 0.5s ease 0.08333333333333333s backwards;}
-#cssmenu.active li:nth-of-type(2) a { animation: topItemAnimation 0.5s ease 0.16666666666666666s backwards;}
-#cssmenu.active li:nth-of-type(3) a { animation: topItemAnimation 0.5s ease 0.25s backwards;}
-#cssmenu.active li:nth-of-type(4) a { animation: topItemAnimation 0.5s ease 0.3333333333333333s backwards;}
-#cssmenu.active li:nth-of-type(5) a { animation: topItemAnimation 0.5s ease 0.4166666666666667s backwards;}@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { #cssmenu.active li a{animation:none!important;}}
+
+@keyframes fadeIn {
+100% {
+  opacity: 1;
+ }
+}
+
+@keyframes slideUp {
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
