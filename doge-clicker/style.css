@@ -200,13 +200,47 @@ body {
 .changelog p {
   overflow-y: scroll;
   scrollbar-width: none;
+  scroll-behavior: smooth;
+
 }
 
 .changelog p::-webkit-scrollbar {
   display: none;
 }
 
+.sel {
+  display: flex;
+  width: 100%;
+  /* height: auto; */
+  margin-bottom: 0;
+  position: relative;
+  bottom: 0;
+  border-top: 10px solid #000;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 50px;
+  align-self: stretch;
+}
+
+.sel button {
+  background-color: white;
+  border: 0;
+  height: 100%;
+  width:fit-content;
+  flex: auto;
+  border-right: 10px solid #000;
+  font-size: large;
+}
+
+.fwd {
+  justify-self: baseline;
+  border: none !important;
+}
 .ex {
+  font-family: 'Comic Sans MS';
+}
+
+/* .ex {
   margin-bottom: 0px;
   position: fixed;
   bottom: 0px;
@@ -223,7 +257,7 @@ body {
   font-size: 1.50vw;
   bottom: 0px;
   right: 0px;
-}
+} */
 
 /*Stats*/
 .stats {
@@ -315,14 +349,15 @@ body {
 
 .popup {
   width: 500px;
-  height: 250px;
+  height: fit-content !important ;
   z-index: 1000;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: radial-gradient(#0076ff 0%, #08fbff 100%);
-  display: none;
+  display: flex;
+  align-items: center;
   margin: 0px;
   border: 10px solid #000;
 }
@@ -338,7 +373,9 @@ body {
 .text {
   text-align: center;
   width: auto;
-  filter: blur(25%)
+  height: fit-content !important;
+  overflow: visible;
+  margin-bottom: 75px;
 }
 
 .close {
@@ -385,7 +422,7 @@ h3 {
 }
 
 .costumes {
-  height: 27.25124792013311vh;
+  height: 28.25124792013311vh;
   position: absolute;
   left: 50%;
   top: 10vh;
@@ -400,12 +437,12 @@ h3 {
   scrollbar-width: none;
 }
 
-.costumes::-webkit-scrollbar{
+.costumes::-webkit-scrollbar {
   display: none;
 }
 
 .c1 {
-  height: 27.25124792013311vh;
+  height: 28.25124792013311vh;
   top: 0;
   position: absolute;
   margin: 0px;
@@ -435,7 +472,7 @@ h3 {
 }
 
 .c2 {
-  height: 27.25124792013311vh;
+  height: 28.25124792013311vh;
   top: 0;
   left: 20.78125vw;
   position: absolute;
@@ -466,7 +503,7 @@ h3 {
 }
 
 .c3 {
-  height: 27.25124792013311vh;
+  height: 28.25124792013311vh;
   top: 0;
   left: 41.5625vw;
   position: absolute;
@@ -497,7 +534,7 @@ h3 {
 }
 
 .c4 {
-  height: 27.25124792013311vh;
+  height: 28.25124792013311vh;
   top: 0;
   left: 62.34375vw;
   position: absolute;
@@ -528,7 +565,7 @@ h3 {
 }
 
 .c5 {
-  height: 27.25124792013311vh;
+  height: 28.25124792013311vh;
   top: 0;
   left: 83.125vw;
   position: absolute;
@@ -720,7 +757,7 @@ a.tdoge:hover span.info1 {
   filter: blur(25%)
 }
 
-.stext::selection{
+.stext::selection {
   background-color: white;
 }
 

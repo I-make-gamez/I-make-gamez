@@ -50,28 +50,15 @@ var vh = page.innerHeight
 var powerupEnable = true;
 var unlock2 = false;
 var unlock3 = false;
-var unlock4 = false;
+var unlock4 = true;
 var unlock5 = false;
 var unlock6 = false;
 var coin = "Doge"
 
-var plvl = 1//"Locked";
+var plvl = 1;//"Locked"
 var cos = 1;
 
-
-
-//Version Start
-var version = 'v1.0.0'
-vers.innerHTML = `Version: ${version}`
-var page = window
-$(".av").hide()
-$(".sett").hide()
-
 page.onload = function () {
-
-
-
-
     ver.innerHTML = `Version: ${version}`
     clipo = Math.floor(localStorage.getItem('clickp'))
     clicpo.innerHTML = `ClickPower: ${clipo}`
@@ -103,11 +90,14 @@ page.onload = function () {
         ec.innerHTML = `Exp: ${exp} / ${expCap}`
         expCalc()
     }
-    popup.create('msg', 'Ctrl + Alt + A<br>To bind a key instead of clicking', 'Alert')
-    setTimeout(function () {
+    popup.create('msg', 'Ctrl + Alt + A<br>To bind a key instead of clicking', 'Alert');
+    $(".close").click(() => {
         popup.create('msg', 'First 50 people to join the discord get a role :)', 'Alert')
-
-    }, 5000)
+        $(".close").click(() => {
+            popup.create('msg', "It has come to my attention that Balltze (Cheems) has passed away.<br>Because of this I've decided to permanently unlock cheems.<br>R.I.P", 'Alert')
+            close()
+        })
+    })
 }
 
 
@@ -196,7 +186,6 @@ bb.addEventListener('click', function () {
 
 let codes = [
     1807,
-    0906,
 ];
 
 var ogClipo = 1
@@ -267,10 +256,9 @@ function expCalc() {
             unlock3 = true
         }
     }
-    if (plvl >= 15) {
-        if (unlock4 === false) {
+    if (plvl >= 0) {
+        if (unlock4 === true) {
             $(".c3tit").text("Click to equip")
-            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             unlock4 = true
         }
     }
@@ -400,7 +388,7 @@ $(".c1").click(function () {
                     $(".c3tit").text("Click to equip")
                     if (plvl >= 20 || plvl === "Locked") {
                         $(".c4tit").text("Click to equip")
-                        if(plvl >=30 || plvl === "Locked"){
+                        if (plvl >= 30 || plvl === "Locked") {
                             $(".c5tit").text("Click to equip")
                         }
                     }
@@ -439,7 +427,7 @@ $(".c2").click(function () {
                 $(".c3tit").text("Click to equip")
                 if (plvl >= 20 || plvl === "Locked") {
                     $(".c4tit").text("Click to equip")
-                    if(plvl >= 30 || plvl === "Locked") {
+                    if (plvl >= 30 || plvl === "Locked") {
                         $(".c5tit").text("Click to equip")
                     }
                 }
@@ -474,14 +462,18 @@ $(".c2").click(function () {
 })
 
 $(".c3").click(function () {
-    if (plvl >= 15 || plvl == "Locked") {
+    if (plvl >= 0 || plvl == "Locked") {
         if (cos != 4) {
-            $(".c1tit").text("Click to equip")
-            $(".c2tit").text("Click to equip")
-            if (plvl >= 20 || plvl === "Locked") {
-                $(".c4tit").text("Click to equip")
-                if(plvl >= 30 || plvl === "Locked") {
-                    $(".c5tit").text("Click to equip")
+            if (plvl >= 5 || plvl === "Locked") {
+                $(".c1tit").text("Click to equip")
+                if (plvl >= 20 || plvl === "Locked") {
+                    $(".c2tit").text("Click to equip")
+                    if (plvl >= 20 || plvl === "Locked") {
+                        $(".c4tit").text("Click to equip")
+                        if (plvl >= 30 || plvl === "Locked") {
+                            $(".c5tit").text("Click to equip")
+                        }
+                    }
                 }
             } $(".c3tit").text("Equipped")
             $(".doge").attr({
@@ -617,7 +609,7 @@ setInterval(function () {
     $(".clps").text("ClicksPerSec: " + cps)
     switch (localStorage.getItem("cps")) {
         case 'true':
-            switch(powerupEnable){
+            switch (powerupEnable) {
                 case true:
                     doco += cps;
                     anim()
@@ -677,10 +669,10 @@ function assembleCode(dogecoin, clickpower, clickspersec, lvl, xp, df) {
 function unscrambleCode() {
     unscrambledCode = ['', '', '', '', '', '']
     let o = code.split('RZ')
-    if(o.length < 5){
+    if (o.length < 5) {
         popup.create('msg', 'Please input a valid code and try again!', 'Invalid code!')
         return;
-    }else{
+    } else {
         for (i = 0; i < 6; i++) {
             var k = o[i].split('')
             for (j = 0; j < o.length; j++) {
@@ -710,7 +702,7 @@ function unscrambleCode() {
         convertCode()
         return unscrambledCode
     }
-    
+
 }
 
 function convertCode() {
@@ -721,9 +713,9 @@ function convertCode() {
     clicpo.innerHTML = `ClickPower: ${clipo}`
     localStorage.setItem('clickp', clipo)
     cps = Number(unscrambledCode[2])
-    if(cps >= 1){
+    if (cps >= 1) {
         runCps = true
-    }else{
+    } else {
         runCps = false
     }
     localStorage.setItem("cps", JSON.stringify(runCps))
@@ -734,7 +726,7 @@ function convertCode() {
     exp = Number(unscrambledCode[4])
     localStorage.setItem('exp', exp)
     expCalc()
-    dfPrice =  Number(unscrambledCode[5])
+    dfPrice = Number(unscrambledCode[5])
     localStorage.setItem('dfp', dfPrice)
     dfCost.innerHTML = `Cost: ${dfPrice}$`;
 }
@@ -760,4 +752,93 @@ $(".expo").click(function () {
 
 $(".impo").click(function () {
     popup.create('importSave')
+})
+
+
+var logs = new Map()
+logs.set('current', {
+    'name': 'v1.1',
+    'content': '1) Quality of life changes<br><br>2) User-Friendly Changelog<br><br>3) Cheems permanently unlocked. RIP'
+})
+logs.set(9, {
+    'name': 'v1.0.0',
+    'content': "1) You can now move data across devices via save codes<br><br>2) Added settings tab<br><br>3) Added Breaking Bread powerup<br><br>4) Added Delete data button<br><br>5) Added Meth Addict avatar"
+})
+logs.set(8, {
+    'name': 'vb9.4',
+    'content': '1) You can click on powerups to find more info about them<br><br>2) Powerups will now be blacked out until you reach the propper level required.<br><br>3) Bug fixes :) '
+})
+logs.set(7, {
+    'name': 'vb9.3',
+    'content': '1) Changes to toony doge powerup'
+})
+logs.set(6, {
+    'name': 'vb9.2',
+    'content': '1) Removed drag from doge :)<br><br>2) Alerts now show in order of priority'
+})
+logs.set(5, {
+    'name': 'vb9.1',
+    'content': '1) Re-enabled leveling'
+})
+logs.set(4, {
+    'name': 'vb9',
+    'content': '1) Implemented "Factory Worker" powerup!<br><br>2) Level Progress now saves!<br><br>3) Fun coin names with costumes<br><br>4) You can now set a keybind instead of clicking (will not save on reload)<br><br>5) Moved the game to "/doge-clicker"'
+})
+logs.set(3, {
+    'name': 'vb8.2',
+    'content': '1) All avatars unlocked until monday Nov. 28th<br><br>2) Recoded the entire avatar selection system'
+})
+logs.set(2, {
+    'name': 'vb8.1',
+    'content': '1) Added data deletion ability. Type ctrl + alt + i for more info<br><br>2) DogeCoin no longer resets on reload'
+})
+logs.set(1, {
+    'name': 'vb8',
+    'content': '1) You can now scroll the changelog w/o that pesky scrollbar ;)<br><br>2) Clickpower now saves on exit.<br><br>3) Removed ability to drag alerts.<br><br>4) Fixed the issue where toony doge doesnt display on av selection screen.5) Added version history to changelog'
+})
+
+
+var version = `${logs.get('current').name}`
+vers.innerHTML = `Version: ${version}`
+var page = window
+$('.chl').html(logs.get('current').content)
+$(".av").hide()
+$(".sett").hide()
+var that = logs.size
+
+console.log(Object.keys(logs).length)
+
+$('.fwd').click(() => {
+    if (that != 1) {
+        that--
+        var version = `${logs.get(that).name}`
+        vers.innerHTML = `Version: ${version}`
+        $('.chl').html(logs.get(that).content)
+    } else {
+        that = logs.size
+        var version = `${logs.get('current').name}`
+        vers.innerHTML = `Version: ${version}`
+        $('.chl').html(logs.get('current').content)
+    }
+})
+
+$('.bck').click(() => {
+    if (that != logs.size) {
+        if (that != logs.size - 1) {
+            that++
+            var version = `${logs.get(that).name}`
+            vers.innerHTML = `Version: ${version}`
+            $('.chl').html(logs.get(that).content)
+        } else {
+            that = logs.size
+            var version = `${logs.get('current').name}`
+            vers.innerHTML = `Version: ${version}`
+            $('.chl').html(logs.get('current').content)
+        }
+    } else {
+        that = 1
+        var version = `${logs.get(1).name}`
+        vers.innerHTML = `Version: ${version}`
+        $('.chl').html(logs.get(1).content)
+    }
 })

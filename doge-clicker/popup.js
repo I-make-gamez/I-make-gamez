@@ -49,7 +49,13 @@ function Popup() {
 this.order = 1;
 }
 
-
+function close() {
+    $(".close").click(() => {
+        const pop = document.querySelector('.popup')
+        pop.style.display = 'none'
+        popup.order -= 1        
+    })
+}
 
 document.querySelector('.close').addEventListener('click', function () {
     const pop = document.querySelector('.popup')
