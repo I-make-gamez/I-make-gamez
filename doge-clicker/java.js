@@ -20,7 +20,7 @@ const cl = document.querySelector('.changelog')
 const ex = document.querySelector('.ex')
 const vers = document.querySelector('.ver')
 //Beta Avatars
-let disabled = true;
+let disabled = false;
 
 function initializeDoco() {
     doco = Math.abs(localStorage.getItem('tdc'))
@@ -49,12 +49,6 @@ localStorage.setItem('dep', doExpProgression)
 var vw = page.innerWidth
 var vh = page.innerHeight
 var powerupEnable = true;
-var unlock2 = false;
-var unlock3 = false;
-var unlock4 = true;
-var unlock5 = false;
-var unlock6 = false;
-var coin = "Doge"
 
 var plvl = 1;//"Locked"
 var cos = 1;
@@ -240,42 +234,7 @@ function expCalc() {
         localStorage.setItem('plvl', plvl)
         localStorage.setItem('expCap', expCap)
     }
-    if (plvl >= 5) {
-        if (unlock2 === false) {
-            $(".c1tit").text("Click to equip");
-            popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
-            cd.style.filter = 'brightness(100%)'
-            unlock2 = true
-        }
-    }
-    if (plvl >= 10) {
-        if (unlock3 === false) {
-            $(".c2tit").text("Click to equip")
-            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
-            unlock3 = true
-        }
-    }
-    if (plvl >= 0) {
-        if (unlock4 === true) {
-            $(".c3tit").text("Click to equip")
-            unlock4 = true
-        }
-    }
-    if (plvl >= 20) {
-        if (unlock5 === false) {
-            $(".c4tit").text("Click to equip")
-            popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
-            bb.style.filter = 'brightness(100%)'
-            unlock5 = true
-        }
-    }
-    if (plvl >= 30) {
-        if (unlock6 === false) {
-            $(".c5tit").text("Click to equip")
-            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
-            unlock6 = true
-        }
-    }
+    checkLevel()
     localStorage.setItem('exp', exp)
 }
 
@@ -335,8 +294,12 @@ document.onkeyup = function (e) {
             }
         }
     } else if (e.ctrlKey && e.altKey && e.key === 'u') {
-        popup.create("msg", `Thanks for testing this out!<br>If you notice any bugs please make an issue request or contact me through discord!<br><br>Thx, -NitTwit`, 'Beta avatar selection enabled')
-        disabled = false
+        if (disabled) {
+            popup.create("msg", `Thanks for testing this out!<br>If you notice any bugs please make an issue request or contact me through discord!<br><br>Thx, -NitTwit`, 'Beta avatar selection enabled')
+            disabled = false
+        } else {
+            return;
+        }
     } else if (e.ctrlKey && e.altKey && e.key === 'a') {
         key = ask("Enter any key")
     } else if (e.key === key) {
@@ -757,6 +720,10 @@ $(".impo").click(function () {
 
 var logs = new Map()
 logs.set('current', {
+    'name': 'v1.21',
+    'content': '1) Working on costumes'
+})
+logs.set(11, {
     'name': 'v1.2',
     'content': `1) Fixed changelog button positions<br><br>2) Avatar selection system closed. To re-enable type ctrl+alt+u<br><br>3) Removed Balltze notice<br><br>4) Added "Help" section<br><br>5) Added general info to help`
 })
@@ -765,7 +732,7 @@ logs.set(10, {
     'content': '1) Quality of life changes<br><br>2) User-Friendly Changelog<br><br>3) Cheems permanently unlocked. RIP'
 })
 logs.set(9, {
-    'name': 'v1.0.0',
+    'name': 'v1.0',
     'content': "1) You can now move data across devices via save codes<br><br>2) Added settings tab<br><br>3) Added Breaking Bread powerup<br><br>4) Added Delete data button<br><br>5) Added Meth Addict avatar"
 })
 logs.set(8, {
@@ -843,3 +810,56 @@ $('.bck').click(() => {
         $('.chl').html(logs.get(1).content)
     }
 })
+
+// Avatar selection system 
+
+var unlock2 = false;
+var unlock3 = false;
+var unlock4 = true;
+var unlock5 = false;
+var unlock6 = false;
+var coin = "Doge"
+
+var costumes = new Map();
+costumes.set(3, true)
+costumes.set('default', true)
+
+function checkLevel() {
+    if (plvl >= 5) {
+        if (unlock2 === false) {
+            costumes.set(1, true)
+            popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
+            cd.style.filter = 'brightness(100%)'
+            unlock2 = true
+        }
+    }
+    if (plvl >= 10) {
+        if (unlock3 === false) {
+            costumes.set(2, true)
+            $(".c2tit").text("Click to equip")
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock3 = true
+        }
+    }
+    if (plvl >= 0) {
+        if (unlock4 === true) {
+            $(".c3tit").text("Click to equip")
+            unlock4 = true
+        }
+    }
+    if (plvl >= 20) {
+        if (unlock5 === false) {
+            $(".c4tit").text("Click to equip")
+            popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
+            bb.style.filter = 'brightness(100%)'
+            unlock5 = true
+        }
+    }
+    if (plvl >= 30) {
+        if (unlock6 === false) {
+            $(".c5tit").text("Click to equip")
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock6 = true
+        }
+    }
+}

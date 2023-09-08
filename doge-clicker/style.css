@@ -49,10 +49,9 @@ body {
 .doge {
   width: 15vw;
   position: absolute;
-  top: 49.5vh;
+  top: 50vh;
   left: 50vw;
   transform: translate(-50%, -50%);
-
 }
 
 .doge:active {
@@ -346,6 +345,8 @@ body {
   transform: translate(-50%, -50%);
   padding: 0px;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .popup {
@@ -598,9 +599,9 @@ h3 {
 
 
 .dummyDoge {
+  display: flex;
   width: 15vw;
   align-self: center;
-  justify-self: flex-start;
   z-index: 100;
   opacity: 1;
 }
