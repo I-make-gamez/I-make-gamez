@@ -7,7 +7,6 @@ const wbg = document.querySelector('.wbg')
 //Upgrade DOM
 const ec = document.querySelector('.ec')
 const lvl = document.querySelector('.lvl')
-
 const u1 = document.querySelector('.u1')
 const dfCost = document.querySelector('.dfCost')
 const clicpo = document.querySelector('.cpwr')
@@ -20,6 +19,8 @@ const ver = document.querySelector('.vers')
 const cl = document.querySelector('.changelog')
 const ex = document.querySelector('.ex')
 const vers = document.querySelector('.ver')
+//Beta Avatars
+let disabled = true;
 
 function initializeDoco() {
     doco = Math.abs(localStorage.getItem('tdc'))
@@ -90,14 +91,8 @@ page.onload = function () {
         ec.innerHTML = `Exp: ${exp} / ${expCap}`
         expCalc()
     }
-    popup.create('msg', 'Ctrl + Alt + A<br>To bind a key instead of clicking', 'Alert');
-    $(".close").click(() => {
-        popup.create('msg', 'First 50 people to join the discord get a role :)', 'Alert')
-        $(".close").click(() => {
-            popup.create('msg', "It has come to my attention that Balltze (Cheems) has passed away.<br>Because of this I've decided to permanently unlock cheems.<br>R.I.P", 'Alert')
-            close()
-        })
-    })
+
+    popup.create('msg', 'First 50 people to join the discord get a role :)', 'Alert')
 }
 
 
@@ -134,8 +129,12 @@ doge.addEventListener('click', function () {
 });
 
 $(".avs").on('click', function () {
-    $(".doge").fadeOut("slow")
-    $(".av").fadeIn("slow")
+    if (!disabled) {
+        $(".doge").fadeOut("slow")
+        $(".av").fadeIn("slow")
+    } else {
+        popup.create('msg', 'The avatar selection system is currently disabled while I redesign it. Check back soon!', 'Disabled')
+    }
 })
 $(".cl").click(function () {
     $(".av").fadeOut("slow")
@@ -335,8 +334,9 @@ document.onkeyup = function (e) {
                     break;
             }
         }
-    } else if (e.ctrlKey && e.altKey && e.key === 'i') {
-        popup.create("msg", `1) Type Ctrl + Alt + M<br>2) Type "del"<br>3) You're done!`, 'How to delete data:')
+    } else if (e.ctrlKey && e.altKey && e.key === 'u') {
+        popup.create("msg", `Thanks for testing this out!<br>If you notice any bugs please make an issue request or contact me through discord!<br><br>Thx, -NitTwit`, 'Beta avatar selection enabled')
+        disabled = false
     } else if (e.ctrlKey && e.altKey && e.key === 'a') {
         key = ask("Enter any key")
     } else if (e.key === key) {
@@ -757,6 +757,10 @@ $(".impo").click(function () {
 
 var logs = new Map()
 logs.set('current', {
+    'name': 'v1.2',
+    'content': `1) Fixed changelog button positions<br><br>2) Avatar selection system closed. To re-enable type ctrl+alt+u<br><br>3) Removed Balltze notice<br><br>4) Added "Help" section<br><br>5) Added general info to help`
+})
+logs.set(10, {
     'name': 'v1.1',
     'content': '1) Quality of life changes<br><br>2) User-Friendly Changelog<br><br>3) Cheems permanently unlocked. RIP'
 })
@@ -800,13 +804,10 @@ logs.set(1, {
 
 var version = `${logs.get('current').name}`
 vers.innerHTML = `Version: ${version}`
-var page = window
 $('.chl').html(logs.get('current').content)
 $(".av").hide()
 $(".sett").hide()
 var that = logs.size
-
-console.log(Object.keys(logs).length)
 
 $('.fwd').click(() => {
     if (that != 1) {

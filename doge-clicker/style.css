@@ -213,7 +213,7 @@ body {
   width: 100%;
   /* height: auto; */
   margin-bottom: 0;
-  position: relative;
+  position: absolute;
   bottom: 0;
   border-top: 10px solid #000;
   flex-direction: row;
@@ -345,6 +345,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0px;
+  display: flex;
 }
 
 .popup {
@@ -598,10 +599,8 @@ h3 {
 
 .dummyDoge {
   width: 15vw;
-  position: absolute;
-  top: 49.5vh;
-  left: 50vw;
-  transform: translate(-50%, -50%);
+  align-self: center;
+  justify-self: flex-start;
   z-index: 100;
   opacity: 1;
 }
