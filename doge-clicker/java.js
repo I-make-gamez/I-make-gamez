@@ -124,16 +124,17 @@ doge.addEventListener('click', function () {
 
 $(".avs").on('click', function () {
     if (!disabled) {
-        $(".doge").fadeOut("slow")
         $(".av").fadeIn("slow")
+        $(".doge").fadeOut("slow")
     } else {
         popup.create('msg', 'The avatar selection system is currently disabled while I redesign it. Check back soon!', 'Disabled')
     }
 })
 $(".cl").click(function () {
-    $(".av").fadeOut("slow")
     $(".sett").fadeOut("slow")
-    $(".doge").fadeIn("slow")
+    $(".doge").fadeIn('slow')
+    $(".av").fadeOut("slow")
+
 })
 
 $(".set").on('click', function () {
@@ -203,8 +204,8 @@ u1.addEventListener('click', function () {
 //Functtions Start
 
 function anim() {
-    switch (cos) {
-        case 1:
+    switch (e) {
+        case false:
             $(".doge").attr({
                 "src": "assets/DOGE2.png"
             })
@@ -334,203 +335,9 @@ function test() {
 var key;
 
 if (plvl === "Locked") {
-    $(".c1tit").text("Click to equip")
-    $(".c2tit").text("Click to equip")
-    $(".c3tit").text("Click to equip")
-    $(".c4tit").text("Click to equip")
-    $(".c5tit").text("Click to equip")
+
     popup.create('msg', "All avatars are unlocked for a limited time :)", "Event - Free Avatars")
 }
-
-$(".c1").click(function () {
-    if (plvl >= 5 || plvl == "Locked") {
-        if (cos != 2) {
-            if (plvl >= 10 || plvl === "Locked") {
-                $(".c2tit").text("Click to equip")
-                if (plvl >= 15 || plvl === "Locked") {
-                    $(".c3tit").text("Click to equip")
-                    if (plvl >= 20 || plvl === "Locked") {
-                        $(".c4tit").text("Click to equip")
-                        if (plvl >= 30 || plvl === "Locked") {
-                            $(".c5tit").text("Click to equip")
-                        }
-                    }
-                }
-            }
-            $(".c1tit").text("Equipped")
-            $(".doge").attr({
-                "src": "assets/COS3.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/COS3.png"
-            })
-            cos = 2
-            coin = "Buff"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        } else if (cos = 2) {
-            $(".c1tit").text("Click to equip")
-            $(".doge").attr({
-                "src": "assets/DOGE.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/DOGE.png"
-            })
-            cos = 1
-            coin = "Doge"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        }
-    } else {
-        popup.create('msg', 'You need to be level 5 to use this avatar!', 'Insufficient Level')
-    }
-})
-$(".c2").click(function () {
-    if (plvl >= 10 || plvl == "Locked") {
-        if (cos != 3) {
-            if (plvl >= 15 || plvl === "Locked") {
-                $(".c3tit").text("Click to equip")
-                if (plvl >= 20 || plvl === "Locked") {
-                    $(".c4tit").text("Click to equip")
-                    if (plvl >= 30 || plvl === "Locked") {
-                        $(".c5tit").text("Click to equip")
-                    }
-                }
-            }
-            $(".c1tit").text("Click to equip")
-            $(".c2tit").text("Equipped")
-            $(".doge").attr({
-                "src": "assets/COS2.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/COS2.png"
-            })
-            cos = 3
-            coin = "Rich"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-
-        } else if (cos = 3) {
-            $(".c2tit").text("Click to equip")
-            $(".doge").attr({
-                "src": "assets/DOGE.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/DOGE.png"
-            })
-            cos = 1
-            coin = "Doge"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        }
-    } else {
-        popup.create('msg', 'You need to be level 10 to use this avatar!', 'Insufficient Level')
-    }
-})
-
-$(".c3").click(function () {
-    if (plvl >= 0 || plvl == "Locked") {
-        if (cos != 4) {
-            if (plvl >= 5 || plvl === "Locked") {
-                $(".c1tit").text("Click to equip")
-                if (plvl >= 20 || plvl === "Locked") {
-                    $(".c2tit").text("Click to equip")
-                    if (plvl >= 20 || plvl === "Locked") {
-                        $(".c4tit").text("Click to equip")
-                        if (plvl >= 30 || plvl === "Locked") {
-                            $(".c5tit").text("Click to equip")
-                        }
-                    }
-                }
-            } $(".c3tit").text("Equipped")
-            $(".doge").attr({
-                "src": "assets/COS4.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/COS4.png"
-            })
-            cos = 4
-            coin = "Cheem"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        } else if (cos = 4) {
-            $(".c3tit").text("Click to equip")
-            $(".doge").attr({
-                "src": "assets/DOGE.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/DOGE.png"
-            })
-            cos = 1
-            coin = "Doge"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        }
-    } else {
-        popup.create('msg', 'You need to be level 15 to use this avatar!', 'Insufficient Level')
-    }
-})
-
-$(".c4").click(function () {
-    if (plvl >= 20 || plvl == "Locked") {
-        if (cos != 5) {
-            $(".c1tit").text("Click to equip")
-            $(".c2tit").text("Click to equip")
-            $(".c3tit").text("Click to equip")
-            $(".c4tit").text("Equipped")
-            $(".doge").attr({
-                "src": "assets/COS5.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/COS5.png"
-            })
-            cos = 5
-            coin = "Cat"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        } else if (cos = 5) {
-            $(".c4tit").text("Click to equip")
-            $(".doge").attr({
-                "src": "assets/DOGE.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/DOGE.png"
-            })
-            cos = 1
-            coin = "Doge"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        }
-    } else {
-        popup.create('msg', 'You need to be level 20 to use this avatar!', 'Insufficient Level')
-    }
-})
-
-$(".c5").click(function () {
-    if (plvl >= 30 || plvl == "Locked") {
-        if (cos != 6) {
-            $(".c1tit").text("Click to equip")
-            $(".c2tit").text("Click to equip")
-            $(".c3tit").text("Click to equip")
-            $(".c4tit").text("Click to equip")
-            $(".c5tit").text("Equipped")
-            $(".doge").attr({
-                "src": "assets/COS6.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/COS6.png"
-            })
-            cos = 6
-            coin = "Doge"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        } else if (cos = 6) {
-            $(".c5tit").text("Click to equip")
-            $(".doge").attr({
-                "src": "assets/DOGE.png"
-            })
-            $(".dummyDoge").attr({
-                "src": "assets/DOGE.png"
-            })
-            cos = 1
-            coin = "Doge"
-            dc.innerHTML = `${coin}Coin: ${doco}`
-        }
-    } else {
-        popup.create('msg', 'You need to be level 30 to use this avatar!', 'Insufficient Level')
-    }
-})
 
 var dfacP = 1000
 var cps = 0
@@ -720,6 +527,10 @@ $(".impo").click(function () {
 
 var logs = new Map()
 logs.set('current', {
+    'name': 'v1.22',
+    'content': '1) Redesigned avatar selection system<br><br>2) Citizen Doge will now unlock at lvl 10<br><br>3) 4 new avatars'
+})
+logs.set(12, {
     'name': 'v1.21',
     'content': '1) Working on costumes'
 })
@@ -818,38 +629,55 @@ var unlock3 = false;
 var unlock4 = true;
 var unlock5 = false;
 var unlock6 = false;
+var unlock7 = false;
+var unlock8 = false;
+var unlock9 = false;
+var unlock10 = false;
 var coin = "Doge"
 
 var costumes = new Map();
-costumes.set(3, true)
-costumes.set('default', true)
+costumes.set(2, {
+    'name': 'Cheems',
+    "src": 'assets/COS4.png'
+})
+costumes.set(1, {
+    'name': 'Doge',
+    "src": "assets/DOGE.png"
+})
 
 function checkLevel() {
     if (plvl >= 5) {
         if (unlock2 === false) {
-            costumes.set(1, true)
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
-            cd.style.filter = 'brightness(100%)'
+            costumes.set(3, {
+                'name': 'Swole Doge',
+                "src": 'assets/COS3.png'
+            })            
             unlock2 = true
         }
     }
     if (plvl >= 10) {
         if (unlock3 === false) {
-            costumes.set(2, true)
-            $(".c2tit").text("Click to equip")
+            costumes.set(4, {
+                'name': 'Dapper Doge',
+                "src": 'assets/COS2.png'
+            })                   
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            cd.style.filter = 'brightness(100%)'
             unlock3 = true
         }
     }
     if (plvl >= 0) {
         if (unlock4 === true) {
-            $(".c3tit").text("Click to equip")
             unlock4 = true
         }
     }
     if (plvl >= 20) {
         if (unlock5 === false) {
-            $(".c4tit").text("Click to equip")
+            costumes.set(5, {
+                'name': 'Big Floppa',
+                "src": 'assets/COS5.png'
+            })                   
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
             bb.style.filter = 'brightness(100%)'
             unlock5 = true
@@ -857,9 +685,115 @@ function checkLevel() {
     }
     if (plvl >= 30) {
         if (unlock6 === false) {
-            $(".c5tit").text("Click to equip")
+            costumes.set(6, {
+                'name': 'Barking Doge',
+                "src": 'assets/COS6.png'
+            })                   
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             unlock6 = true
         }
     }
+    if (plvl >= 35) {
+        if (unlock7 === false) {
+            costumes.set(7, {
+                'name': 'HDoge',
+                "src": 'assets/hd-doge.png'
+            })                   
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock7 = true
+        }
+    }
+    if (plvl >= 40) {
+        if (unlock8 === false) {
+            costumes.set(8, {
+                'name': 'Karen',
+                "src": 'assets/karen.png'
+            })                   
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock8 = true
+        }
+    }
+    if (plvl >= 45) {
+        if (unlock9 === false) {
+            costumes.set(9, {
+                'name': 'Walter',
+                "src": 'assets/walter.png'
+            })                   
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock9 = true
+        }
+    }
+    if (plvl >= 50) {
+        if (unlock10 === false) {
+            costumes.set(10, {
+                'name': 'Cheems Prime',
+                "src": 'assets/cheems-prime.png'
+            })                   
+            popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
+            unlock10 = true
+        }
+    }
 }
+
+var d = 1
+var e = false
+
+$('.lst').click(() => {
+    if (d != 1) {
+        d--
+        $('.cos').text(`Costume: ${costumes.get(d).name}`)
+        $('.dummyDoge').attr({
+            'src': `${costumes.get(d).src}`
+        })
+    } else {
+        d = costumes.size
+        $('.cos').text(`Costume: ${costumes.get(d).name}`)
+        $('.dummyDoge').attr({
+            'src': `${costumes.get(d).src}`
+        })
+    }
+})
+
+$('.nxt').click(() => {
+    if (d != costumes.size) {
+        if (d != costumes.size - 1) {
+            d++
+            $('.cos').text(`Costume: ${costumes.get(d).name}`)
+            $('.dummyDoge').attr({
+                'src': `${costumes.get(d).src}`
+            })
+        } else {
+            d = costumes.size
+            $('.cos').text(`Costume: ${costumes.get(d).name}`)
+            $('.dummyDoge').attr({
+                'src': `${costumes.get(d).src}`
+            })
+        }
+    } else {
+        d = 1
+        $('.cos').text(`Costume: ${costumes.get(d).name}`)
+        $('.dummyDoge').attr({
+            'src': `${costumes.get(d).src}`
+        })
+    }
+})
+
+$(".select").click(() => {
+    $('.selc').text(`Selected: ${costumes.get(d).name}`)
+    $('.doge').attr({
+        'src': `${costumes.get(d).src}`
+    })
+    if (d != 1) {
+        e = true
+    } else {
+        e = false
+    }
+    if (d != 8){
+        console.log('hi')
+        $('.doge').css('width','15vw')
+    } else {
+        console.log('hi')
+        $('.doge').css('width','10vw')
+    }
+})
+console.log(costumes.size)
