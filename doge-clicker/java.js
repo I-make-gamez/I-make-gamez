@@ -36,6 +36,9 @@ doge.ondragstart = () => {
     return false;
 }
 
+// $('.tdoge').hide()
+// $('.bbread').hide()
+
 //MVVs
 var page = window
 var ask = page.prompt
@@ -85,18 +88,21 @@ page.onload = function () {
         ec.innerHTML = `Exp: ${exp} / ${expCap}`
         expCalc()
     }
-
+    $('.loading').hide()
     popup.create('msg', 'First 50 people to join the discord get a role :)', 'Alert')
 }
 
+$('.changelog').hide()
 
 
 ver.addEventListener('click', function () {
-    cl.style.zIndex = 1
+    $('.changelog').show()
+    $('.powerups').hide()
     pu.style.opacity = 1;
 })
 ex.addEventListener('click', function () {
-    cl.style.zIndex = -2
+    $('.changelog').hide()
+    $('.powerups').show()
     pu.style.opacity = 1;
 })
 //Version End
@@ -294,13 +300,12 @@ document.onkeyup = function (e) {
                     break;
             }
         }
-    } else if (e.ctrlKey && e.altKey && e.key === 'u') {
-        if (disabled) {
-            popup.create("msg", `Thanks for testing this out!<br>If you notice any bugs please make an issue request or contact me through discord!<br><br>Thx, -NitTwit`, 'Beta avatar selection enabled')
-            disabled = false
-        } else {
-            return;
-        }
+    } else if (e.ctrlKey && e.altKey && e.key === 'g') {
+        popup.create("msg", `I wonder how you found this...`, 'Secret avatar added')
+        costumes.set(costumes.size + 1, {
+            'name': 'Hacker',
+            "src": "assets/secret.jpg"
+        })
     } else if (e.ctrlKey && e.altKey && e.key === 'a') {
         key = ask("Enter any key")
     } else if (e.key === key) {
@@ -526,7 +531,12 @@ $(".impo").click(function () {
 
 
 var logs = new Map()
-logs.set('current', {
+var current = 'current';
+logs.set(current, {
+    'name': 'v1.23',
+    'content': '1) No more white gaps for users w/ bigger moniors<br><br>2) Redesigned settings tab'
+})
+logs.set(13, {
     'name': 'v1.22',
     'content': '1) Redesigned avatar selection system<br><br>2) Citizen Doge will now unlock at lvl 10<br><br>3) 4 new avatars'
 })
@@ -649,19 +659,19 @@ function checkLevel() {
     if (plvl >= 5) {
         if (unlock2 === false) {
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
-            costumes.set(3, {
+            costumes.set(costumes.size + 1, {
                 'name': 'Swole Doge',
                 "src": 'assets/COS3.png'
-            })            
+            })
             unlock2 = true
         }
     }
     if (plvl >= 10) {
         if (unlock3 === false) {
-            costumes.set(4, {
+            costumes.set(costumes.size + 1, {
                 'name': 'Dapper Doge',
                 "src": 'assets/COS2.png'
-            })                   
+            })
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             cd.style.filter = 'brightness(100%)'
             unlock3 = true
@@ -674,10 +684,10 @@ function checkLevel() {
     }
     if (plvl >= 20) {
         if (unlock5 === false) {
-            costumes.set(5, {
+            costumes.set(costumes.size + 1, {
                 'name': 'Big Floppa',
                 "src": 'assets/COS5.png'
-            })                   
+            })
             popup.create("msg", "You've just unlocked a new avatar and powerup!", "Unlock!");
             bb.style.filter = 'brightness(100%)'
             unlock5 = true
@@ -685,50 +695,50 @@ function checkLevel() {
     }
     if (plvl >= 30) {
         if (unlock6 === false) {
-            costumes.set(6, {
+            costumes.set(costumes.size + 1, {
                 'name': 'Barking Doge',
                 "src": 'assets/COS6.png'
-            })                   
+            })
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             unlock6 = true
         }
     }
     if (plvl >= 35) {
         if (unlock7 === false) {
-            costumes.set(7, {
+            costumes.set(costumes.size + 1, {
                 'name': 'HDoge',
                 "src": 'assets/hd-doge.png'
-            })                   
+            })
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             unlock7 = true
         }
     }
     if (plvl >= 40) {
         if (unlock8 === false) {
-            costumes.set(8, {
+            costumes.set(costumes.size + 1, {
                 'name': 'Karen',
                 "src": 'assets/karen.png'
-            })                   
+            })
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             unlock8 = true
         }
     }
     if (plvl >= 45) {
         if (unlock9 === false) {
-            costumes.set(9, {
+            costumes.set(costumes.size + 1, {
                 'name': 'Walter',
                 "src": 'assets/walter.png'
-            })                   
+            })
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             unlock9 = true
         }
     }
     if (plvl >= 50) {
         if (unlock10 === false) {
-            costumes.set(10, {
+            costumes.set(costumes.size + 1, {
                 'name': 'Cheems Prime',
                 "src": 'assets/cheems-prime.png'
-            })                   
+            })
             popup.create("msg", "You've just unlocked a new avatar!<br>Go check it out in the avatar selection menu!", "Avatar Unlock!");
             unlock10 = true
         }
@@ -788,12 +798,10 @@ $(".select").click(() => {
     } else {
         e = false
     }
-    if (d != 8){
-        console.log('hi')
-        $('.doge').css('width','15vw')
+    if ($('.selc').text() != `Selected: Karen`) {
+        $('.doge').css('width', '15vw')
     } else {
-        console.log('hi')
-        $('.doge').css('width','10vw')
+        $('.doge').css('width', '10vw')
     }
 })
 console.log(costumes.size)

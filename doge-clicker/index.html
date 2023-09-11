@@ -40,185 +40,175 @@
 </head>
 
 <body>
-    <div class="d1">
-        <img class="doge" src="assets/DOGE.png">
-        <img class="doge2" src="assets/DOGE2.png">
-    </div>
-    <div class="bg"></div>
-    <section class="popup">
-        <h1 class="title"></h1>
-        <h3 class="text"></h3>
-        <button onlick="popup.close()" class="close">
-            <h3>Okay</h3>
-        </button>
-    </section>
-    <section class="spopup">
-        <h1 class="stitle"></h1>
-        <h3 class="stext"></h3>
-        <button onlick="popup.close()" class="sclose">
-            <h3>Okay</h3>
-        </button>
-    </section>
-    <section class="ispopup">
-        <h1 class="istitle"></h1>
-        <input type="text" class="istext"></input>
-        <button onlick="popup.close()" class="isclose">
-            <h3>Submit</h3>
-        </button>
-    </section>
-    <section class="upgrades">
-        <h1>Upgrades</h1>
-        <div class="u1">
-            <h2>Doge Friend</h2>
-            <p>Raises ClickPower By 1<br></p>
-            <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 100$</h3>
-        </div>
-        <div class="u2">
-            <h2>Doge Factory</h2>
-            <p>Raises ClicksPerSecond By 1<br></p>
-            <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 1000$</h3>
-        </div>
-    </section>
-    <section class="powerups">
-        <h1>PowerUps</h1>
-        <a href="#" class="tdoge">
-            <img src="assets/citizen_doge.png" alt="doge" class="cd">
-            <span class="info1">
-                <img src="assets/info.png" width="20px" alt="info">
-            </span>
-        </a>
-        <a class="bbread">
-            <img src="assets/breaking bread.png" alt="bread" class="bb">
-            <span class="info2">
-                <img src="assets/info.png" width="20px" alt="info">
-            </span>
-        </a>
-    </section>
-    <section class="changelog">
-        <h1>Changelog:</h1>
-        <h2 class="ver">*Version*</h2>
-        <p class="chl" style="
-        font-size: 1.25vw; 
-        padding-left: 5px;
-        height: 18.936731107205624vh;
-        ">
-            Changelog Displays Here
-        </p>
-        <div class="sel">
-            <button class="bck"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
-            <button class="ex">Close</button>
-            <button class="fwd"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
-
-        </div>
-    </section>
-    <section class="stats">
-        <h1>Stats</h1>
-        <h3 style="  
-        border-top: 10px solid black;
-        padding-top: 15px;
-        margin-top: 0px;
-        font-size: 1.25vw; 
-        padding-left: 5px;
-        " class="cpwr">ClickPower: 1</h3>
-        <h3 style="
-        font-size: 1.25vw; 
-        padding-left: 5px;
-        " class="clps">ClicksPerSec: 0</h3>
-        <h3 class="lvl" style="
-        font-size: 1.25vw; 
-        padding-left: 5px;
-        ">Level: 1</h3>
-        <h3 class="ec" style="
-        font-size: 1.25vw; 
-        padding-left: 5px;
-        ">Exp: 0 / 500</h3>
-
-    </section>
-
-    <section class="av">
-
-        <!-- <section class="costumes">
-            <div class="c1">
-                <h2>Swole Doge</h2>
-                <p><em>"I lift 460"</em><br></p>
-                <h3 class="c1tit">Unlocks @ Lvl 5</h3>
+    <ul class="main">
+        <li class="game">
+            <section class="loading"></section>
+            <div class="d1">
+                <img class="doge" src="assets/DOGE.png">
+                <img class="doge2" src="assets/DOGE2.png">
             </div>
-            <div class="c2">
-                <h2>Dapper Doge</h2>
-                <p><em>"Filthy Peasant"</em></p>
-                <h3 class="c2tit">Unlocks @ Lvl 10</h3>
+            <section class="popup">
+                <h1 class="title"></h1>
+                <h3 class="text"></h3>
+                <button onlick="popup.close()" class="close">
+                    <h3>Okay</h3>
+                </button>
+            </section>
+            <section class="spopup">
+                <h1 class="stitle"></h1>
+                <h3 class="stext"></h3>
+                <button onlick="popup.close()" class="sclose">
+                    <h3>Okay</h3>
+                </button>
+            </section>
+            <section class="ispopup">
+                <h1 class="istitle"></h1>
+                <input type="text" class="istext"></input>
+                <button onlick="popup.close()" class="isclose">
+                    <h3>Submit</h3>
+                </button>
+            </section>
+            <section class="upgrades">
+                <h1>Upgrades</h1>
+                <div class="u1">
+                    <h2>Doge Friend</h2>
+                    <p>Raises ClickPower By 1<br></p>
+                    <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 100$</h3>
+                </div>
+                <div class="u2">
+                    <h2>Doge Factory</h2>
+                    <p>Raises ClicksPerSecond By 1<br></p>
+                    <h3 class="dfCost" style="margin-bottom: 15px;">Cost: 1000$</h3>
+                </div>
+            </section>
+            <div class="bg"></div>
+            <section class="right-sect">
+                <section class="powerups">
+                    <h1>PowerUps</h1>
+                    <div class="pu-wrapper">
+                        <div class="div-tdoge">
+                            <a href="#" class="tdoge">
+                                <img src="assets/citizen_doge.png" alt="doge" class="cd">
+                                <span class="info1">
+                                    <img src="assets/info.png" width="20px" alt="info">
+                                </span>
+                            </a>
+                        </div>
+                        <div class="div-bbread">
+                            <a href="#" class="bbread">
+                                <img src="assets/breaking bread.png" alt="bread" class="bb">
+                                <span class="info2">
+                                    <img src="assets/info.png" width="20px" alt="info">
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+                <section class="changelog">
+                    <h1 style="margin-bottom: 0 !important;">Changelog:</h1>
+                    <h2 class="ver" style="
+                    position: static;
+                    margin-top: 0 !important;
+                    ">*Version*</h2>
+                    <p class="chl" style="
+                    font-size: 1.25vw; 
+                    padding-left: 5px;
+                    width: 98%;
+                    margin-bottom: 0;
+                    margin-top: 0;
+                    height: 23vh;
+                    overflow-y: scroll;
+                    z-index: 2;
+                    ">
+                        Changelog Displays Here
+                    </p>
+                    <div class="sel">
+                        <button class="bck"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
+                        <button class="ex">Close</button>
+                        <button class="fwd"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
+            
+                    </div>
+                </section>
+                <section class="stats">
+                    <h1>Stats</h1>
+                    <h3 style="  
+                    border-top: 10px solid black;
+                    padding-top: 15px;
+                    margin-top: 0px;
+                    font-size: 1.25vw; 
+                    padding-left: 5px;
+                    " class="cpwr">ClickPower: 1</h3>
+                    <h3 style="
+                    font-size: 1.25vw; 
+                    padding-left: 5px;
+                    " class="clps">ClicksPerSec: 0</h3>
+                    <h3 class="lvl" style="
+                    font-size: 1.25vw; 
+                    padding-left: 5px;
+                    ">Level: 1</h3>
+                    <h3 class="ec" style="
+                    font-size: 1.25vw; 
+                    padding-left: 5px;
+                    ">Exp: 0 / 500</h3>
+            
+                </section>
+            </section>
+        
+            <section class="av">
+                    <ul class="selection">
+                        <li class="fin">
+                            <h1 class="cos">Costume: Doge</h1>
+                        </li>
+                        <li class="fin">
+                            <h3 class="selc">Selected: Doge</h1>
+                        </li>
+                        <li class="innersel">
+                                <button class="lst"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
+                                <img class="dummyDoge" src="assets/DOGE.png">
+                                <img class="doge2" src="assets/DOGE2.png">
+                                <button class="nxt"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
+                        </li>
+                        <l1 class="av-btns">
+                            <button class="cl">Close</button>
+                            <button class="select">Select</button>
+                        </l1>
+                    </ul>
+            </section>
+        
+            <section class="sett">
+        
+                <h1 class="st">Settings</h1>
+        
+                <a class="ddata">Delete Data</a>
+                <a class="expo">Export Save</a>
+                <a class="impo">Import Save</a>
+        
+                <a class="cl" style="  font-size: 2.2vw; cursor:pointer;">
+                    Exit
+                </a>
+            </section>
+        
+            <h1 class="dc">DogeCoin: 0</h1>
+        </li>
+        <li class="van">
+            <div class="nav-bar">
+                <a href="../">IMG Home</a>
+                <a class="avs" style="cursor:pointer;">Avatar Selection</a>
+                <a class="set" style="cursor:pointer;">Settings</a>
+                <a href="https://github.com/I-make-gamez/I-make-gamez">Source Code</a>
+                <a href="https://github.com/I-make-gamez">IMG</a>
+                <a href="https://discord.gg/7vnwbMr8ed">Discord</a>
+                <a class="vers" style="cursor:pointer;">
+                    Version:
+                </a>
+                <!--<a class="obtwct" href="https://docs.google.com/forms/d/1VptqxcLY-ItitkLdCL29KcLTemhCZYts202C85wD3SA/edit">
+                    Suggest A Feature
+                </a>-->
             </div>
-            <div class="c3">
-                <h2>Cheems</h2>
-                <p><em>"My papa once told me that swole doge does steroids"</em></p>
-                <h3 class="c3tit">Unlocks @ Lvl 15</h3>
-            </div>
-            <div class="c4">
-                <h2>Big Flopa</h2>
-                <p><em>"Dapper Doge bullied me in high school :("</em></p>
-                <h3 class="c4tit">Unlocks @ Lvl 20</h3>
-            </div>
-            <div class="c5">
-                <h2>Meth Addict</h2>
-                <p><em>"My buddy cheems knows a guy who knows a guy."</em></p>
-                <h3 class="c5tit">Unlocks @ Lvl 30</h3>
-            </div>
-        </section> -->
-            <ul class="selection">
-                <li class="fin">
-                    <h1 class="cos">Costume: Doge</h1>
-                </li>
-                <li class="fin">
-                    <h3 class="selc">Selected: Doge</h1>
-                </li>
-                <li class="innersel">
-                        <button class="lst"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
-                        <img class="dummyDoge" src="assets/DOGE.png">
-                        <!-- <img class="doge2" src="assets/DOGE2.png"> -->
-                        <button class="nxt"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
-                </li>
-                <l1 class="av-btns">
-                    <button class="cl">Close</button>
-                    <button class="select">Select</button>
-                </l1>
-            </ul>
 
-
-
-        <!-- <a class="cl" style="  font-size: 2.2vw; cursor:pointer;">
-            Exit
-        </a> -->
-    </section>
-
-    <section class="sett">
-
-        <h1 class="st">Settings</h1>
-
-        <a class="ddata">Delete Data</a>
-        <a class="expo">Export Save</a>
-        <a class="impo">Import Save</a>
-
-        <a class="cl" style="  font-size: 2.2vw; cursor:pointer;">
-            Exit
-        </a>
-    </section>
-
-    <h1 class="dc">DogeCoin: 0</h1>
-
-    <div class="nav-bar">
-        <a href="../">IMG Home</a>
-        <a class="avs" style="cursor:pointer;">Avatar Selection</a>
-        <a class="set" style="cursor:pointer;">Settings</a>
-        <a href="https://github.com/I-make-gamez/I-make-gamez">Source Code</a>
-        <a href="https://github.com/I-make-gamez">IMG</a>
-        <a href="https://discord.gg/sP8ABpnsms">Discord</a>
-        <a class="vers" style="cursor:pointer;">
-            Version:
-        </a>
-        <!--<a class="obtwct" href="https://docs.google.com/forms/d/1VptqxcLY-ItitkLdCL29KcLTemhCZYts202C85wD3SA/edit">
-            Suggest A Feature
-        </a>-->
-    </div>
+        </li>
+    </ul>
+    
 
     <script src="popup.js"></script>
     <script src="java.js"></script>
