@@ -146,6 +146,10 @@ $(".cl").click(function () {
 $(".set").on('click', function () {
     $(".doge").fadeOut("slow")
     $(".sett").fadeIn("slow")
+    $(".popover").animate({
+        height: '90%',
+        width: '90%',
+    });
 })
 
 cd.addEventListener('click', function () {
@@ -428,6 +432,7 @@ function assembleCode(dogecoin, clickpower, clickspersec, lvl, xp, df) {
     let levl = genCode(lvl)
     let exp = genCode(xp)
     let dfp = genCode(df)
+    let v = logs.get(current).name
     code += dc;
     code += "RZ";
     code += cp;
@@ -439,42 +444,52 @@ function assembleCode(dogecoin, clickpower, clickspersec, lvl, xp, df) {
     code += exp;
     code += "RZ";
     code += dfp;
+    code += `RZ${v}`
     return code
 }
+let o;
 function unscrambleCode() {
-    unscrambledCode = ['', '', '', '', '', '']
-    let o = code.split('RZ')
-    if (o.length < 5) {
-        popup.create('msg', 'Please input a valid code and try again!', 'Invalid code!')
-        return;
+    unscrambledCode = ['', '', '', '', '', '', '']
+    o = code.split('RZ')
+    if (o.length < 7) {
+        popup.create('msg', 'That is not a valid code!<br><br>Make sure you have the right save file', 'Invalid code!')
     } else {
-        for (i = 0; i < 6; i++) {
-            var k = o[i].split('')
-            for (j = 0; j < o.length; j++) {
-                if (k[j] === 'A') {
-                    unscrambledCode[i] += '1';
-                } else if (k[j] === 'B') {
-                    unscrambledCode[i] += '2';
-                } else if (k[j] === 'C') {
-                    unscrambledCode[i] += '3';
-                } else if (k[j] === 'D') {
-                    unscrambledCode[i] += '4';
-                } else if (k[j] === 'E') {
-                    unscrambledCode[i] += '5';
-                } else if (k[j] === 'F') {
-                    unscrambledCode[i] += '6';
-                } else if (k[j] === 'G') {
-                    unscrambledCode[i] += '7';
-                } else if (k[j] === 'H') {
-                    unscrambledCode[i] += '8';
-                } else if (k[j] === 'I') {
-                    unscrambledCode[i] += '9';
-                } else if (k[j] === 'K') {
-                    unscrambledCode[i] += '0';
+        if (o[6] != logs.get(current).name) {
+            console.log('test')
+            popup.create('msg', 'Code not recognized.<br><br>Make sure the save file is from the current version', 'Error')
+            $('.close').click(() => {
+                close()
+            })
+        } else {
+            for (i = 0; i < 6; i++) {
+                var k = o[i].split('')
+                for (j = 0; j < o.length; j++) {
+                    if (k[j] === 'A') {
+                        unscrambledCode[i] += '1';
+                    } else if (k[j] === 'B') {
+                        unscrambledCode[i] += '2';
+                    } else if (k[j] === 'C') {
+                        unscrambledCode[i] += '3';
+                    } else if (k[j] === 'D') {
+                        unscrambledCode[i] += '4';
+                    } else if (k[j] === 'E') {
+                        unscrambledCode[i] += '5';
+                    } else if (k[j] === 'F') {
+                        unscrambledCode[i] += '6';
+                    } else if (k[j] === 'G') {
+                        unscrambledCode[i] += '7';
+                    } else if (k[j] === 'H') {
+                        unscrambledCode[i] += '8';
+                    } else if (k[j] === 'I') {
+                        unscrambledCode[i] += '9';
+                    } else if (k[j] === 'K') {
+                        unscrambledCode[i] += '0';
+                    }
                 }
             }
         }
         convertCode()
+        popup.create('msg', 'Successfully imported save file', 'Success')
         return unscrambledCode
     }
 
@@ -521,74 +536,34 @@ $(".ddata").click(function () {
 
 
 $(".expo").click(function () {
-    assembleCode(doco, clipo, cps, plvl, exp, dfPrice);
-    popup.create('save', code)
+    assembleCode(doco, clipo, cps, plvl, exp, dfPrice, logs.get(current).name);
+    var blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+    saveAs(blob, `DogeClicker-${logs.get(current).name}.save`);
+    popup.create('msg', 'Code saved to a text file. DONT LOSE IT!', 'Success')
 })
-
 $(".impo").click(function () {
-    popup.create('importSave')
-})
+    var fileInput = document.querySelector('.fileInput');
+    fileInput.click();
+    fileInput.addEventListener('change', function (event) {
+        var selectedFile = event.target.files[0];
 
+        if (selectedFile) {
+            var reader = new FileReader();
 
-var logs = new Map()
-var current = 'current';
-logs.set(current, {
-    'name': 'v1.23',
-    'content': '1) No more white gaps for users w/ bigger moniors<br><br>2) Redesigned settings tab'
-})
-logs.set(13, {
-    'name': 'v1.22',
-    'content': '1) Redesigned avatar selection system<br><br>2) Citizen Doge will now unlock at lvl 10<br><br>3) 4 new avatars'
-})
-logs.set(12, {
-    'name': 'v1.21',
-    'content': '1) Working on costumes'
-})
-logs.set(11, {
-    'name': 'v1.2',
-    'content': `1) Fixed changelog button positions<br><br>2) Avatar selection system closed. To re-enable type ctrl+alt+u<br><br>3) Removed Balltze notice<br><br>4) Added "Help" section<br><br>5) Added general info to help`
-})
-logs.set(10, {
-    'name': 'v1.1',
-    'content': '1) Quality of life changes<br><br>2) User-Friendly Changelog<br><br>3) Cheems permanently unlocked. RIP'
-})
-logs.set(9, {
-    'name': 'v1.0',
-    'content': "1) You can now move data across devices via save codes<br><br>2) Added settings tab<br><br>3) Added Breaking Bread powerup<br><br>4) Added Delete data button<br><br>5) Added Meth Addict avatar"
-})
-logs.set(8, {
-    'name': 'vb9.4',
-    'content': '1) You can click on powerups to find more info about them<br><br>2) Powerups will now be blacked out until you reach the propper level required.<br><br>3) Bug fixes :) '
-})
-logs.set(7, {
-    'name': 'vb9.3',
-    'content': '1) Changes to toony doge powerup'
-})
-logs.set(6, {
-    'name': 'vb9.2',
-    'content': '1) Removed drag from doge :)<br><br>2) Alerts now show in order of priority'
-})
-logs.set(5, {
-    'name': 'vb9.1',
-    'content': '1) Re-enabled leveling'
-})
-logs.set(4, {
-    'name': 'vb9',
-    'content': '1) Implemented "Factory Worker" powerup!<br><br>2) Level Progress now saves!<br><br>3) Fun coin names with costumes<br><br>4) You can now set a keybind instead of clicking (will not save on reload)<br><br>5) Moved the game to "/doge-clicker"'
-})
-logs.set(3, {
-    'name': 'vb8.2',
-    'content': '1) All avatars unlocked until monday Nov. 28th<br><br>2) Recoded the entire avatar selection system'
-})
-logs.set(2, {
-    'name': 'vb8.1',
-    'content': '1) Added data deletion ability. Type ctrl + alt + i for more info<br><br>2) DogeCoin no longer resets on reload'
-})
-logs.set(1, {
-    'name': 'vb8',
-    'content': '1) You can now scroll the changelog w/o that pesky scrollbar ;)<br><br>2) Clickpower now saves on exit.<br><br>3) Removed ability to drag alerts.<br><br>4) Fixed the issue where toony doge doesnt display on av selection screen.5) Added version history to changelog'
-})
+            reader.onload = function (event) {
+                var fileContents = event.target.result;
+                var test = fileContents;
+                code = test
+                unscrambleCode()
+                $('.sett').fadeOut('fast')
+                $('.doge').fadeIn('fast')
+            };
 
+            reader.readAsText(selectedFile);
+        }
+    });
+
+})
 
 var version = `${logs.get('current').name}`
 vers.innerHTML = `Version: ${version}`
@@ -805,3 +780,12 @@ $(".select").click(() => {
     }
 })
 console.log(costumes.size)
+
+
+$(".doge").click(function () {
+
+});
+
+function ani() {
+    document.getElementById('menu').className = 'popover';
+}

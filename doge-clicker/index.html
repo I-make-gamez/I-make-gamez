@@ -33,6 +33,8 @@
     <link href="//db.onlinewebfonts.com/c/7cc6719bd5f0310be3150ba33418e72e?family=Comic+Sans+MS" rel="stylesheet"
         type="text/css" />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
@@ -87,7 +89,7 @@
                     <h1>PowerUps</h1>
                     <div class="pu-wrapper">
                         <div class="div-tdoge">
-                            <a href="#" class="tdoge">
+                            <a class="tdoge">
                                 <img src="assets/citizen_doge.png" alt="doge" class="cd">
                                 <span class="info1">
                                     <img src="assets/info.png" width="20px" alt="info">
@@ -95,7 +97,7 @@
                             </a>
                         </div>
                         <div class="div-bbread">
-                            <a href="#" class="bbread">
+                            <a class="bbread">
                                 <img src="assets/breaking bread.png" alt="bread" class="bb">
                                 <span class="info2">
                                     <img src="assets/info.png" width="20px" alt="info">
@@ -113,7 +115,7 @@
                     <p class="chl" style="
                     font-size: 1.25vw; 
                     padding-left: 5px;
-                    width: 98%;
+                    width: 95%;
                     margin-bottom: 0;
                     margin-top: 0;
                     height: 23vh;
@@ -126,7 +128,7 @@
                         <button class="bck"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
                         <button class="ex">Close</button>
                         <button class="fwd"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
-            
+
                     </div>
                 </section>
                 <section class="stats">
@@ -150,44 +152,53 @@
                     font-size: 1.25vw; 
                     padding-left: 5px;
                     ">Exp: 0 / 500</h3>
-            
+
                 </section>
             </section>
-        
+
             <section class="av">
-                    <ul class="selection">
-                        <li class="fin">
-                            <h1 class="cos">Costume: Doge</h1>
-                        </li>
-                        <li class="fin">
-                            <h3 class="selc">Selected: Doge</h1>
-                        </li>
-                        <li class="innersel">
-                                <button class="lst"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
-                                <img class="dummyDoge" src="assets/DOGE.png">
-                                <img class="doge2" src="assets/DOGE2.png">
-                                <button class="nxt"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
-                        </li>
-                        <l1 class="av-btns">
-                            <button class="cl">Close</button>
-                            <button class="select">Select</button>
-                        </l1>
-                    </ul>
+                <ul class="selection">
+                    <li class="fin">
+                        <h1 class="cos">Costume: Doge</h1>
+                    </li>
+                    <li class="fin">
+                        <h3 class="selc">Selected: Doge</h1>
+                    </li>
+                    <li class="innersel">
+                        <button class="lst"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></button>
+                        <img class="dummyDoge" src="assets/DOGE.png">
+                        <img class="doge2" src="assets/DOGE2.png">
+                        <button class="nxt"><i class="fa-solid fa-arrow-right" style="color: #000000;"></i></button>
+                    </li>
+                    <l1 class="av-btns">
+                        <button class="cl">Close</button>
+                        <button class="select">Select</button>
+                    </l1>
+                </ul>
             </section>
-        
+
             <section class="sett">
-        
-                <h1 class="st">Settings</h1>
-        
+                <div class="popover" id="menu">
+                    <div class='content'>
+                      <div class='setti'>
+                        <ul class='nav-list'>
+                            
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                <!-- <h1 class="st">Settings</h1>
+
                 <a class="ddata">Delete Data</a>
                 <a class="expo">Export Save</a>
                 <a class="impo">Import Save</a>
-        
+                <input type="file" class="fileInput" style="display: none;">
+
                 <a class="cl" style="  font-size: 2.2vw; cursor:pointer;">
                     Exit
-                </a>
+                </a> -->
             </section>
-        
+
             <h1 class="dc">DogeCoin: 0</h1>
         </li>
         <li class="van">
@@ -208,8 +219,8 @@
 
         </li>
     </ul>
-    
 
+    <script src="logs.js"></script>
     <script src="popup.js"></script>
     <script src="java.js"></script>
 </body>

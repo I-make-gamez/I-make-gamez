@@ -488,7 +488,7 @@ h3 {
 }
 
 .selection {
-  transform: translateY(-21px);
+  transform: translateY(-5px);
   list-style-type: none;
   flex-direction: column;
   height: 100%;
@@ -627,15 +627,18 @@ span.info1:hover {
 }
 
 .sett {
-  z-index: 6;
+  z-index: 100;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(#0076ff 0%, #08fbff 100%);
+  background: #232323c0;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .st {
@@ -841,4 +844,97 @@ a.bbread:hover span.info2 {
   width: 100px;
   height: 100px;
   filter: brightness(0%);
+}
+
+.popover {
+  /* display: none; */
+  /* box-shadow: 0px 6px 8px rgba(19, 19, 19, .7); */
+  /* position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+  width: 0;
+  height: 0;
+}
+
+.popover:target {
+ position: absolute;
+ right: 0;
+ top: 0;
+ width: 100%;
+ height: 100%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.popover .content {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ position: relative;
+ width: 0;
+ height: 0;
+ color: #fff;
+ background-color: #191919;
+ animation: 1s grow ease forwards;
+ text-align: center;
+}
+
+.nav_list  {
+ list-style-type: none;
+}
+
+.nav_list a {
+ text-decoration: none;
+ color: #fff;
+}
+
+.nav_list_item {
+ height: 100%;
+ overflow: hidden;
+}
+
+.nav_list li {
+ padding: 15px 0;
+ text-transform: uppercase;
+ transform: translateY(200px);
+ opacity: 0;
+ animation: 2s slideUp ease forwards .5s;
+ position: relative;
+}
+
+.nav_list li::before {
+ content: '';
+ position: absolute;
+ height: 2px;
+ width: 0px;
+ left: 0;
+ bottom: 10px;
+ background: #ffffff; 
+ transition: all .5s ease;
+}
+
+.nav_list li:hover:before {
+     width: 100%;
+}
+
+.popover p {
+ padding: 50px;
+ opacity: 0;
+ animation: 1s fadeIn ease forwards 1s;
+}
+
+
+@keyframes grow {
+  100% {
+    height: 90%;
+    width: 90%;
+ }
+}
+
+@keyframes fadeIn {
+100% {
+  opacity: 1;
+ }
 }
