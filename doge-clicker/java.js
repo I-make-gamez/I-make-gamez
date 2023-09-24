@@ -779,13 +779,3 @@ $(".select").click(() => {
         $('.doge').css('width', '10vw')
     }
 })
-console.log(costumes.size)
-
-
-$(".doge").click(function () {
-
-});
-
-function ani() {
-    document.getElementById('menu').className = 'popover';
-}

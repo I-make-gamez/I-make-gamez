@@ -12,7 +12,7 @@ html {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  
+
 }
 
 .main {
@@ -595,7 +595,8 @@ span.info1:hover {
 .tdoge {
   width: 120px;
   height: 120px;
-  visibility: hidden;;
+  visibility: hidden;
+  ;
   filter: alpha(opacity=100);
   -moz-opacity: 1;
   -khtml-opacity: 1;
@@ -655,56 +656,44 @@ span.info1:hover {
 }
 
 .ddata {
-  border: 5px solid #000;
+  border: 2px solid #000;
   background-color: white;
   padding: 25px;
-  top: 35%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  position: absolute;
   width: 120px;
   font-size: 20px;
 }
 
 .ddata:hover {
-  border: 5px solid #FFF;
-  background-color: black;
+  border: 2px solid #FFF;
+  background-color: #242020;
   color: white;
 }
 
 .expo {
-  border: 5px solid #000;
+  border: 2px solid #000;
   background-color: white;
   padding: 25px;
-  top: 35%;
-  right: 40%;
-  transform: translate(50%, -50%);
-  position: absolute;
   width: 120px;
   font-size: 20px;
 }
 
 .expo:hover {
-  border: 5px solid #FFF;
-  background-color: black;
+  border: 2px solid #FFF;
+  background-color: #242020;
   color: white;
 }
 
 .impo {
-  border: 5px solid #000;
+  border: 2px solid #000;
   background-color: white;
   padding: 25px;
-  bottom: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
   width: 120px;
   font-size: 20px;
 }
 
 .impo:hover {
-  border: 5px solid #FFF;
-  background-color: black;
+  border: 2px solid #FFF;
+  background-color: #242020;
   color: white;
 }
 
@@ -846,95 +835,39 @@ a.bbread:hover span.info2 {
   filter: brightness(0%);
 }
 
-.popover {
-  /* display: none; */
-  /* box-shadow: 0px 6px 8px rgba(19, 19, 19, .7); */
-  /* position: absolute;
+.menu {
+  width: 90%;
+  height: 90%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); */
-  width: 0;
-  height: 0;
+  background-color: #242020;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
 }
 
-.popover:target {
- position: absolute;
- right: 0;
- top: 0;
- width: 100%;
- height: 100%;
- display: flex;
- align-items: center;
- justify-content: center;
+.stxt {
+  font-size: 35px;
+  padding: 20px;
+  border-bottom: 2px solid #000;
+  color: white;
+  margin: 0;
 }
 
-.popover .content {
- display: flex;
- align-items: center;
- justify-content: center;
- position: relative;
- width: 0;
- height: 0;
- color: #fff;
- background-color: #191919;
- animation: 1s grow ease forwards;
- text-align: center;
+.scl {
+  color: white;
+  border-top: 2px solid #000;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
 }
 
-.nav_list  {
- list-style-type: none;
-}
-
-.nav_list a {
- text-decoration: none;
- color: #fff;
-}
-
-.nav_list_item {
- height: 100%;
- overflow: hidden;
-}
-
-.nav_list li {
- padding: 15px 0;
- text-transform: uppercase;
- transform: translateY(200px);
- opacity: 0;
- animation: 2s slideUp ease forwards .5s;
- position: relative;
-}
-
-.nav_list li::before {
- content: '';
- position: absolute;
- height: 2px;
- width: 0px;
- left: 0;
- bottom: 10px;
- background: #ffffff; 
- transition: all .5s ease;
-}
-
-.nav_list li:hover:before {
-     width: 100%;
-}
-
-.popover p {
- padding: 50px;
- opacity: 0;
- animation: 1s fadeIn ease forwards 1s;
-}
-
-
-@keyframes grow {
-  100% {
-    height: 90%;
-    width: 90%;
- }
-}
-
-@keyframes fadeIn {
-100% {
-  opacity: 1;
- }
+.stuff{
+  display: flex;
+  align-content: space-around;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 100%;
 }

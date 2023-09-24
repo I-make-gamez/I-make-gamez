@@ -1,6 +1,10 @@
 var logs = new Map()
 var current = 'current';
 logs.set(current, {
+    'name': 'v1.31',
+    'content': '1) Acidentally released update too early :p this is the actual one<br><br>2) Redesigned settings tab<br><br>3) Save files are now usable ;)'
+})
+logs.set(15, {
     'name': 'v1.3',
     'content': '1) Changed save system to save files as opposed to a manual entry<br><br>2) New upgrades<br><br>3) New powerup'
 })
