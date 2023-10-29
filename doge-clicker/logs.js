@@ -2,7 +2,7 @@ var logs = new Map()
 var current = 'current';
 logs.set(current, {
     'name': 'v1.4',
-    'content': '1) Added music<br><br>2) Added music selection system'
+    'content': '1) Added music<br><br>2) Added music selection system<br><br>3) All Border thickness decreased'
 })
 logs.set(16, {
     'name': 'v1.31',
