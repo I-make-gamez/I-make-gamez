@@ -779,3 +779,151 @@ $(".select").click(() => {
         $('.doge').css('width', '10vw')
     }
 })
+
+let transitioning = false;
+let boxHeight = $('.music').outerHeight() + 0.1
+$('.mp3').css({
+    top: `-${boxHeight}px`,
+})
+
+$('.box').click(() => {
+    if (!transitioning) {
+        $('.pull-down').toggleClass('fa-angle-down fa-angle-up');
+        if ($('.pull-down').hasClass('fa-angle-up')) {
+            $('.mp3').animate({
+                top: 0,
+            })
+            return;
+        } else if ($('.pull-down').hasClass('fa-angle-down')) {
+            $('.mp3').animate({
+                top: `-${boxHeight}px`,
+            })
+        }
+    }
+})
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const audio = document.querySelector(".audio");
+
+let song = songs.get(getRandomInt(1, songs.size))
+
+audio.src = `${song.src}`
+$('.song').text(`Now Playing: ${song.name}`)
+$('.artist').text(`Artist: ${song.artist}`)
+
+// Add an event listener to update the current time
+audio.addEventListener("timeupdate", function () {
+    const currentTime = audio.currentTime;
+    const minutes = Math.floor(currentTime / 60);
+    let seconds = Math.floor(currentTime % 60);
+    const totalDuration = audio.duration;
+    const dminutes = Math.floor(totalDuration / 60);
+    let dseconds = Math.floor(totalDuration % 60);
+    let dur;
+    if (dseconds < 10) {
+        dur = `${dminutes}:0${dseconds}`
+    } else {
+        dur = `${dminutes}:${dseconds}`
+    }
+    if (seconds < 10) {
+        seconds = `0${seconds}`
+    } else {
+        seconds = seconds
+    }
+    $('.time').text(`${minutes}:${seconds} / ${dur}`)
+
+    if (currentTime >= totalDuration) {
+        let songQ = song.id + 1
+        if (songQ > songs.size) {
+            songQ = 1
+            song = songs.get(songQ)
+            audio.src = `${song.src}`
+            $('.song').text(`Now Playing: ${song.name}`)
+            $('.artist').text(`Artist: ${song.artist}`)
+            $('.pull-down').toggleClass('fa-angle-down fa-angle-up');
+            if ($('.pull-down').hasClass('fa-angle-up')) {
+                transitioning = true;
+                $('.vol').toggleClass('fa-volume-xmark fa-volume-high');
+                audio.volume = 1
+                $('.mp3').animate({
+                    top: 0,
+                })
+                setTimeout(() => {
+                    $('.mp3').animate({
+                        top: `-${boxHeight}px`,
+                    })
+                    $('.pull-down').toggleClass('fa-angle-down fa-angle-up');
+                    transitioning = false;
+                }, 2500)
+            } else {
+                $('.vol').toggleClass('fa-volume-xmark fa-volume-high');
+                audio.volume = 1
+            }
+        } else {
+            song = songs.get(songQ)
+            audio.src = `${song.src}`
+            $('.song').text(`Now Playing: ${song.name}`)
+            $('.artist').text(`Artist: ${song.artist}`)
+            $('.pull-down').toggleClass('fa-angle-down fa-angle-up');
+            if ($('.pull-down').hasClass('fa-angle-up')) {
+                transitioning = true;
+                $('.vol').toggleClass('fa-volume-xmark fa-volume-high');
+                audio.volume = 1
+                $('.mp3').animate({
+                    top: 0,
+                })
+                setTimeout(() => {
+                    $('.mp3').animate({
+                        top: `-${boxHeight}px`,
+                    })
+                    $('.pull-down').toggleClass('fa-angle-down fa-angle-up');
+                    transitioning = false;
+                }, 2500)
+            } else {
+                $('.vol').toggleClass('fa-volume-xmark fa-volume-high');
+                audio.volume = 1
+            }
+        }
+    }
+
+});
+
+$('.pp').click(() => {
+    $('.pp').toggleClass('fa-pause fa-play');
+    if ($('.pp').hasClass('fa-play')) {
+        audio.pause()
+        return;
+    } else if ($('.pp').hasClass('fa-pause')) {
+        audio.play()
+    }
+})
+
+$('.vol').click(() => {
+    $('.vol').toggleClass('fa-volume-xmark fa-volume-high');
+    if ($('.vol').hasClass('fa-volume-xmark')) {
+        audio.volume = 0
+    } else if ($('.vol').hasClass('fa-volume-high')) {
+        audio.volume = 1
+    }
+})
+
+$('.skip').click(() => {
+    let songQ = song.id + 1
+    if (songQ > songs.size) {
+        songQ = 1
+        song = songs.get(songQ)
+        audio.src = `${song.src}`
+        $('.song').text(`Now Playing: ${song.name}`)
+        $('.artist').text(`Artist: ${song.artist}`)
+    } else {
+        song = songs.get(songQ)
+        audio.src = `${song.src}`
+        $('.song').text(`Now Playing: ${song.name}`)
+        $('.artist').text(`Artist: ${song.artist}`)
+    }
+})

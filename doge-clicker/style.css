@@ -628,7 +628,7 @@ span.info1:hover {
 }
 
 .sett {
-  z-index: 100;
+  z-index: 9999999999;
   width: 100vw;
   height: 100vh;
   background: #232323c0;
@@ -864,10 +864,60 @@ a.bbread:hover span.info2 {
   text-align: center;
 }
 
-.stuff{
+.stuff {
   display: flex;
   align-content: space-around;
   justify-content: space-around;
   flex-wrap: wrap;
   height: 100%;
+}
+
+.music {
+  background: radial-gradient(#ffdd00 0%, #ff7b00 100%);
+  padding: 0;
+  width: 350px;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mp3 {
+  z-index: 9999999998;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  position: relative;
+  background-color: white;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  width: 50px;
+  align-self: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.music h6,
+h4 {
+  padding: 5px;
+  margin: 0;
+}
+
+.control {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 200px;
 }

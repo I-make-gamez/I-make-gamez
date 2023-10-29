@@ -42,6 +42,22 @@
 </head>
 
 <body>
+    <div class="mp3">
+        <div class="music">
+            <h4 class="song">Now Playing: Song</h4>
+            <h6 class="artist">Artist: Artist</h6>
+            <div class="control">
+                <audio autoplay class="audio" src="assets/audio/Doge Adventure Song.mp3"></audio>
+                <i class="pp fa-solid fa-pause" style="color: #000000;"></i>
+                <h6 class="time"> 0:00 / 0:00</h6>
+                <i class="skip fa-solid fa-forward" style="color: #000000;"></i>
+                <i class="vol fa-solid fa-volume-high" style="color: #000000;"></i>
+            </div>
+        </div>
+        <div class="box">
+            <i class="pull-down fa-solid fa-angle-down" style="color: #000000;"></i>
+        </div>
+    </div>
     <ul class="main">
         <li class="game">
             <section class="loading"></section>
@@ -214,6 +230,7 @@
         </li>
     </ul>
 
+    <script src="audio.js"></script>
     <script src="logs.js"></script>
     <script src="popup.js"></script>
     <script src="java.js"></script>
