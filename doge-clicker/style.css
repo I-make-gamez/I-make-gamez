@@ -18,8 +18,8 @@ html {
 .main {
   position: absolute;
   margin: 0;
-  left: 50vw;
-  top: 50vh;
+  left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-self: start;
@@ -27,8 +27,9 @@ html {
   flex-direction: column;
   padding: 0;
   overflow: hidden;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
 }
 
 * {
@@ -64,7 +65,6 @@ li {
   background: radial-gradient(#0076ff 0%, #08fbff 100%);
   width: 58.5vw;
   height: auto;
-
   z-index: -10;
 }
 
@@ -76,7 +76,7 @@ li {
   left: 50%;
   top: 49%;
   transform: translate(-50%, -50%);
-  z-index: 9999999999;
+  z-index: 999999999999999999999999999999999999999;
   overflow: hidden;
 }
 
@@ -628,7 +628,7 @@ span.info1:hover {
 }
 
 .sett {
-  z-index: 9999999999;
+  z-index: inherit !important;
   width: 100vw;
   height: 100vh;
   background: #232323c0;
@@ -882,10 +882,11 @@ a.bbread:hover span.info2 {
   display: flex;
   align-items: center;
   flex-direction: column;
+  z-index: 999 !important;
 }
 
 .mp3 {
-  z-index: 9999999998;
+  z-index: 11;
   position: absolute;
   left: 50%;
   top: 0;
@@ -907,6 +908,29 @@ a.bbread:hover span.info2 {
   border-bottom-right-radius: 7px;
 }
 
+.playlists {
+  position: relative;
+  background-color: white;
+  border-left: 5px solid #000;
+  border-right: 5px solid #000;
+  border-bottom: 5px solid #000;
+  width: 100px;
+  align-self: center;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  padding: 0;
+  margin: 0;
+}
+
+.playlists h5 {
+  padding: 5px;
+  margin: 0;
+}
+
+.mp3 .playlists {
+  z-index: unset !important;
+}
+
 .music h6,
 h4 {
   padding: 5px;
@@ -920,4 +944,43 @@ h4 {
   justify-content: space-evenly;
   align-items: center;
   width: 200px;
+}
+
+.pl {
+  background: radial-gradient(#0076ff 0%, #08fbff 100%);
+  width: 58.5VW;
+  z-index: 12 !important;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  align-content: center;
+  border-left: 7px solid #000;
+  border-right: 7px solid #000;
+}
+
+.plcl {
+  position: relative;
+  background-color: white;
+  border-top: 5px solid #000;
+  width: 57.7VW;
+  align-self: flex-end;
+  padding: 5px;
+  margin: 0;
+  overflow: hidden;
+  border-left: 7px solid #000;
+  border-right: 7px solid #000;
+
+}
+
+.pl h1{
+  margin: 0;
+  padding: 10px;
+  border-bottom: 7px solid #000;
+  background: radial-gradient(#ffdd00 0%, #ff7b00 100%);
+  width: 56.9VW;
+  border-left: 7px solid #000;
+  border-right: 7px solid #000;
 }

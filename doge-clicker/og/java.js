@@ -30,7 +30,7 @@ const dpp = document.querySelector('.dpp')
 //2) Price Stack other upgrades
 //3) Get Rid Of Reload On DF For cpsGo()
 
-var ver = '1.0.0';
+var ver = 'FINAL';
 var page = window;
 const ask = page.prompt;
 const abs = Math.abs;
@@ -38,7 +38,7 @@ const abs = Math.abs;
 var selCos = '0'
 
 var wtuss = wat.innerHTML
-var wtass = '1) Working on animating some more costumes<br>2) Discord server, maybe?<br>3) Price-Stacking is on its way so enjoy<br> cheap upgrades while you can<br>4) TO ACCESS BETA TESTING:<br>type ctrl + alt + m<br>type beta<br>You will get an alert.'
+var wtass = 'No longer getting updated!'
 var wtpuss = 'Makes Click Power Double For Thirty Seconds<br>COOLDOWN: 1 Min<br>This message wont show again'
 var betaTxt = 'Beta Testing Engaged<br>Beta Features:<br>1) Price Stacking<br>'
 

@@ -89,7 +89,13 @@ page.onload = function () {
         expCalc()
     }
     $('.loading').hide()
-    popup.create('msg', 'First 50 people to join the discord get a role :)', 'Alert')
+    popup.create('msg', "Hello, NitTwit here! I've been pretty indecisive when it comes to pushing out updates. Therefore, I would like to give a short road-map for the future of doge clicker. Starting immediately after I get the playlist feature pushed out, I will start working on lore of some kind. After I finish the lore update 1 of 2 things will happen:<br><br>1) A new large update <br>or<br>2) Slowed updates bringing periodic changes and/or bugfixes", '11/1/23 - Update 1.41 - Moving Forward')
+    $('.close').click(()=>{
+        popup.create('msg', 'Join the discord for a early member role!', 'Join the discord!')
+        $('.close').click(()=>{
+            close()
+        })
+    })
 }
 
 $('.changelog').hide()
@@ -782,8 +788,35 @@ $(".select").click(() => {
 
 let transitioning = false;
 let boxHeight = $('.music').outerHeight() + 0.1
+let plheight = $('.playlists').outerHeight() + 0.5
+let bgHeight = $('.bg').outerHeight()
 $('.mp3').css({
     top: `-${boxHeight}px`,
+})
+$('.playlists').css({
+    top: `-${plheight}px`,
+})
+$('.box').css({
+    top: `-${plheight}px`,
+})
+let inwdith = page.innerWidth + 31.5
+$('.pl').css({
+    height: `${100 * ($('.bg').outerHeight()/page.innerHeight)}vh`,
+    top: `-${bgHeight}px`,
+    left: `${100 * ($('.upgrades').outerWidth()/inwdith)}vw`
+})
+$('.playlists').click(() => {
+    $('.pl').animate({
+        top: `${0}px`,
+        zIndex: $('.mp3').css("zIndex")+1
+    })
+})
+
+$('.plcl').click(() => {
+    $('.pl').animate({
+        top: `-${bgHeight}px`,
+        zIndex: $('.mp3').css("zIndex")+1
+    })
 })
 
 $('.box').click(() => {
@@ -792,11 +825,25 @@ $('.box').click(() => {
         if ($('.pull-down').hasClass('fa-angle-up')) {
             $('.mp3').animate({
                 top: 0,
+            }, () => {
+                $('.playlists').animate({
+                    top: `0px`,
+                })
+                $('.box').animate({
+                    top: 0,
+                })
             })
             return;
         } else if ($('.pull-down').hasClass('fa-angle-down')) {
             $('.mp3').animate({
                 top: `-${boxHeight}px`,
+            }, () => {
+                $('.playlists').animate({
+                    top: `-${plheight}px`,
+                })
+                $('.box').animate({
+                    top: `-${plheight}px`,
+                })
             })
         }
     }
