@@ -1,6 +1,3 @@
-Sitemap: http://www.imakegamez.com/doge-clicker
-Sitemap: http://www.imakegamez.com
-Sitemap: http://desolate.imakegamez.com
-
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Allow: /
+Disallow:
