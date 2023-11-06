@@ -523,6 +523,8 @@ mark {
 }
 
 .project-row {
+  text-align: center;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: row;
+  justify-content: space-between;
 }

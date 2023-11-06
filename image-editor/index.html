@@ -1,39 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Editor!</title>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Image Editor</title>
-    <meta name="description" content="Edit Images With Ease Using My New Image Editor Tool!">
-    <meta name="author" content="I Make Gamez">
-    <meta name="robots" content="index, follow">
-    <meta name="rating" content="safe for kids">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+      integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls"
+      crossorigin="anonymous"
+    />
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <script
+      src="https://kit.fontawesome.com/6e1eec70f1.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/hotkeys-js/dist/hotkeys.min.js"></script>
+  </head>
+  <body>
+    <ul class="base">
+      <li class="main-page">
+        <div class="main-coloumns">
+          <div class="options">
+            <div class="label">
+              <h1 style="font-size: 25px; padding-left: 10px">
+                Picture Settings:
+              </h1>
+            </div>
+            <div class="settings">
+              <div class="settings-row">
+                <h2>H:</h2>
+                <input
+                  value="0"
+                  step="1"
+                  max="360"
+                  min="0"
+                  type="range"
+                  id="hue-input"
+                />
+                <p class="hue">0/360</p>
+              </div>
+              <div class="settings-row">
+                <h2>S:</h2>
+                <input
+                  value="0"
+                  step="1"
+                  max="100"
+                  min="0"
+                  type="range"
+                  id="sat-input"
+                />
+                <p class="sat">0/100</p>
+              </div>
+              <div class="settings-row">
+                <h2>L:</h2>
+                <input
+                  value="100"
+                  step="1"
+                  max="500"
+                  min="0"
+                  type="range"
+                  id="lig-input"
+                />
+                <p class="lig">100/500</p>
+              </div>
+              <div class="settings-row">
+                <label class="form-control">
+                  <input type="checkbox" name="checkbox" id="inv-colors" />
+                  Inverted
+                </label>
+              </div>
+              <div class="settings-row">
+                <label class="form-control">
+                  <input type="number" name="number" id="width" />
+                  Width
+                </label>
+              </div>
+              <div class="settings-row">
+                <label class="form-control">
+                  <input type="number" name="number" id="height" />
+                  Height
+                </label>
+              </div>
+              <div class="settings-row dwnld">
+                <button class="dwnld">Download Image</button>
+              </div>
+            </div>
+          </div>
 
-<body>
-    <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
-    <h1><label for="file" style="cursor: pointer;">Upload Image</label></h1>
-    <p><img id="output" width="300" /></p>
-    <h3>If you want to save the image,<br>as of right now you must screenshot.<br>Sorry for the inconvinice</h3>
-    <div class="disCon">
-        <label class="huel" for="range">Hue: 0</label><br>
-        <input type="range" class="hue" step="1" value="0" max="360" required><br><br>
-        <label class="grl" for="range">Greyscale: 0%</label><br>
-        <input type="range" class="grey" step="1" value="0" max="100" required><br><br>
-        <label class="invCon">
-            <input type="checkbox" class="inv">
-            Inverted?
-        </label>
-    </div>
+          <div class="display">
+            <img id="imageElement" src="" width="500" height="500" />
+            <input type="file" id="fileInput" style="display: none" />
+          </div>
+        </div>
+      </li>
 
-    <div class="nav-bar">
-        <a href="../">Home</a>
-        <a href="https://github.com/I-make-gamez">I-make-gamez</a>
-    </div>
+      <li class="nav-bar">
+        <a href="../"><h2>IMG Home</h2></a>
+        <a href="#upload" class="upload"><h2>Upload Image</h2></a>
+        <a href=""><h2>NitTwit</h2></a>
+        <a href=""><h2>About</h2></a>
+        <a href="https"><h2>Source Code</h2></a>
+        <a href="../doge-clicker/"><h2>Check Out Doge Clicker</h2></a>
+      </li>
+    </ul>
+
     <script src="core.js"></script>
-</body>
-
+  </body>
 </html>

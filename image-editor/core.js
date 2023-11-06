@@ -1,46 +1,110 @@
-localStorage.removeItem('grayscale')
-localStorage.removeItem('hue')
-localStorage.removeItem('inv')
-var loadFile = function (event) {
-    var image = document.getElementById('output');
-    image.src = URL.createObjectURL(event.target.files[0]);
-    disCon.style.display = "contents"
-    disCon.style.top = "0vw"
-};
+const fileInput = document.getElementById("fileInput");
+const openFileButton = document.querySelector(".upload");
+const imageElement = document.getElementById("imageElement");
+let val2 = true;
 
+openFileButton.addEventListener("click", () => {
+  fileInput.click();
+});
 
+fileInput.addEventListener("change", () => {
+  const selectedFile = fileInput.files[0];
+  if (selectedFile) {
+    const reader = new FileReader();
 
-const hues = document.querySelector('.hue')
-const huel = document.querySelector('.huel')
-const greys = document.querySelector('.grey')
-const grl = document.querySelector('.grl')
-const disCon = document.querySelector('.disCon')
-const inv = document.querySelector('.inv')
+    reader.onload = (e) => {
+      const dataURL = e.target.result;
+      imageElement.src = dataURL;
+      imageElement.style.visibility = "visible"; // Display the image
+    };
 
+    reader.readAsDataURL(selectedFile);
+  }
+});
 
-hues.addEventListener('input', e => {
-    var image = document.getElementById('output');
-    const huel = document.querySelector('.huel');
-    localStorage.setItem('hue', e.target.value)
-    huel.innerHTML = "Hue: " + e.target.value;
-    image.style.filter = "hue-rotate(" + e.target.value + "deg)" + "grayscale("+localStorage.getItem('grayscale')+"%)"+"invert("+localStorage.getItem('inv')+"%)";
-})
-
-greys.addEventListener('input', e => {
-    var image = document.getElementById('output');
-    const grl = document.querySelector('.grl')
-    localStorage.setItem('grayscale', e.target.value)
-    grl.innerHTML = "Grayscale: " + e.target.value + "%";
-    image.style.filter = "grayscale("+e.target.value+"%)" + "hue-rotate(" + localStorage.getItem('hue') + "deg)"+"invert("+localStorage.getItem('inv')+"%)";
-})
-
-inv.addEventListener('change', function(){
-    var image = document.getElementById('output');
-    if (this.checked) {
-        image.style.filter = "invert(100%)"+ "hue-rotate(" + localStorage.getItem('hue') + "deg)" +"grayscale("+localStorage.getItem('grayscale')+"%)"
-        localStorage.setItem('inv', 100)
-    } else {
-        image.style.filter = "invert(0%)"+ "hue-rotate(" + localStorage.getItem('hue') + "deg)" +"grayscale("+localStorage.getItem('grayscale')+"%)"
-        localStorage.setItem('inv', 0)
+hotkeys("enter", function (event, handler) {
+  switch (handler.key) {
+    case "enter":
+      if ($("#width").val() === "") {
+        imageElement.width = imageElement.width;
+      } else {
+        imageElement.width = $("#width").val();
+        $("#width").val("");
       }
-})
+      if ($("#height").val() === "") {
+        imageElement.height = imageElement.height;
+      } else {
+        imageElement.height = $("#height").val();
+        $("#height").val("");
+      }
+      break;
+    default:
+      alert(event);
+  }
+});
+
+$("#hue-input").on("input", () => {
+  let val = $("#hue-input").val();
+  $("#imageElement").css("filter", `hue-rotate(${val}deg)`);
+  $(".hue").text(`${Math.round(val)}/360`);
+});
+
+$("#sat-input").on("input", () => {
+  let val = $("#sat-input").val();
+  $("#imageElement").css("filter", `grayscale(${val}%)`);
+  $(".sat").text(`${Math.round(val)}/100`);
+});
+
+$("#lig-input").on("input", () => {
+  let val = $("#lig-input").val();
+  $("#imageElement").css("filter", `brightness(${val}%)`);
+  $(".lig").text(`${Math.round(val)}/500`);
+});
+
+$("#inv-colors").on("input", () => {
+  if (val2) {
+    $("#imageElement").css("filter", `invert(100%)`);
+    val2 = false;
+  } else {
+    $("#imageElement").css("filter", `invert(0%)`);
+    val2 = true;
+  }
+});
+
+// Function to get the file extension from a URL
+function getFileExtension(url) {
+  const match = url.match(/\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i);
+  if (match && match.length > 1) {
+    return match[1];
+  } else {
+    return "jpeg";
+  }
+}
+
+$(".dwnld").click(() => {
+  const imageWithFilter = document.getElementById("imageElement");
+
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  canvas.width = imageWithFilter.width;
+  canvas.height = imageWithFilter.height;
+
+  // Apply the CSS filter to the canvas
+  ctx.filter = "grayscale(100%)";
+  ctx.drawImage(imageWithFilter, 0, 0, canvas.width, canvas.height);
+
+  // Get the file extension from the original image source
+  const originalSrc = imageWithFilter.src;
+  const extension = getFileExtension(originalSrc);
+
+  // Convert the canvas to a data URL with the original file extension
+  const dataURL = canvas.toDataURL("image/" + extension);
+
+  // Create a link to download the image
+  const link = document.createElement("a");
+  link.href = dataURL;
+  link.download = "filtered_image." + extension;
+
+  // Trigger the download
+  link.click();
+});
