@@ -15,6 +15,21 @@
   padding: 0 !important;
 }
 
+.cover {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #242424;
+  z-index: 10000;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  flex-direction: column;
+
+}
+
 .links {
   z-index: 100000;
   position: initial;

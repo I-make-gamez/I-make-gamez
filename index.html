@@ -11,8 +11,11 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body onload="redirectMain()">
     <script>
+      function redirectMain() {
+        window.location.href = "https://home.nittwit.tech";
+      }
       function closeModal() {
         let modalContainer = document.getElementById("modal-container");
         modalContainer.classList.remove("show-modal");
@@ -22,6 +25,7 @@
         modalContainer.classList.add("show-modal");
       }
     </script>
+    <div class="cover"></div>
     <div id="root">
       <div class="links">
         <a href="https://imakegamez.com/doge-clicker" target="_blank">
