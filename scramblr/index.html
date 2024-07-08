@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scramblr</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://kit.fontawesome.com/6e1eec70f1.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="container startMenu">
+      <div class="menu">
+        <h1 class="title">Scramblr</h1>
+        <div class="btnDiv">
+          <p class="desc">Unscramble as many words as you can within 5 minutes!</p>
+          <button class="startMenuButton startButton">Play</button>
+          <button class="startMenuButton creditsButton">Credits</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container gameMenu">
+        <div class="menu">
+            <div class="top">
+                <h1>Scramblr</h1>
+                <div class="timer">
+                    <i class="fa-regular fa-clock"></i>
+                    <h3 class="time">5:00</h3>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="labels">
+                    <h1 class="wordLabel">Word</h1>
+                    <h1 class="hintLabel">Hint</h1>
+                </div>
+                <div class="inputs">
+                    <div class="in">
+                        <input class="guessInput" type="text" placeholder="Enter word">
+                        <button class="guessButton">Guess</button>
+                    </div>
+                    <div class="cm">
+                        <h3 class="correct">Correct Words: 0</h2>
+                        <h3 class="missed">Missed Words: 0</h2>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center;"><p style="width: 75%; text-align: center;">Made for the 2024 AP Computer Science Principles College Board Project</p></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container statsMenu">
+        <div class="menu">
+            <h1 class="title">Game Over</h1>
+            <div class="btnDiv">
+                <p class="stats">
+                    stats
+                </p>
+                <button class="startMenuButton replayButton">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container creditsMenu">
+        <div class="menu">
+            <h1 class="title">Credits</h1>
+            <div class="btnDiv">
+                <p class="credits">
+                    Comfortaa Font: <a href="https://fonts.google.com/specimen/Comfortaa?query=comfortaa">Google Fonts</a><br><br>
+                    Wordlist: <a href="https://raw.githubusercontent.com/RazorSh4rk/random-word-api/master/words.json">RazorSh4rk On Github</a><br><br>
+                    Hints: <a href="https://dictionaryapi.dev">Dictionary api</a><br><br>
+                    Timer Icon: <a href="https://fontawesome.com/icons/clock?f=classic&s=regular">fontawesome</a><br><br>
+                    Event Handlers and Property Setters: <a href="https://jquery.com/">jQuery</a><br><br>
+                </p>
+                <button class="startMenuButton closeButton">Close</button>
+            </div>
+        </div>
+    </div>
+    <script src="core.js"></script>
+  </body>
+</html>

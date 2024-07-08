@@ -1,0 +1,227 @@
+html {
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    --backgroundcolor: #102542;
+    --menucolor: #bef7dd;
+    --accentcolor: #4fb286;
+    --secondaryaccent: #3c896d;
+  }
+  
+  button {
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  body {
+    background: var(--backgroundcolor);
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* // <uniquifier>: Use a uniquifier for the class name
+  // <weight>: Use a value from 300 to 700 */
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+  }
+  
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 80vh;
+    width: 40vw;
+  }
+  
+  .btnDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+    flex: 1;
+    background: var(--menucolor);
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .startMenuButton {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 60%;
+    font-size: larger;
+    background: var(--accentcolor);
+    border: none;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 1vh;
+  }
+  
+  .startMenuButton:hover {
+    border: 1px solid #000;
+  }
+  
+  .startMenuButton:active {
+    transform: translateY(2px);
+  }
+  
+  .title {
+    font-size: 5vw;
+    margin: 0;
+    background: var(--accentcolor);
+    width: 100%;
+    text-align: center;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .desc {
+    font-size: large;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 2vh;
+    font-style: italic;
+    font-weight: bold;
+  }
+  
+  .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 15vh;
+    background: var(--accentcolor);
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    flex: 1;
+    background: var(--menucolor);
+    border-radius: 0 0 10px 10px;
+  }
+  
+  .labels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 40%;
+  }
+  
+  .wordLabel {
+    font-size: 5vw;
+    margin: 0;
+    margin-top: 5vh;
+    padding-bottom: 0;
+  }
+  
+  .hintLabel {
+    font-size: 1.5vw;
+    margin: 0;
+    margin-bottom: 2vh;
+    padding-top: 0;
+    text-align: center;
+  }
+  
+  
+  .inputs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+  }
+  
+  .timer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 17%;
+    height: 60%;
+    background: var(--secondaryaccent);
+    border-radius: 10px;
+  }
+  
+  .guessInput {
+      background: var(--accentcolor);
+      color: #000;
+      border: none;
+      font-size: medium;
+      width: 50%;
+      height: 8vh;
+      padding: 0;
+      padding-left: 1vw;
+      border-radius: 10px;
+  }
+  
+  .guessButton {
+      background: var(--accentcolor);
+      color: #000;
+      border: none;
+      font-size: medium;
+      width: 25%;
+      height: 8vh;
+      border-radius: 10px;
+      margin-left: 1vw;
+      margin-right: 0;
+      border: 1px solid transparent;
+  }
+  
+  .guessButton:hover {
+      border: 1px solid #000;
+  }
+  
+  .guessButton:active {
+      translate: 0 2px;
+  }
+  
+  .guessInput::placeholder {
+      color: #000;
+  }
+  
+  .startMenu {
+    visibility: visible;
+  }
+  
+  .gameMenu {
+    visibility: hidden;
+  }
+  
+  .statsMenu {
+    visibility: hidden;
+  }
+  
+  .creditsMenu {
+      visibility: hidden;
+    }
+  
+  .stats {
+      text-align: center;
+      font-size: larger;
+  }
+  
