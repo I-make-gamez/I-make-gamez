@@ -906,6 +906,7 @@ a.bbread:hover span.info2 {
   align-self: center;
   border-bottom-left-radius: 7px;
   border-bottom-right-radius: 7px;
+  display: none;
 }
 
 .playlists {

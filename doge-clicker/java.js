@@ -89,9 +89,9 @@ page.onload = function () {
         expCalc()
     }
     $('.loading').hide()
-    popup.create('msg', "Hello, NitTwit here! I've been pretty indecisive when it comes to pushing out updates. Therefore, I would like to give a short road-map for the future of doge clicker. Starting immediately after I get the playlist feature pushed out, I will start working on lore of some kind. After I finish the lore update 1 of 2 things will happen:<br><br>1) A new large update <br>or<br>2) Slowed updates bringing periodic changes and/or bugfixes", '11/1/23 - Update 1.41 - Moving Forward')
+    popup.create('msg', "Wassup! I know I haven't updated the game in a while but it's because i've been working on other projects. feel free to check them out <a href=\"https://nittwit.tech/\">here</a>", '9/24/24 - Update 1.42')
     $('.close').click(()=>{
-        popup.create('msg', 'Join the discord for a early member role!', 'Join the discord!')
+        popup.create('msg', 'I\'m working on remastering the game. This will include user accounts! Stay tuned bcuz I\'ll give y\'all periodic updates on progress here', 'Doge Clicker Remastered')
         $('.close').click(()=>{
             close()
         })
@@ -857,11 +857,11 @@ function getRandomInt(min, max) {
 
 const audio = document.querySelector(".audio");
 
-let song = songs.get(getRandomInt(1, songs.size))
+// let song = songs.get(getRandomInt(1, songs.size))
 
-audio.src = `${song.src}`
-$('.song').text(`Now Playing: ${song.name}`)
-$('.artist').text(`Artist: ${song.artist}`)
+// audio.src = `${song.src}`
+// $('.song').text(`Now Playing: ${song.name}`)
+// $('.artist').text(`Artist: ${song.artist}`)
 
 // Add an event listener to update the current time
 audio.addEventListener("timeupdate", function () {

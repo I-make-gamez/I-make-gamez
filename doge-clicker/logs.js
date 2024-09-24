@@ -1,6 +1,10 @@
 var logs = new Map()
 var current = 'current';
 logs.set(current, {
+    'name': 'v1.42',
+    'content': '1) Removed music feature'
+})
+logs.set(18, {
     'name': 'v1.41',
     'content': '1) Added playlist tab to music player *currently does nothing*<br><br>2) Updated original game to "final version" (can be found at this website /og at the end)<br><br>3) Fixed stats border being larger than everything else'
 })
