@@ -89,17 +89,13 @@ page.onload = function () {
         expCalc()
     }
     $('.loading').hide()
-    popup.create('msg', "Wassup! I know I haven't updated the game in a while but it's because i've been working on other projects. feel free to check them out <a href=\"https://nittwit.tech/\">here</a>", '9/24/24 - Update 1.42')
-    $('.close').click(()=>{
-        popup.create('msg', 'I\'m working on remastering the game. This will include user accounts! Stay tuned bcuz I\'ll give y\'all periodic updates on progress here', 'Doge Clicker Remastered')
-        $('.close').click(()=>{
-            close()
-        })
+    popup.create('msg', "This page is no longer being updated. However a remastered version is on roblox! play it <a href=\"https://www.roblox.com/games/99883210785935/Doge-Clicker/\">here</a>", '7/6/26 - Final update')
+    $('.close').click(() => {
+        close()
     })
 }
 
 $('.changelog').hide()
-
 
 ver.addEventListener('click', function () {
     $('.changelog').show()
@@ -801,21 +797,21 @@ $('.box').css({
 })
 let inwdith = page.innerWidth + 31.5
 $('.pl').css({
-    height: `${100 * ($('.bg').outerHeight()/page.innerHeight)}vh`,
+    height: `${100 * ($('.bg').outerHeight() / page.innerHeight)}vh`,
     top: `-${bgHeight}px`,
-    left: `${100 * ($('.upgrades').outerWidth()/inwdith)}vw`
+    left: `${100 * ($('.upgrades').outerWidth() / inwdith)}vw`
 })
 $('.playlists').click(() => {
     $('.pl').animate({
         top: `${0}px`,
-        zIndex: $('.mp3').css("zIndex")+1
+        zIndex: $('.mp3').css("zIndex") + 1
     })
 })
 
 $('.plcl').click(() => {
     $('.pl').animate({
         top: `-${bgHeight}px`,
-        zIndex: $('.mp3').css("zIndex")+1
+        zIndex: $('.mp3').css("zIndex") + 1
     })
 })
 
